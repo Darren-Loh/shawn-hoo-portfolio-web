@@ -40,7 +40,7 @@ button {
     margin-bottom: 0;
 }
 
-.text {
+.main-text {
     width: 80%;
     font-family: 'Newsreader';
     font-weight: 700;
@@ -50,4 +50,24 @@ button {
 .description {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.body-col-right h3 {
+    width: 80%;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 36px;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.text {
+    width: 80%;
+    font-family: 'Newsreader';
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.reviews-signoff-name {
+    font-weight: 700;
 }
