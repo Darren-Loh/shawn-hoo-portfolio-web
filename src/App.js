@@ -1,4 +1,5 @@
 import './App.css';
+import About from './Components/About.js';
 import Book from './Components/Book.js';
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
           </div>
         </ul>
         </nav>
-        <Book />
+        <About />
+        {/* <Book /> */}
     </div>
 
   );
