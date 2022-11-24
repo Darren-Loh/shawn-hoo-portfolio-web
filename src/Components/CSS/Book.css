@@ -1,0 +1,53 @@
+.main-body {
+    display: grid;
+    grid-template-columns: auto auto;
+    color: #102851;
+    margin-top: 20px;
+}
+
+.body-col-left {
+    margin-left: 150px;
+}
+
+.body-col-left p {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.bookcover-img {
+    width: 80%;
+}
+
+button {
+    width: 80%;
+    font-family: 'Newsreader';
+    font-weight: 700;
+    font-size: 32px;
+    padding: 24px 0px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    background-color: #102851;
+}
+
+.body-col-right h2 {
+    width: 80%;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-style: italic;
+    font-size: 64px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.text {
+    width: 80%;
+    font-family: 'Newsreader';
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.description {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
