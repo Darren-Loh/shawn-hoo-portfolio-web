@@ -7,7 +7,7 @@ function App() {
       <ul className='nav-links'>
         <div className='nav-menu'>
           <li><a href='#'>about</a></li>
-          <li><a href='#'>books</a></li>
+          <li><a href='#'>of the florids</a></li>
           <li><a href='#'>publications</a></li>
           <li><a href='#'>blog</a></li>
           <li><a href='#'>contact</a></li>
