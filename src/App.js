@@ -1,25 +1,37 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+
 import './App.css';
 import About from './Components/About.js';
 import Book from './Components/Book.js';
 
 function App() {
   return (
-    <div>
-      <nav className='nav-bar'>
-        <div className='nav-logo'>shawn hoo</div>
-        <ul className='nav-links'>
-          <div className='nav-menu'>
-            <li><a href='#'>about</a></li>
-            <li><a href='#'>of the florids</a></li>
-            <li><a href='#'>publications</a></li>
-            <li><a href='#'>blog</a></li>
-            <li><a href='#'>contact</a></li>
-          </div>
-        </ul>
+    <BrowserRouter>
+      <div>
+        <nav className='nav-bar'>
+          <div className='nav-logo'>shawn hoo</div>
+          <ul className='nav-links'>
+            <div className='nav-menu'>
+              <li><Link to='/about'>about</Link></li>
+              <li><Link to='/of-the-florids'>of the florids</Link></li>
+              <li><Link to='/publications'>publications</Link></li>
+              <li><Link to='/blog'>blog</Link></li>
+              <li><Link to='/contact'>contact</Link></li>
+            </div>
+          </ul>
         </nav>
-        <About />
-        {/* <Book /> */}
-    </div>
+        
+        <Routes>
+          <Route path='/about' element={<About />} />
+          <Route path='/of-the-florids' element={<Book />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
 
   );
 }
