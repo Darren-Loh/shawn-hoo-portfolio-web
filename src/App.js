@@ -2,7 +2,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
+  NavLink,
 } from "react-router-dom";
 
 import './App.css';
@@ -17,11 +17,11 @@ function App() {
           <div className='nav-logo'>shawn hoo</div>
           <ul className='nav-links'>
             <div className='nav-menu'>
-              <li><Link to='/about'>about</Link></li>
-              <li><Link to='/of-the-florids'>of the florids</Link></li>
-              <li><Link to='/publications'>publications</Link></li>
-              <li><Link to='/blog'>blog</Link></li>
-              <li><Link to='/contact'>contact</Link></li>
+              <li><NavLink to='/about' className={({isActive}) => isActive ? "active" : undefined}>about</NavLink></li>
+              <li><NavLink to='/of-the-florids' className={({isActive}) => isActive ? "active" : undefined}>of the florids</NavLink></li>
+              <li><NavLink to='/publications' className={({isActive}) => isActive ? "active" : undefined}>publications</NavLink></li>
+              <li><NavLink to='/blog' className={({isActive}) => isActive ? "active" : undefined}>blog</NavLink></li>
+              <li><NavLink to='/contact' className={({isActive}) => isActive ? "active" : undefined}>contact</NavLink></li>
             </div>
           </ul>
         </nav>
