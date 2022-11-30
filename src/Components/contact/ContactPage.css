@@ -1,12 +1,16 @@
 .contactPageOuter{
-    margin-left: 95px;
-    margin-right: 95px;
-    font-family: 'Inter',"Times New Roman", Times, serif;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    height: calc(100vh - 64px);
+    /* background-color: blue; */
+    margin-top: 64px;
 }
 
 .contactPageContainer{
     display: flex;
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    /* align-items: center; */
     gap: 83px;
 }
 
@@ -17,6 +21,7 @@
     width: 50%;
     gap: 23px;
     font-size: 24px;
+    /* background-color: red; */
 }
 
 .contactPageIcons{
@@ -74,17 +79,19 @@
     border-width: 2px;
     border-radius: 2px;
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .submitBtn{
     width: 100%;
-    height: 66px;
+    height: 80px;
     background-color: #102851;
     color: white;
     border-radius: 2px;
     font-weight: 700;
     font-size: 24px;
     border-style: none;
+    font-family: Newsreader;
 }
 
 .submitBtn:hover{
@@ -95,4 +102,8 @@
 
 .submitBtn:active{
     background-color: #EA0354;
+}
+
+.contactRightLabels{
+    padding-bottom: 10px;
 }
