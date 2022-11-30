@@ -7,25 +7,25 @@ const HomePage = () => {
     <div>
         <div style={imageContainerStyle}>
             <div style={textStyle}>
-                <text>Shawn Hoo</text>
+                <text style={highlightStyle}>Shawn Hoo</text>
                 <br></br>
-                <text>is the author of</text>
+                <text style={highlightStyle}>is the author of</text>
                 <br></br>
-                <i style={{color: '#EA0354', fontFamily: 'Newsreader-Italic'}}>Of the Florids.</i>
+                <text style={highlightStyle}><i style={{color: '#EA0354', fontWeight: 'bold'}}>Of the Florids.</i></text>
                 <br></br>
                 <br></br>
-                <text>He is a person.</text>
+                <text style={highlightStyle}>He is a person.</text>
             </div>
             <img style={{width: '75%'}} src={shawnhoo} alt='author portrait'/>
         </div>
 
         <div style={imageContainerStyle}>
             <div style={textStyle}>
-                <text style={{backgroundColor: 'yellow', paddingLeft: 20, paddingRight: 20}}>Shawn Hoo</text>
+                <text>Shawn Hoo</text>
                 <br></br>
                 <text>is the author of</text>
                 <br></br>
-                <i style={{color: '#EA0354', fontFamily: 'Newsreader-Italic'}}>Of the Florids.</i>
+                <i style={{color: '#EA0354'}}>Of the Florids.</i>
                 <br></br>
                 <br></br>
                 <text>He is a person.</text>
@@ -36,16 +36,16 @@ const HomePage = () => {
   )
 }
 
-// const containerStyle = {
-//     // marginLeft: 100,
-//     // marginRight: 100,
-//     backgroundColor: 'red'
-// }
+const highlightStyle = {
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: '#F5CB9C',
+    // padding:  '(20 0)',
+}
 
 const textStyle = {
     position: 'absolute',
     left: 180,
-    fontFamily: 'Newsreader-Regular',
     fontSize: 64,
     color: '#102851',
 }

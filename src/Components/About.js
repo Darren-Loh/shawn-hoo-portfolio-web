@@ -4,12 +4,12 @@ class About extends Component {
 
     render() {
         const bodyStyle = {
-            fontFamily: 'Newsreader',
+            marginTop: 64,
+            paddingTop: 20,
             fontWeight: 400,
             fontSize: '48px',
             color: '#102851',
             width: '70%',
-            marginLeft: '35px'
         }
     
         return (

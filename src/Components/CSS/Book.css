@@ -2,11 +2,15 @@
     display: grid;
     grid-template-columns: auto auto;
     color: #102851;
-    margin-top: 20px;
+    margin-top: 64;
+    padding-top: 20;
 }
 
 .body-col-left {
+    /* margin-top: 64;
+    padding-top: 20; */
     margin-left: 150px;
+    background-color: red;
 }
 
 .body-col-left p {
@@ -21,7 +25,6 @@
 
 button {
     width: 80%;
-    font-family: 'Newsreader';
     font-weight: 700;
     font-size: 32px;
     padding: 24px 0px;
@@ -36,13 +39,12 @@ button {
     font-weight: 700;
     font-style: italic;
     font-size: 64px;
-    margin-top: 0;
+    /* margin-top: 0; */
     margin-bottom: 0;
 }
 
 .main-text {
     width: 80%;
-    font-family: 'Newsreader';
     font-weight: 700;
     font-size: 24px;
 }
@@ -63,7 +65,6 @@ button {
 
 .text {
     width: 80%;
-    font-family: 'Newsreader';
     font-weight: 400;
     font-size: 24px;
 }

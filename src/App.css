@@ -2,6 +2,7 @@
 
 .App{
   margin: 0px 100px;
+  font-family: 'Newsreader';
 }
 
 .nav-bar {
@@ -9,30 +10,25 @@
   top: 0;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
-  padding: 0px 30px;
+  justify-content: space-between;
   height: 64px;
-  background-color: red;
-  /* margin: 0px 100px; */
+  width: calc(100% - 200px);
+  background-color: white;
+  z-index: 100;
 }
 
 .nav-logo .logo {
-  align-self: flex-start;
   font-family: 'Inter';
   font-weight: 700;
   font-size: 48px;
   color: #102851;
   text-decoration: none;
-  background-color: blue;
 }
 
-.nav-links {
-  align-self: flex-end;
+.nav-links { 
   list-style: none;
-  font-family: 'Newsreader';
   font-weight: 700;
   font-size: 24px;
-  background-color: green;
 }
 
 a:link, a:visited {
