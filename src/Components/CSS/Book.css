@@ -2,15 +2,12 @@
     display: grid;
     grid-template-columns: auto auto;
     color: #102851;
-    margin-top: 64;
-    padding-top: 20;
+    margin-top: 64px;
+    padding-top: 20px;
 }
 
 .body-col-left {
-    /* margin-top: 64;
-    padding-top: 20; */
     margin-left: 150px;
-    background-color: red;
 }
 
 .body-col-left p {
@@ -20,6 +17,7 @@
 }
 
 .bookcover-img {
+    background-color: red;
     width: 80%;
 }
 
@@ -39,8 +37,7 @@ button {
     font-weight: 700;
     font-style: italic;
     font-size: 64px;
-    /* margin-top: 0; */
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .main-text {
