@@ -1,0 +1,110 @@
+/* blogpost */
+
+.blogPageOuter{
+  margin-left: 95px;
+  margin-right: 95px;
+  font-family: 'Inter',"Times New Roman", Times, serif;
+}
+
+.blogPostContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+  }
+  
+  .blogPostHeader{
+    font-weight: bold;
+    font-size:36px;
+    color: #102851;
+    
+  }
+  
+  .blogPostPara{
+    font-size: 24px;
+    color: #102851;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    /* max-height: 3.6em; */
+    line-height: 1.2em;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+  .blogPostParaKeepReading{
+    font-size: 24px;
+    color: #102851;
+    line-height: 1.2em;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+  .blogPostParaCHECK{
+    font-size: 24px;
+    color: #102851;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    white-space: nowrap;
+    /* max-height: 3.6em; */
+    line-height: 1.2em;
+    /* display: -webkit-box !important;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    white-space: normal; */
+  }
+  .blogPostBtmDiv{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 24px;
+    color: #102851;
+  }
+  
+  .blogTagContainer{
+    display: flex;
+    gap: 12px;
+    font-size: 16px;
+  }
+  
+  .blogTag1{
+    display: flex;
+    background-color: #102851;
+    color:  white;
+    width: 120px;
+    height: 26px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .blogTag2{
+    display: flex;
+    background-color: #D9D9D9;
+    color:  #102851;
+    width: 120px;
+    height: 26px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .blogPostKeepReading:hover{
+    color: #33528693;
+    transition: 0.1s;
+    cursor: pointer;
+  }
+
+  .blogPostKeepReading:active{
+    color: #EA0354;
+}
+
+/* throwaway to be used to calculate if text is currently overflowing */
+.throwaway{
+  /* visibility: hidden; */
+}
+  

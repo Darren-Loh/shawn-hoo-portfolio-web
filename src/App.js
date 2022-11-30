@@ -8,6 +8,8 @@ import {
 import './App.css';
 import About from './Components/About.js';
 import Book from './Components/Book.js';
+import BlogPage from './Components/blog/BlogPage.js';
+import ContactPage from './Components/contact/ContactPage.js';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Routes>
           <Route path='/about' element={<About />} />
           <Route path='/of-the-florids' element={<Book />} />
+          <Route path='/blog' element={<BlogPage />} />
+          <Route path='/contact' element={<ContactPage />} />
         </Routes>
       </div>
     </BrowserRouter>

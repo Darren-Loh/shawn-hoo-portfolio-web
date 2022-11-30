@@ -1,0 +1,101 @@
+.contactPageOuter{
+    margin-left: 95px;
+    margin-right: 95px;
+    font-family: 'Inter',"Times New Roman", Times, serif;
+}
+
+.contactPageContainer{
+    display: flex;
+    margin-top: 50px;
+    gap: 83px;
+}
+
+/* left section */
+.contactPageLeft{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 23px;
+    font-size: 24px;
+    color: #102851;
+}
+
+.contactPageIcons{
+    display: flex;
+    gap: 59px;
+    justify-content: center;
+}
+
+.twitlogo, .indeedlogo, .msglogo{
+    width: 66px;
+    height: auto;
+}
+/* right section */
+.contactPageRight{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    font-size: 20px;
+    gap: 19px;
+    color: #102851;
+}
+.nameInput{
+    display: flex;
+    gap: 4%;
+}
+
+#fname, #lname, #email{
+    font-size: 20px;
+    height: 50px;
+    color: #102851;
+    border-color: #102851;
+    border-radius: 2px;
+}
+.nameLeft{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+.nameRight{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+.emailInput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.msgInput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+.msgInputBox{
+    border-color: #102851;
+    border-width: 2px;
+    border-radius: 2px;
+    font-size: 20px;
+}
+
+.submitBtn{
+    width: 100%;
+    height: 66px;
+    background-color: #102851;
+    color: white;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 24px;
+    border-style: none;
+}
+
+.submitBtn:hover{
+    background-color: #33528693;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.submitBtn:active{
+    background-color: #EA0354;
+}
