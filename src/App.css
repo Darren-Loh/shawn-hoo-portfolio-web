@@ -1,24 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px 30px;
+.App{
+  margin: 0px 100px;
 }
 
-.nav-logo {
+.nav-bar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 0px 30px;
+  height: 64px;
+  background-color: red;
+  /* margin: 0px 100px; */
+}
+
+.nav-logo .logo {
+  align-self: flex-start;
   font-family: 'Inter';
   font-weight: 700;
   font-size: 48px;
   color: #102851;
+  text-decoration: none;
+  background-color: blue;
 }
 
 .nav-links {
+  align-self: flex-end;
   list-style: none;
   font-family: 'Newsreader';
   font-weight: 700;
   font-size: 24px;
+  background-color: green;
 }
 
 a:link, a:visited {
