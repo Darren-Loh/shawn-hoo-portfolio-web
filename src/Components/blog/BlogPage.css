@@ -16,13 +16,11 @@
   .blogPostHeader{
     font-weight: bold;
     font-size:36px;
-    color: #102851;
     
   }
   
   .blogPostPara{
     font-size: 24px;
-    color: #102851;
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
@@ -35,7 +33,6 @@
   }
   .blogPostParaKeepReading{
     font-size: 24px;
-    color: #102851;
     line-height: 1.2em;
     display: -webkit-box !important;
     -webkit-box-orient: vertical;
@@ -43,7 +40,6 @@
   }
   .blogPostParaCHECK{
     font-size: 24px;
-    color: #102851;
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
@@ -60,7 +56,6 @@
     justify-content: space-between;
     font-weight: bold;
     font-size: 24px;
-    color: #102851;
   }
   
   .blogTagContainer{

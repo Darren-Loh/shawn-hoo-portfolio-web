@@ -27,8 +27,7 @@ const PublicationsPage = () => {
 const containerStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  marginLeft: 100,
-  marginRight: 100
+  marginTop: 64
 }
 
 const columnContainerStyle = {
@@ -36,7 +35,6 @@ const columnContainerStyle = {
   flexDirection: 'column',
   alignItems: 'flex-start',
   justifyContent: 'flex-start',
-  margin: 20,
 }
 
 

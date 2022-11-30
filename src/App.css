@@ -3,6 +3,7 @@
 .App{
   margin: 0px 100px;
   font-family: 'Newsreader';
+  color: #102851;
 }
 
 .nav-bar {
@@ -21,8 +22,8 @@
   font-family: 'Inter';
   font-weight: 700;
   font-size: 48px;
-  color: #102851;
   text-decoration: none;
+  color: #102851;
 }
 
 .nav-links { 
@@ -33,8 +34,8 @@
 
 a:link, a:visited {
   list-style: none;
-  color: #102851;
   text-decoration: none;
+  color: #102851;
 }
 
 a:hover, .nav-links .active  {
