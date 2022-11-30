@@ -27,7 +27,8 @@ const PublicationsPage = () => {
 const containerStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  marginTop: 64
+  marginTop: 64,
+  paddingTop: 20,
 }
 
 const columnContainerStyle = {

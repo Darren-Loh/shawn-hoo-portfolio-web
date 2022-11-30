@@ -6,6 +6,31 @@
   color: #102851;
 }
 
+/* standardised font sizes */
+h1 {
+  font-size: 64px;
+  font-weight: normal;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 0px;
+}
+
+p, text, button {
+  font-size: 24px;
+}
+
+button {
+  width: 100%;
+  font-weight: 700;
+  padding: 24px 0px;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  background-color: #102851;
+}
+
 .nav-bar {
   position: fixed;
   top: 0;

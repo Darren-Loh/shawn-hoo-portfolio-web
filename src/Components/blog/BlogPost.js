@@ -56,15 +56,15 @@ function BlogPost({instanceID}) {
 
   return (
     <div className='blogPostContainer'>
-      <div className='blogPostHeader'>Sealey Challenge 2022</div>
+      <h2 className='blogPostHeader'>Sealey Challenge 2022</h2>
       <BlogTags/>
-      <div className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>Read a book of poems a day for the whole of August. Here’s my accompanying reading diary: not so much “reviews” as meditations on the words that float up to me as I close these books, or scribbles on the snatches of phrases that seem to arise out of a. CONTINUE. 
+      <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>Read a book of poems a day for the whole of August. Here’s my accompanying reading diary: not so much “reviews” as meditations on the words that float up to me as I close these books, or scribbles on the snatches of phrases that seem to arise out of a. CONTINUE. 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-       </div>
+       </p>
       <div className='blogPostBtmDiv'>
-        <div className='blogPostDate'>21 August 2022</div>
+        <text className='blogPostDate'>21 August 2022</text>
         {/* {this.checkVisability()} */}
-        {isOverflow?<div className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</div>:''}
+        {isOverflow?<text className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</text>:''}
         {/* <div className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</div> */}
       </div>
       

@@ -27,7 +27,7 @@ function ContactPageRight() {
             <textarea className='msgInputBox' type="text" id="msg" name="msg" rows="10" cols="50"/>
         </div>
 
-        <button className='submitBtn' type='submit'>
+        <button className='submitBtn' id='contactButton' type='submit'>
             SUBMIT
         </button>
 

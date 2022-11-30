@@ -1,16 +1,12 @@
 .contactPageOuter{
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     height: calc(100vh - 64px);
-    /* background-color: blue; */
     margin-top: 64px;
 }
 
 .contactPageContainer{
     display: flex;
-    /* margin-top: 50px; */
-    /* align-items: center; */
     gap: 83px;
 }
 
@@ -20,8 +16,6 @@
     flex-direction: column;
     width: 50%;
     gap: 23px;
-    font-size: 24px;
-    /* background-color: red; */
 }
 
 .contactPageIcons{
@@ -48,10 +42,13 @@
 }
 
 #fname, #lname, #email{
-    font-size: 20px;
     height: 50px;
     border-color: #102851;
     border-radius: 2px;
+    padding: 0px 10px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
 }
 .nameLeft{
     display: flex;
@@ -78,8 +75,11 @@
     border-color: #102851;
     border-width: 2px;
     border-radius: 2px;
+    font-family: 'Newsreader';
+    font-weight: normal;
     font-size: 20px;
     margin-bottom: 10px;
+    padding: 5px 10px;
 }
 
 .submitBtn{
@@ -89,7 +89,6 @@
     color: white;
     border-radius: 2px;
     font-weight: 700;
-    font-size: 24px;
     border-style: none;
     font-family: Newsreader;
 }

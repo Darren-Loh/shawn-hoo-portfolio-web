@@ -1,68 +1,64 @@
 .main-body {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     margin-top: 64px;
     padding-top: 20px;
 }
 
 .body-col-left {
-    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .body-col-left p {
     font-family: 'Inter';
     font-weight: 700;
-    font-size: 24px;
+    align-self: flex-start;
+}
+
+.body-col-left div {
+    width: 450px;
+
 }
 
 .bookcover-img {
-    background-color: red;
-    width: 80%;
+    width: 450px;
 }
 
-button {
-    width: 80%;
-    font-weight: 700;
-    font-size: 32px;
-    padding: 24px 0px;
-    margin-bottom: 10px;
-    color: #FFFFFF;
-    background-color: #102851;
-}
-
-.body-col-right h2 {
-    width: 80%;
+.body-col-right h1 {
     font-family: 'Inter';
     font-weight: 700;
     font-style: italic;
-    font-size: 64px;
     margin: 0;
 }
 
 .main-text {
-    width: 80%;
     font-weight: 700;
-    font-size: 24px;
+}
+
+.publisher {
+    margin-top: 0px;
+    padding-bottom: 20px;
+}
+
+.awards {
+    margin: 0px;
 }
 
 .description {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
 }
 
-.body-col-right h3 {
-    width: 80%;
+.body-col-right h2 {
     font-family: 'Inter';
     font-weight: 700;
-    font-size: 36px;
     margin-top: 50px;
     margin-bottom: 0;
 }
 
 .text {
-    width: 80%;
     font-weight: 400;
-    font-size: 24px;
 }
 
 .reviews-signoff-name {

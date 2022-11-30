@@ -3,7 +3,7 @@ import React from 'react'
 const PublicationType = ({title, publications}) => {
   return (
     <div>
-        <h1>{title}</h1>
+        <h2 style={{paddingTop: 20}}>{title}</h2>
         {publications.map((publication) => (
             <div>
                 {/* possibly has to change this to an a tag */}
