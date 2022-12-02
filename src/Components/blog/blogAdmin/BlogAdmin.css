@@ -1,0 +1,119 @@
+.blogPageAdminOuter{
+    margin-top: 64px;
+    padding-top: 20px;
+  }
+
+  /* blogpost admin */
+  
+  .blogPostAdminContainer{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 50px;
+  }
+  
+  .blogPostAdminHeader{
+    font-family: Inter;
+    font-weight: bold;
+  }
+  
+  .blogPostAdminPara{
+    line-height: 1.2em;
+    margin: 0;
+  }
+
+  .blogPostAdminBtmDiv{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  
+  .blogTagContainer{
+    display: flex;
+    gap: 12px;
+  }
+  
+  .blogTag{
+    display: flex;
+    width: 120px;
+    height: 26px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .darkTag {
+    background-color: #102851;
+    color:  white;  
+    
+  }
+  
+  .lightTag {
+    background-color: #D9D9D9;
+    color:  #102851;
+  }
+  
+  .blogPostAdminDate {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .blogPostEditBtn{
+    width: 100px;
+    font-weight: 700;
+    padding: 5px 0px;
+    font-size: 16px;
+    border-radius: 2px;
+    margin: 0px;
+    background-color: #D9D9D9;
+    color:  #102851;
+    border-style: none;
+  }
+
+  .blogPostEditContainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    gap: 19px;
+}
+.editHeader, .editPara, .editDate{
+    display: flex;
+    flex-direction: column;
+}
+.editInputs{
+    height: 50px;
+    border-color: #102851;
+    border-radius: 2px;
+    padding: 0px 10px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+}
+
+#editInnerDate{
+    width: 30%;
+}
+
+.editBlogPostLabels, .editPara, .editDate{
+    padding-bottom: 10px;
+}
+
+.editParaBox{
+    border-color: #102851;
+    border-width: 2px;
+    border-radius: 2px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    padding: 5px 10px;
+}

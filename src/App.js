@@ -12,6 +12,7 @@ import BlogPage from './Components/blog/BlogPage.js';
 import ContactPage from './Components/contact/ContactPage.js';
 import HomePage from './Components/HomePage.js';
 import PublicationsPage from './Components/PublicationsPage';
+import BlogPageAdmin from './Components/blog/blogAdmin/BlogPageAdmin.js';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path='/blog' element={<BlogPage />} />
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/publications' element={<PublicationsPage />} />
+          <Route path='/admin/blog' element={<BlogPageAdmin />} />
         </Routes>
       </div>
     </BrowserRouter>
