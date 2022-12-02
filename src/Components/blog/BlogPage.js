@@ -5,12 +5,13 @@ import blogRecords from './blogRecords.json'
 
 // this is the main page for blog
 function BlogPage() {
-    console.log(blogRecords);
+
+  let blogPosts = blogRecords && blogRecords.map(post => <BlogPost instanceID = {post.id} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags} />)
+
+  
   return (
     <div className='blogPageOuter'>
-      <BlogPost instanceID = {0}/>
-      <BlogPost instanceID = {1}/>
-      <BlogPost instanceID = {2}/>
+      {blogPosts}
     </div>
   )
 }
