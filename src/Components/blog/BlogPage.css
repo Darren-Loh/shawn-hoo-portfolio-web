@@ -62,11 +62,14 @@
   align-items: center;
   font-weight: bold;
   font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .darkTag {
   background-color: #102851;
-  color:  white;
+  color:  white;  
+  
 }
 
 .lightTag {
@@ -84,4 +87,8 @@
   color: #102851;
 }
 
+.blogPostDate, .blogPostKeepReading{
+  margin-top: 0;
+  margin-bottom: 0;
+}
   

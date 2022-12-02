@@ -62,9 +62,9 @@ function BlogPost({instanceID}) {
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
        </p>
       <div className='blogPostBtmDiv'>
-        <text className='blogPostDate'>21 August 2022</text>
+        <p className='blogPostDate'>21 August 2022</p>
         {/* {this.checkVisability()} */}
-        {isOverflow?<text className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</text>:''}
+        {isOverflow?<p className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</p>:''}
         {/* <div className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</div> */}
       </div>
       

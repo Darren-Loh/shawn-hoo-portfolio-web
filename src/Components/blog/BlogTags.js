@@ -5,8 +5,8 @@ import React from 'react'
 function BlogTags() {
   return (
     <div className='blogTagContainer'>
-      <text className='blogTag darkTag'>poetry</text>
-      <text className='blogTag lightTag'>poetry</text>
+      <p className='blogTag darkTag'>poetry</p>
+      <p className='blogTag lightTag'>poetry</p>
     </div>
   )
 }
