@@ -26,6 +26,7 @@
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+    align-items: center;
   }
   
   .blogTagContainer{
@@ -100,11 +101,7 @@
     font-size: 20px;
 }
 
-#editInnerDate{
-    width: 30%;
-}
-
-.editBlogPostLabels, .editPara, .editDate{
+.editBlogPostLabels, .editPara, .adminBlogBtmDiv{
     padding-bottom: 10px;
 }
 
@@ -116,4 +113,25 @@
     font-weight: normal;
     font-size: 20px;
     padding: 5px 10px;
+}
+
+.adminBlogBtmDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* background-color: red; */
+  
+}
+
+.admingBlogSaveBtn{
+  height: 50px;
+  width: 100px;
+  font-weight: 700;
+  padding: 5px 0px;
+  font-size: 16px;
+  border-radius: 2px;
+  margin: 0px;
+  background-color: #D9D9D9;
+  color:  #102851;
+  border-style: none;
 }
