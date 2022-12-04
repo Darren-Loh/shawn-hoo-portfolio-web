@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import BlogTags from '../BlogTags.js'
+import BlogTags from '../BlogTags'
+import BlogTagAdmin from './BlogTagAdmin.js'
 
 function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTags}) {
   let [isEdit, setIsEdit] = useState(false);
   let [headerText, setHeaderText] = useState(recordHeader);
   let [paraText, setParaText] = useState(bodyPara);
   let [dateText, setDateText] = useState(recordDate);
+  let [tagArr, setTagArr] = useState(recordTags);
+  let [addTagText, setAddTagText] = useState("");
+  // console.log(recordTags);
 
   function triggerEditMode(){
     setIsEdit(!isEdit);
@@ -24,6 +28,17 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
     setDateText(e.target.value);
   }
 
+  function handleAddTagChange(e){
+    setAddTagText(e.target.value);
+  }
+
+  let addToTagArr = (e) => {
+    e.preventDefault();
+    setTagArr(current => [...current, addTagText]);
+    setAddTagText("");
+    // updatePost(instanceID);
+  };
+
   //----------------------database stuff------------------------------------------------
   const fetchPost = async(instanceID) => {
     const res = await fetch(`http://localhost:5000/blogPosts/${instanceID}`);
@@ -36,9 +51,10 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
     const postToUpdate = await fetchPost(instanceID);
     const updatedPost = {
       ...postToUpdate, 
-      header: headerText,
+      "header": headerText,
       "bodyPara": paraText,
-      "date": dateText
+      "date": dateText,
+      "tags": tagArr
     }
 
     const res = await fetch(`http://localhost:5000/blogPosts/${instanceID}`, {
@@ -50,7 +66,7 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
     })
 
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
   }
 
   // "header":"Sealey Challenge 1 2022",
@@ -74,7 +90,7 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
           <h2 className='blogPostAdminHeader'>{headerText}</h2>
 
         </div>
-        <BlogTags instanceID = {instanceID} recordTags = {recordTags}/>
+        <BlogTags instanceID = {instanceID} recordTags = {tagArr}/>
         <p className='blogPostAdminPara'>
           {paraText}
          </p>
@@ -97,6 +113,14 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
             <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
         </div>
 
+        <div className='editTags'>
+          <BlogTagAdmin instanceID = {instanceID} recordTags = {tagArr}/>
+          <div className='addTags'>
+            <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
+            <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
+          </div>
+        </div>
+        
         <div className='editPara'>
           <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label>
           <textarea className='editParaBox' type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange}/>

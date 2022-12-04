@@ -28,7 +28,7 @@
     font-weight: bold;
     align-items: center;
   }
-  
+  /* tags */
   .blogTagContainer{
     display: flex;
     gap: 12px;
@@ -47,17 +47,53 @@
     margin-bottom: 0;
   }
   
+  .blogTagAdmin{
+    border-color: #102851;
+    border-radius: 2px;
+    padding: 0px 10px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    width: 120px;
+  }
   .darkTag {
     background-color: #102851;
     color:  white;  
-    
+  }
+  .darkTagAdmin {
+    background-color: #102851;
+    color:  white;  
+    height: 50px;
+    font-size: 20px;
   }
   
   .lightTag {
     background-color: #D9D9D9;
     color:  #102851;
   }
-  
+  .lightTagAdmin {
+    background-color: #D9D9D9;
+    color:  #102851;
+    height: 50px;
+    font-size: 20px;
+  }
+  .editTags{
+    display: flex;
+    gap: 12px;
+  }
+  #addInnerTags{
+    text-align: center;
+  }
+  .addTags{
+    display: flex;
+    gap: 12px;
+  }
+  #addTagBtn{
+    background-color: #0284B8;
+    color:  white;
+    border-style: none;
+  }
+  /* other */
   .blogPostAdminDate {
     margin-top: 0;
     margin-bottom: 0;
