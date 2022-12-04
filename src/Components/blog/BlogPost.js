@@ -57,7 +57,7 @@ function BlogPost({instanceID, recordHeader, bodyPara, recordDate, recordTags}) 
   return (
     <div className='blogPostContainer'>
       <h2 className='blogPostHeader'>{recordHeader}</h2>
-      <BlogTags instanceID = {instanceID} recordTags = {recordTags}/>
+      <BlogTags recordTags = {recordTags}/>
       <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>
         {bodyPara}
        </p>

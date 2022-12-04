@@ -91,7 +91,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     // console.log(data);
   }
 
-
   //----------------------database stuff------------------------------------------------
 
   // button methods
@@ -147,7 +146,7 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
           </div>
   
           <div className='editTags'>
-            <BlogTagAdmin recordTags = {tagArr}/>
+            <BlogTagAdmin updatePost = {updatePost} instanceID = {instanceID} tagArr = {tagArr} setTagArr={setTagArr}/>
             <div className='addTags'>
               <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
               <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>

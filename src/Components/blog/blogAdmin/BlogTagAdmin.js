@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 //component for blogtags to be used in a singular blogpost
 
-function BlogTagAdmin({recordTags}) {
-  let renderContainer = recordTags.map((tag,index) => <div className={`blogTag ${index%2===0? "darkTagAdmin": "lightTagAdmin"}`} key = {index}>{tag}</div>)
- 
+function BlogTagAdmin({updatePost, instanceID, tagArr, setTagArr}) {
+//   let renderContainer = tagArr.map((tag,index) => <div className={`blogTag ${index%2===0? "darkTagAdmin": "lightTagAdmin"}`} key = {index} onClick={removeTag}>{tag}</div>)
+    function removeTag(e){
+        setTagArr(tagArr.filter((tag, index) => index!==e));
+        
+    }
+    
   return (
     <div className='blogTagContainer'>
-      {renderContainer}
+      {/* {renderContainer} */}
+      {tagArr.map((tag,index) => <div className={`blogTag ${index%2===0? "darkTagAdmin": "lightTagAdmin"}`} key = {index} idx = {index} onClick={()=>removeTag(index)}>{tag}</div>)}
     </div>
   )
 }
