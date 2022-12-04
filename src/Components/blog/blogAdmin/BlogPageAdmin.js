@@ -5,16 +5,22 @@ import './BlogAdmin.css';
 import { useState, useEffect } from 'react';
 
 function BlogPageAdmin() {
-
+  let blogPostsAdmin;
   let [blogRecords,setBlogRecords] = useState("");
   useEffect(() => {
     const getPosts = async() => {
       const postsFromServer = await fetchPosts();
-      // console.log(postsFromServer.id);
+      
+      // console.log(postsFromServer);
       setBlogRecords(postsFromServer);
+      
     }
 
     getPosts();
+    
+    // console.log(blogRecords);
+    // blogPostsAdmin = blogRecords && blogRecords.map((post,index) => <BlogPostAdmin key={index} instanceID = {index} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags} blogRecords={blogRecords} setBlogRecords ={setBlogRecords}/>)
+
   },[])
 
   // Fetch blogPosts from backend
@@ -25,11 +31,15 @@ function BlogPageAdmin() {
     return data;
   }
 
-  let blogPostsAdmin = blogRecords && blogRecords.map((post,index) => <BlogPostAdmin key={index} instanceID = {index} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags} />)
+
+  // console.log(blogRecords);
+
+  // blogPostsAdmin = blogRecords && blogRecords.map((post,index) => <BlogPostAdmin key={index} instanceID = {index} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags} blogRecords={blogRecords} setBlogRecords ={setBlogRecords}/>)
 
   return (
     <div className='blogPageAdminOuter'>
-      {blogPostsAdmin}
+      {/* {blogPostsAdmin} */}
+      {blogRecords && blogRecords.map((post,index) => <BlogPostAdmin key={index} itemIdx = {index} instanceID = {post.id} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags}/>)}
     </div>
   )
 }

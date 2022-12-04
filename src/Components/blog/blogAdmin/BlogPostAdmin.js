@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import BlogTags from '../BlogTags'
 import BlogTagAdmin from './BlogTagAdmin.js'
 
-function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTags}) {
+function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate, recordTags}) {
   let [isEdit, setIsEdit] = useState(false);
+  let [isDeleted, setIsDeleted] = useState(false);
   let [headerText, setHeaderText] = useState(recordHeader);
   let [paraText, setParaText] = useState(bodyPara);
   let [dateText, setDateText] = useState(recordDate);
   let [tagArr, setTagArr] = useState(recordTags);
   let [addTagText, setAddTagText] = useState("");
-  // console.log(recordTags);
 
   function triggerEditMode(){
     setIsEdit(!isEdit);
@@ -32,11 +32,25 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
     setAddTagText(e.target.value);
   }
 
+  // function resetIndex(){
+  //   // setBlogRecords(blogRecords.filter((posts,index) => posts.id = index));
+  //   // console.log(blogRecords.length);
+  //   for(let i = 0;i<blogRecords.length;i++){
+  //     updatePostID(i);
+  //   }
+  // }
+
+  function deletePost(id){
+    let parent = document.querySelector(".blogPageAdminOuter");
+    parent.childNodes[id].remove();
+    // console.log()
+  }
+
+
   let addToTagArr = (e) => {
     e.preventDefault();
     setTagArr(current => [...current, addTagText]);
     setAddTagText("");
-    // updatePost(instanceID);
   };
 
   //----------------------database stuff------------------------------------------------
@@ -45,6 +59,14 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
     const data = await res.json();
 
     return data;
+  }
+
+  const deleteServerPost = async (id) => {
+    // console.log(id);
+    await fetch(`http://localhost:5000/blogPosts/${id}`,{
+      method: 'DELETE',
+    });
+    
   }
 
   const updatePost = async (instanceID) => {
@@ -69,77 +91,96 @@ function BlogPostAdmin({instanceID, recordHeader, bodyPara, recordDate, recordTa
     // console.log(data);
   }
 
-  // "header":"Sealey Challenge 1 2022",
-  // "tags":["poetry1","poetry2", "poetry3"],
-  // "bodyPara":"Read a book of poems a day for the whole of August. Here’s my accompanying reading diary: not so much “reviews” as meditations on the words that float up to me as I close these books, or scribbles on the snatches of phrases that seem to arise out of a. CONTINUE. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  // "date":"21 August 2022"
+
   //----------------------database stuff------------------------------------------------
 
-  let onSubmitTask = (e) => {
+  // button methods
+  let onSavePost = (e) => {
     e.preventDefault();
     setIsEdit(!isEdit);
     updatePost(instanceID);
   };
 
+  let onDeletePost = (e) => {
+    // console.log(instanceID);
+    // setIsEdit(!isEdit);
+    e.preventDefault();
+    // deletePost(itemIdx);
+    setIsDeleted(true);
+    deleteServerPost(instanceID);
+  };
+
   // return function here
-  if(!isEdit){
-    //return this view if its not editing
-    return (
-      <div className='blogPostAdminContainer'>
-        <div className='headerContainer'>
-          <h2 className='blogPostAdminHeader'>{headerText}</h2>
-
-        </div>
-        <BlogTags instanceID = {instanceID} recordTags = {tagArr}/>
-        <p className='blogPostAdminPara'>
-          {paraText}
-         </p>
-        <div className='blogPostAdminBtmDiv'>
-          <p className='blogPostAdminDate'>{dateText}</p>
-
-          <div className='headerBtns'>
-            <button className='blogPostEditBtn' onClick={triggerEditMode}>Edit</button>
-          </div>
-        </div>
-        
-      </div>
-    )
-  }else{
-    //return this view if it is currently editing
-    return (
-      <form className='blogPostEditContainer'>
-        <div className='editHeader'>
-            <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label>
-            <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
-        </div>
-
-        <div className='editTags'>
-          <BlogTagAdmin instanceID = {instanceID} recordTags = {tagArr}/>
-          <div className='addTags'>
-            <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
-            <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
-          </div>
-        </div>
-        
-        <div className='editPara'>
-          <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label>
-          <textarea className='editParaBox' type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange}/>
-        </div>
-
-        <div className='adminBlogBtmDiv'>
-          <div className='editDate'>
-            <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
-            <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
-          </div>
-
-          <button className='admingBlogSaveBtn' id='saveButton' type='submit' onClick={onSubmitTask}>
-          Save
-          </button>
-        </div>
-
-  </form>
-    )
+  if(isDeleted){
+    return(<></>)
   }
+  else{
+    if(!isEdit){
+      //return this view if its not editing
+      return (
+        <div className='blogPostAdminContainer'>
+          <div className='headerContainer'>
+            <h2 className='blogPostAdminHeader'>{headerText}</h2>
+  
+          </div>
+          <BlogTags recordTags = {tagArr}/>
+          <p className='blogPostAdminPara'>
+            {paraText}
+           </p>
+          <div className='blogPostAdminBtmDiv'>
+            <p className='blogPostAdminDate'>{dateText}</p>
+  
+            <div className='headerBtns'>
+              <button className='blogPostEditBtn' onClick={triggerEditMode}>Edit</button>
+            </div>
+          </div>
+          
+        </div>
+      )
+    }else{
+      //return this view if it is currently editing
+      return (
+        <form className='blogPostEditContainer'>
+          <div className='editHeader'>
+              <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label>
+              <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
+          </div>
+  
+          <div className='editTags'>
+            <BlogTagAdmin recordTags = {tagArr}/>
+            <div className='addTags'>
+              <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
+              <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
+            </div>
+          </div>
+          
+          <div className='editPara'>
+            <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label>
+            <textarea className='editParaBox' type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange}/>
+          </div>
+  
+          <div className='adminBlogBtmDiv'>
+            <div className='editDate'>
+              <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
+              <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
+            </div>
+  
+          <div className='adminBlogEditBtnCollection'>
+            <button className='admingBlogDeleteBtn' id='deleteButton' type='submit' onClick={onDeletePost}>
+              Delete
+            </button>
+            <button className='admingBlogSaveBtn' id='saveButton' type='submit' onClick={onSavePost}>
+              Save
+            </button>
+          </div>
+  
+          </div>
+  
+    </form>
+      )
+    }
+  }
+  
 
 }
 
