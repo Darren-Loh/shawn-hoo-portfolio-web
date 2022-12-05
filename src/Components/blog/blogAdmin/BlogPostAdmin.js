@@ -106,8 +106,16 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     e.preventDefault();
     // deletePost(itemIdx);
     setIsDeleted(true);
+    // let parent = document.querySelector(".blogPageAdminOuter");
+    // removeAllChildNodes(parent);
     deleteServerPost(instanceID);
   };
+
+  function removeAllChildNodes(parent){
+      while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+  }
 
   // return function here
   if(isDeleted){
@@ -122,12 +130,13 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
             <h2 className='blogPostAdminHeader'>{headerText}</h2>
   
           </div>
-          <BlogTags recordTags = {tagArr}/>
+          <p className='blogPostAdminDate'>{dateText}</p>
+          
           <p className='blogPostAdminPara'>
             {paraText}
            </p>
           <div className='blogPostAdminBtmDiv'>
-            <p className='blogPostAdminDate'>{dateText}</p>
+            <BlogTags recordTags = {tagArr}/>
   
             <div className='headerBtns'>
               <button className='blogPostEditBtn' onClick={triggerEditMode}>Edit</button>
@@ -143,15 +152,14 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
           <div className='editHeader'>
               <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label>
               <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
-          </div>
-  
-          <div className='editTags'>
-            <BlogTagAdmin updatePost = {updatePost} instanceID = {instanceID} tagArr = {tagArr} setTagArr={setTagArr}/>
-            <div className='addTags'>
-              <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
-              <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
+          </div> 
+
+          <div className='editDate'>
+              <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
+              <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
             </div>
-          </div>
+
+
           
           <div className='editPara'>
             <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label>
@@ -159,9 +167,12 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
           </div>
   
           <div className='adminBlogBtmDiv'>
-            <div className='editDate'>
-              <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
-              <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
+            <div className='editTags'>
+              <BlogTagAdmin updatePost = {updatePost} instanceID = {instanceID} tagArr = {tagArr} setTagArr={setTagArr}/>
+              <div className='addTags'>
+                <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
+                <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
+              </div>
             </div>
   
           <div className='adminBlogEditBtnCollection'>

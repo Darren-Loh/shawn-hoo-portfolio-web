@@ -12,8 +12,11 @@ function BlogPageAdmin() {
       const postsFromServer = await fetchPosts();
       
       // console.log(postsFromServer);
-      setBlogRecords(postsFromServer);
+      // setBlogRecords("");
       
+
+      setBlogRecords(postsFromServer);
+      console.log(blogRecords);
     }
 
     getPosts();

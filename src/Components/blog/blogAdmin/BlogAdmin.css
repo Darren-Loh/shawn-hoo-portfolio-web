@@ -97,6 +97,7 @@
   .blogPostAdminDate {
     margin-top: 0;
     margin-bottom: 0;
+    font-weight: bold;
   }
 
   .headerContainer{
@@ -126,6 +127,9 @@
 .editHeader, .editPara, .editDate{
     display: flex;
     flex-direction: column;
+}
+.editDate{
+  width: 25%;
 }
 .editInputs{
     height: 50px;

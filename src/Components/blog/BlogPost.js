@@ -57,12 +57,13 @@ function BlogPost({instanceID, recordHeader, bodyPara, recordDate, recordTags}) 
   return (
     <div className='blogPostContainer'>
       <h2 className='blogPostHeader'>{recordHeader}</h2>
-      <BlogTags recordTags = {recordTags}/>
+      <p className='blogPostDate'>{recordDate}</p>
+      
       <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>
         {bodyPara}
        </p>
       <div className='blogPostBtmDiv'>
-        <p className='blogPostDate'>{recordDate}</p>
+        <BlogTags recordTags = {recordTags}/>
         {/* {this.checkVisability()} */}
         {isOverflow?<p className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</p>:''}
         {/* <div className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</div> */}
