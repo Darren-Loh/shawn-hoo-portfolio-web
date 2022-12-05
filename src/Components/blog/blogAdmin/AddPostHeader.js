@@ -26,6 +26,14 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
     setAddTagText(e.target.value);
     }
 
+    function resetAllText(){
+        setHeaderText("");
+        setParaText("");
+        setDateText("");
+        setTagArr([]);
+        setAddTagText("");
+    }
+
     let addToTagArr = (e) => {
     e.preventDefault();
     setTagArr(current => [...current, addTagText]);
@@ -34,7 +42,8 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
 
     let onAddPost = (e) => {
         e.preventDefault();
-        let newestID = blogRecords[blogRecords.length-1].id+1;
+        //since arr is reversed, highest index will be the first one
+        let newestID = blogRecords[0].id+1;
         let newRecord = {
             "id": newestID,
             "header": headerText,
@@ -45,6 +54,7 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
 
         addPostFunction(newRecord);
         setTriggerAddPost(false);
+        resetAllText();
         
       };
 
@@ -58,8 +68,7 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
         })
 
         const data = await res.json();
-
-        setBlogRecords([...blogRecords, data]);
+        setBlogRecords([data,...blogRecords]);
     }
 
     // return here
