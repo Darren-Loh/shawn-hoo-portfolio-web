@@ -32,6 +32,7 @@ const highlightStyle = {
     paddingLeft: 20,
     paddingRight: 20,
     backgroundColor: '#F5CB9C',
+    opacity: 0.6,
 }
 
 const textStyle = {
