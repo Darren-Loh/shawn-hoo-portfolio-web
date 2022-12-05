@@ -65,8 +65,14 @@
     color:  white;  
     height: 50px;
     font-size: 20px;
+    gap: 10px;
   }
-  
+
+  .darkTagAdmin:before, .lightTagAdmin:before{
+    display: inline-block;
+    content: "\2573"; /* 2A09 2573 00d7 This will render the 'X' */
+  }
+
   .lightTag {
     background-color: #D9D9D9;
     color:  #102851;
@@ -76,7 +82,9 @@
     color:  #102851;
     height: 50px;
     font-size: 20px;
+    gap: 10px;
   }
+
   .editTags{
     display: flex;
     gap: 12px;
@@ -205,11 +213,12 @@
   
 }
 
-.addNewPostHeader:hover{
+/* click stlying */
+.lightTagAdmin:hover, .darkTagAdmin:hover, .blogPostEditBtn:hover, .admingBlogSaveBtn:hover, .admingBlogDeleteBtn:hover, #addTagBtn:hover, .addNewPostHeader:hover{
   opacity: 50%;
   cursor: pointer;
 }
 
-.addNewPostHeader:active{
+.lightTagAdmin:active, .darkTagAdmin:active, .blogPostEditBtn:active, .admingBlogSaveBtn:active, .admingBlogDeleteBtn:active, #addTagBtn:active, .addNewPostHeader:active{
   opacity: 100%;
 }
