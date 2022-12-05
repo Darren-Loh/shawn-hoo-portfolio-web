@@ -17,7 +17,7 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
 
   function handleHeaderChange(e){
     setHeaderText(e.target.value);
-    recordHeader = e.target.value;
+    
   }
 
   function handleBodyParaChange(e){
@@ -31,14 +31,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
   function handleAddTagChange(e){
     setAddTagText(e.target.value);
   }
-
-  // function resetIndex(){
-  //   // setBlogRecords(blogRecords.filter((posts,index) => posts.id = index));
-  //   // console.log(blogRecords.length);
-  //   for(let i = 0;i<blogRecords.length;i++){
-  //     updatePostID(i);
-  //   }
-  // }
 
   function deletePost(id){
     let parent = document.querySelector(".blogPageAdminOuter");
@@ -111,12 +103,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     deleteServerPost(instanceID);
   };
 
-  function removeAllChildNodes(parent){
-      while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-  }
-
   // return function here
   if(isDeleted){
     return(<></>)
@@ -168,7 +154,7 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
   
           <div className='adminBlogBtmDiv'>
             <div className='editTags'>
-              <BlogTagAdmin updatePost = {updatePost} instanceID = {instanceID} tagArr = {tagArr} setTagArr={setTagArr}/>
+              <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
               <div className='addTags'>
                 <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
                 <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
