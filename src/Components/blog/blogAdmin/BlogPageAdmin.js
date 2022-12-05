@@ -13,7 +13,6 @@ function BlogPageAdmin() {
       const postsFromServer = await fetchPosts();
       //reverse arr to display most recent first
       setBlogRecords(postsFromServer.slice(0).reverse());
-      // console.log(blogRecords);
     }
 
     getPosts();
@@ -32,7 +31,7 @@ function BlogPageAdmin() {
     <div className='blogPageAdminOuter'>
       {/* {blogPostsAdmin} */}
       <AddPostHeader blogRecords = {blogRecords} setBlogRecords = {setBlogRecords}/>
-      {blogRecords && blogRecords.map((post,index) => <BlogPostAdmin key={post.id} itemIdx = {index} instanceID = {post.id} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags}/>)}
+      {blogRecords && blogRecords.map((post,index) => <BlogPostAdmin key={post.id} itemIdx = {index} instanceID = {post.id} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags} blogRecords = {blogRecords} setBlogRecords = {setBlogRecords}/>)}
     </div>
   )
 }
