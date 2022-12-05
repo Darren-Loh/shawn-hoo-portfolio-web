@@ -1,4 +1,4 @@
-.main-body {
+.main-body-top {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-top: 64px;
@@ -9,21 +9,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.body-col-left p {
-    font-family: 'Inter';
-    font-weight: 700;
-    align-self: flex-start;
+    /* justify-content: center; */
+    /* background-color: red; */
 }
 
 .body-col-left div {
     width: 450px;
-
 }
 
 .bookcover-img {
     width: 450px;
+    /* width: calc(100% - 40px); */
+    /* height: 100%;
+    object-fit: contain; */
 }
 
 .body-col-right h1 {
@@ -46,8 +44,9 @@
     margin: 0px;
 }
 
-.description {
+.short-text {
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .body-col-right h2 {
@@ -59,8 +58,14 @@
 
 .text {
     font-weight: 400;
+    width: 70%;
+    text-align: center;
 }
 
 .reviews-signoff-name {
     font-weight: 700;
+}
+
+.h2-header {
+    padding-top: 60px;
 }
