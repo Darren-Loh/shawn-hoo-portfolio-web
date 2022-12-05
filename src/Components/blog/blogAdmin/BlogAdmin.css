@@ -174,10 +174,11 @@
 
 /* edit buttons */
 .adminBlogEditBtnCollection{
+  margin-left: 8px;
   display: flex;
   gap: 8px;
 }
-.admingBlogSaveBtn, .admingBlogDeleteBtn{
+.admingBlogSaveBtn, .admingBlogDeleteBtn, .admingBlogCancelBtn{
   height: 50px;
   width: 100px;
   font-weight: 700;
@@ -189,11 +190,16 @@
 }
 
 .admingBlogSaveBtn{
-  background-color: #D9D9D9;
+  background-color: #C0EDA6;
   color:  #102851;
 }
 
 .admingBlogDeleteBtn{
+  background-color: #E99497;
+  color:  #102851;
+}
+
+.admingBlogCancelBtn{
   background-color: #D9D9D9;
   color:  #102851;
 }
@@ -214,11 +220,11 @@
 }
 
 /* click stlying */
-.lightTagAdmin:hover, .darkTagAdmin:hover, .blogPostEditBtn:hover, .admingBlogSaveBtn:hover, .admingBlogDeleteBtn:hover, #addTagBtn:hover, .addNewPostHeader:hover{
+.lightTagAdmin:hover, .darkTagAdmin:hover, .blogPostEditBtn:hover, .admingBlogSaveBtn:hover, .admingBlogDeleteBtn:hover, #addTagBtn:hover, .addNewPostHeader:hover, .admingBlogCancelBtn:hover{
   opacity: 50%;
   cursor: pointer;
 }
 
-.lightTagAdmin:active, .darkTagAdmin:active, .blogPostEditBtn:active, .admingBlogSaveBtn:active, .admingBlogDeleteBtn:active, #addTagBtn:active, .addNewPostHeader:active{
+.lightTagAdmin:active, .darkTagAdmin:active, .blogPostEditBtn:active, .admingBlogSaveBtn:active, .admingBlogDeleteBtn:active, #addTagBtn:active, .addNewPostHeader:active, .admingBlogCancelBtn:active{
   opacity: 100%;
 }

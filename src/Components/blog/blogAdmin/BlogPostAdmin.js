@@ -89,6 +89,21 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     deleteServerPost(instanceID);
   };
 
+  let onCancel = (e) => {
+    e.preventDefault();
+    setIsEdit(false);
+    resetAllText();
+    
+  };
+
+  function resetAllText(){
+    setHeaderText(recordHeader);
+    setParaText(bodyPara);
+    setDateText(recordDate);
+    setTagArr(recordTags);
+    setAddTagText("");
+}
+
   // return function here
   if(!isEdit){
     //return this view if its not editing
@@ -144,6 +159,9 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
           </div>
 
         <div className='adminBlogEditBtnCollection'>
+          <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
+            Cancel
+          </button>
           <button className='admingBlogDeleteBtn' id='deleteButton' type='submit' onClick={onDeletePost}>
             Delete
           </button>

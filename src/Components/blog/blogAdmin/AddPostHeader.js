@@ -58,6 +58,13 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
         
       };
 
+      let onCancel = (e) => {
+        e.preventDefault();
+        setTriggerAddPost(false);
+        resetAllText();
+        
+      };
+
     const addPostFunction = async (post) => {
         const res = await fetch('http://localhost:5000/blogPosts', {
             method: 'POST',
@@ -109,7 +116,7 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                 </div>
         
                 <div className='adminBlogEditBtnCollection'>
-                <button className='admingBlogDeleteBtn' id='deleteButton' type='submit' >
+                <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
                     Cancel
                 </button>
                 <button className='admingBlogSaveBtn' id='saveButton' type='submit' onClick={onAddPost} >
