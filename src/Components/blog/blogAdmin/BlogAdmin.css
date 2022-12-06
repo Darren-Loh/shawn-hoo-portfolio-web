@@ -1,0 +1,230 @@
+.blogPageAdminOuter{
+    margin-top: 64px;
+    padding-top: 20px;
+  }
+
+  /* blogpost admin */
+  
+  .blogPostAdminContainer{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 50px;
+  }
+  
+  .blogPostAdminHeader{
+    font-family: Inter;
+    font-weight: bold;
+  }
+  
+  .blogPostAdminPara{
+    line-height: 1.2em;
+    margin: 0;
+  }
+
+  .blogPostAdminBtmDiv{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items: center;
+  }
+  /* tags */
+  .blogTagContainer{
+    display: flex;
+    gap: 12px;
+  }
+  
+  .blogTag{
+    display: flex;
+    width: 120px;
+    height: 26px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .blogTagAdmin{
+    border-color: #102851;
+    border-radius: 2px;
+    padding: 0px 10px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    width: 120px;
+  }
+  .darkTag {
+    background-color: #102851;
+    color:  white;  
+  }
+  .darkTagAdmin {
+    background-color: #102851;
+    color:  white;  
+    height: 50px;
+    font-size: 20px;
+    gap: 10px;
+  }
+
+  .darkTagAdmin:before, .lightTagAdmin:before{
+    display: inline-block;
+    content: "\2573"; /* 2A09 2573 00d7 This will render the 'X' */
+  }
+
+  .lightTag {
+    background-color: #D9D9D9;
+    color:  #102851;
+  }
+  .lightTagAdmin {
+    background-color: #D9D9D9;
+    color:  #102851;
+    height: 50px;
+    font-size: 20px;
+    gap: 10px;
+  }
+
+  .editTags{
+    display: flex;
+    gap: 12px;
+  }
+  #addInnerTags{
+    text-align: center;
+  }
+  .addTags{
+    display: flex;
+    gap: 12px;
+  }
+  #addTagBtn{
+    background-color: #0284B8;
+    color:  white;
+    border-style: none;
+  }
+  /* other */
+  .blogPostAdminDate {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  .headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .blogPostEditBtn{
+    width: 100px;
+    font-weight: 700;
+    padding: 5px 0px;
+    font-size: 16px;
+    border-radius: 2px;
+    margin: 0px;
+    background-color: #D9D9D9;
+    color:  #102851;
+    border-style: none;
+  }
+
+  .blogPostEditContainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    gap: 19px;
+    margin-bottom: 50px;
+}
+.editHeader, .editPara, .editDate{
+    display: flex;
+    flex-direction: column;
+}
+.editDate{
+  width: 25%;
+}
+.editInputs{
+    height: 50px;
+    border-color: #102851;
+    border-radius: 2px;
+    padding: 0px 10px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.editBlogPostLabels, .editPara, .adminBlogBtmDiv{
+    padding-bottom: 10px;
+}
+
+.editParaBox{
+    border-color: #102851;
+    border-width: 2px;
+    border-radius: 2px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+.adminBlogBtmDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* background-color: red; */
+  
+}
+
+/* edit buttons */
+.adminBlogEditBtnCollection{
+  margin-left: 8px;
+  display: flex;
+  gap: 8px;
+}
+.admingBlogSaveBtn, .admingBlogDeleteBtn, .admingBlogCancelBtn{
+  height: 50px;
+  width: 100px;
+  font-weight: 700;
+  padding: 5px 0px;
+  font-size: 16px;
+  border-radius: 2px;
+  margin: 0px;
+  border-style: none;
+}
+
+.admingBlogSaveBtn{
+  background-color: #C0EDA6;
+  color:  #102851;
+}
+
+.admingBlogDeleteBtn{
+  background-color: #E99497;
+  color:  #102851;
+}
+
+.admingBlogCancelBtn{
+  background-color: #D9D9D9;
+  color:  #102851;
+}
+
+
+/* AddPostHeader */
+
+.addNewPostHeader{
+  border-style: dashed;
+  width: 60%;
+  height: 300px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  
+}
+
+/* click stlying */
+.lightTagAdmin:hover, .darkTagAdmin:hover, .blogPostEditBtn:hover, .admingBlogSaveBtn:hover, .admingBlogDeleteBtn:hover, #addTagBtn:hover, .addNewPostHeader:hover, .admingBlogCancelBtn:hover{
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.lightTagAdmin:active, .darkTagAdmin:active, .blogPostEditBtn:active, .admingBlogSaveBtn:active, .admingBlogDeleteBtn:active, #addTagBtn:active, .addNewPostHeader:active, .admingBlogCancelBtn:active{
+  opacity: 100%;
+}
