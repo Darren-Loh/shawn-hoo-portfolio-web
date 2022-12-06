@@ -1,8 +1,9 @@
-.main-body {
+.main-body-top {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-top: 64px;
     padding-top: 20px;
+    height: 60%;
 }
 
 .body-col-left {
@@ -11,19 +12,16 @@
     align-items: center;
 }
 
-.body-col-left p {
-    font-family: 'Inter';
-    font-weight: 700;
-    align-self: flex-start;
-}
-
 .body-col-left div {
     width: 450px;
-
 }
 
 .bookcover-img {
-    width: 450px;
+    height: 100%;
+}
+
+.body-col-right {
+    height: 100%;
 }
 
 .body-col-right h1 {
@@ -46,8 +44,9 @@
     margin: 0px;
 }
 
-.description {
+.short-text {
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .body-col-right h2 {
@@ -63,4 +62,8 @@
 
 .reviews-signoff-name {
     font-weight: 700;
+}
+
+.h2-header {
+    padding-top: 60px;
 }
