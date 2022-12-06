@@ -9,12 +9,6 @@ function ContactPageRight() {
   const handleSendEmail = (event) => {
     event.preventDefault()
 
-    // retrieve relevant information
-    let firstName = event.target.fname.value
-    let lastName = event.target.lname.value
-    let senderEmail = event.target.email.value
-    let msg = event.target.msg.value
-
     // use emailJS to send email with relevant data
     emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
       .then((result) => {

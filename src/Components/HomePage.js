@@ -44,7 +44,7 @@ const HomePage = () => {
         </div>
         <img 
         src={isHovering ? florids : shawnhoo} 
-        style={isHovering ? null : {width: '75%'}}
+        style={isHovering ? {height: '75vh'} : {height: '75vh'}}
         alt={isHovering ? 'of the florids cover page' : 'author portrait'}/>
         {/* </div> */}
         {/* {
