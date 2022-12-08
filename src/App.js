@@ -13,6 +13,7 @@ import ContactPage from './Components/contact/ContactPage.js';
 import HomePage from './Components/HomePage.js';
 import PublicationsPage from './Components/PublicationsPage';
 import BlogPageAdmin from './Components/blog/blogAdmin/BlogPageAdmin.js';
+import AboutAdmin from "./Components/adminComponents/about_Admin_folder/AboutAdmin";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/publications' element={<PublicationsPage />} />
           <Route path='/admin/blog' element={<BlogPageAdmin />} />
+          <Route path='/admin/about' element={<AboutAdmin />} />
         </Routes>
       </div>
     </BrowserRouter>
