@@ -79,7 +79,8 @@ function AboutAdmin() {
   fontWeight: 400,
   fontSize: '48px',
   color: '#102851',
-  width: '70%'
+  width: '70%',
+  whiteSpace: "pre-line"
       }
 
   if(!isEdit){

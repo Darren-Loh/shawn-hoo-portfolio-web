@@ -25,14 +25,14 @@
   display: -webkit-box !important;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  white-space: normal;
+  white-space: pre-line;
   margin: 0;
 }
 .blogPostParaKeepReading{
   line-height: 1.2em;
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
-  white-space: normal;
+  white-space: pre-line;
   margin: 0;
 }
 .blogPostParaCHECK{
