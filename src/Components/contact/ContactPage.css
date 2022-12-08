@@ -8,6 +8,7 @@
 .contactPageContainer{
     display: flex;
     gap: 83px;
+    align-items: center;
 }
 
 /* left section */

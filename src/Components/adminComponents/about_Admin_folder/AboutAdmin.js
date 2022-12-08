@@ -61,6 +61,7 @@ function AboutAdmin() {
   }
   function saveEdit(){
     updatePost();
+    setOriAboutContent(aboutContent);
     setIsEdit(!isEdit);
   }
   function cancelEdit(){
