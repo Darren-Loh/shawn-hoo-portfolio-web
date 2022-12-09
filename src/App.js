@@ -15,7 +15,6 @@ import PublicationsPage from './Components/PublicationsPage';
 
 import ProtectedLayout from './Components/ProtectedLayout';
 import PostsPage from './Components/PostsPage';
-import LoginPage from './Components/LoginPage';
 
 function App() {  
   return (
@@ -43,9 +42,8 @@ function App() {
           <Route path='/blog' element={<BlogPage />} />
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/publications' element={<PublicationsPage />} />
-          <Route path='/login' element={<LoginPage />} />
           
-          <Route path='/dashboard' element={<ProtectedLayout />} >
+          <Route path='/admin' element={<ProtectedLayout />} >
             <Route path='posts' element={<PostsPage />} />
           </Route>
         </Routes>
