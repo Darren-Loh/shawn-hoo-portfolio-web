@@ -15,6 +15,7 @@ import PublicationsPage from './Components/PublicationsPage';
 import BlogPageAdmin from './Components/blog/blogAdmin/BlogPageAdmin.js';
 import AboutAdmin from "./Components/adminComponents/about_Admin_folder/AboutAdmin";
 import ContactAdmin from "./Components/adminComponents/contact_Admin_folder/ContactAdmin";
+import PublicationsPageAdmin from "./Components/adminComponents/publications_Admin_folder/PublicationsPageAdmin";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path='/admin/blog' element={<BlogPageAdmin />} />
           <Route path='/admin/about' element={<AboutAdmin />} />
           <Route path='/admin/contact' element={<ContactAdmin />} />
+          <Route path='/admin/publications' element={<PublicationsPageAdmin />} />
         </Routes>
       </div>
     </BrowserRouter>

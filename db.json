@@ -8,27 +8,91 @@
   "publications": [
     {
       "id": 0,
-      "category": ["Poetry", [{"first": "One Poem", "second": "ABC Journal"}, {"first": "One Poem", "second": "ABC Journal"}, {"first": "One Poem", "second": "ABC Journal"}, {"first": "One Poem", "second": "ABC Journal"}]]     
+      "category": [
+        "Poetry",
+        [
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          },
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          },
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          },
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          }
+        ]
+      ]
     },
     {
       "id": 1,
-      "category": ["Poetry", [{"first": "One Poem", "second": "ABC Journal"}, {"first": "One Poem", "second": "ABC Journal"}]]     
+      "category": [
+        "Poetry",
+        [
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          },
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          }
+        ]
+      ]
     },
     {
       "id": 2,
-      "category": ["Poetry", [{"first": "One Poem", "second": "ABC Journal"}]]     
+      "category": [
+        "Poetry",
+        [
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          }
+        ]
+      ]
     },
     {
       "id": 3,
-      "category": ["Poetry", [{"first": "One Poem", "second": "ABC Journal"}]]     
+      "category": [
+        "Poetry",
+        [
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          }
+        ]
+      ]
     },
     {
       "id": 4,
-      "category": ["Poetry", [{"first": "One Poem", "second": "ABC Journal"}]]     
+      "category": [
+        "Poetry",
+        [
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          }
+        ]
+      ]
     },
     {
       "id": 5,
-      "category": ["Poetry", [{"first": "One Poem", "second": "ABC Journal"}]]     
+      "category": [
+        "Poetry",
+        [
+          {
+            "first": "One Poem",
+            "second": "ABC Journal"
+          }
+        ]
+      ]
     }
   ],
   "blogPosts": [
