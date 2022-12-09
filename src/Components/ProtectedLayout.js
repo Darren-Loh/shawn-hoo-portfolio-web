@@ -15,16 +15,6 @@ function ProtectedLayout() {
         );
     }
 
-    function callApi() {
-        try {
-            axios
-                .get("http://localhost:4000/")
-                .then(response => console.log(response.data));
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
-
     async function callProtectedApi() {
         try {
             const token = await getAccessTokenSilently();
