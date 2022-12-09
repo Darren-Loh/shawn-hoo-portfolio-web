@@ -83,44 +83,51 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
         return (
             <div className='addNewPostHeader' onClick={()=> setTriggerAddPost(true)}>
               {/* <div className='circle plus'></div> */}
-              Create a new Post
+              Create a new post
             </div>
           )
     }else{
         return (
             <form className='blogPostEditContainer'>
+                <h2>Create Post</h2>
                 <div className='editHeader'>
-                    <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label>
-                    <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
+                    {/* <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label> */}
+                    <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange} placeholder="Title"></input>
                 </div> 
 
                 <div className='editDate'>
-                    <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
-                    <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
+                    {/* <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label> */}
+                    <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>
                 </div>
 
-
-                
-                <div className='editPara'>
-                <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label>
-                <textarea className='editParaBox' type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange}/>
-                </div>
-        
-                <div className='adminBlogBtmDiv'>
                 <div className='editTags'>
                     <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
                     <div className='addTags'>
-                    <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
+                    <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange}></input>
                     <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
                     </div>
                 </div>
+                
+                <div className='editPara'>
+                {/* <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label> */}
+                <textarea className='editParaBox' type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/>
+                </div>
+        
+                <div className='adminBlogBtmDiv'>
+                {/* <div className='editTags'>
+                    <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
+                    <div className='addTags'>
+                    <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange}></input>
+                    <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
+                    </div>
+                </div> */}
         
                 <div className='adminBlogEditBtnCollection'>
                 <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
                     Cancel
                 </button>
                 <button className='admingBlogSaveBtn' id='saveButton' type='submit' onClick={onAddPost} >
-                    Add
+                    Publish
                 </button>
                 </div>
         

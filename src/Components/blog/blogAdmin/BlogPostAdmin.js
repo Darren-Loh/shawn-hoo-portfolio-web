@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import BlogTags from '../BlogTags'
-import BlogTagAdmin from './BlogTagAdmin.js'
+import React, { useEffect, useState } from 'react';
+import { AiOutlineEdit } from "react-icons/ai";
+
+import BlogTags from '../BlogTags';
+import BlogTagAdmin from './BlogTagAdmin.js';
 
 function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate, recordTags, blogRecords, setBlogRecords}) {
   let [isEdit, setIsEdit] = useState(false);
@@ -111,7 +113,11 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
       <div className='blogPostAdminContainer'>
         <div className='headerContainer'>
           <h2 className='blogPostAdminHeader'>{headerText}</h2>
-
+          <div className='headerBtns'>
+            <button className='blogPostEditBtn' onClick={triggerEditMode}>
+            <AiOutlineEdit style={{verticalAlign: 'middle'}}/>
+            </button>
+          </div>
         </div>
         <p className='blogPostAdminDate'>{dateText}</p>
         
@@ -121,9 +127,9 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
         <div className='blogPostAdminBtmDiv'>
           <BlogTags recordTags = {tagArr}/>
 
-          <div className='headerBtns'>
+          {/* <div className='headerBtns'>
             <button className='blogPostEditBtn' onClick={triggerEditMode}>Edit</button>
-          </div>
+          </div> */}
         </div>
         
       </div>
