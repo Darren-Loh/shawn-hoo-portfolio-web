@@ -31,6 +31,47 @@ function PublicationsPageAdmin() {
         const data = await res.json();
         return data;
     }
+    const fetchPost = async(instanceID) => {
+        const res = await fetch(`http://localhost:5000/publications/${instanceID}`);
+        const data = await res.json();
+    
+        return data;
+    }
+    
+    const deleteServerPost = async (id) => {
+        await fetch(`http://localhost:5000/publications/${id}`,{
+        method: 'DELETE',
+        });
+    
+        // setBlogRecords(blogRecords.filter((record) => record.id !== id));
+        
+    }
+    
+    const updatePost = async (instanceID) => {
+        const postToUpdate = await fetchPost(instanceID);
+        // updatePubArr();
+        // let newPost = [headerText,pubArr];
+        // console.log(pubArr);
+        const updatedPost = {
+        ...postToUpdate, 
+        // "category": newPost
+        // "bodyPara": paraText,
+        // "date": dateText,
+        // "tags": tagArr
+        }
+    
+        const res = await fetch(`http://localhost:5000/publications/${instanceID}`, {
+        method:'PUT',
+        headers:{
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedPost)
+        })
+    
+        const data = await res.json();
+    }
+    
+    //----------------------database stuff------------------------------------------------
 
     return (
         <div style={containerStyle}>

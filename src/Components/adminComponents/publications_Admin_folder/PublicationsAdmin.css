@@ -15,17 +15,6 @@
     border-style: none;
 }
 
-/* click stlying */
-.publicationsAdminEditBtn:hover{
-    opacity: 50%;
-    cursor: pointer;
-  }
-  
-.publicationsAdminEditBtn:active{
-    opacity: 100%;
-  }
-
-
 .publicationNewCat{
     margin-top: 16px;
 }
@@ -38,6 +27,8 @@
 .editContentInputsContainer{
     display: flex;
     /* gap: 8px; */
+    align-items: center;
+    /* justify-content: center; */
 }
 .pubEditBtnCollection{
     margin-top: 8px;
@@ -65,3 +56,31 @@
     font-size: 20px;
     width: 50%;
 }
+
+.deleteText:after{
+    /* display: inline-block; */
+    content: "\2212"; /* 2A09 2573 00d7 This will render the 'X' */
+    border-style: solid;
+    width: 25px;
+    height: 25px;
+    /* margin-bottom: 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 50%;
+    color: red;
+    align-self: center;
+    border-width: 2px;
+
+}
+
+/* click stlying */
+.publicationsAdminEditBtn:hover,.deleteText:hover{
+    opacity: 50%;
+    cursor: pointer;
+  }
+  
+.publicationsAdminEditBtn:active,.deleteText:active{
+    opacity: 100%;
+  }
