@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import _ from "lodash" // Import the entire lodash library, deepcopy required for cancel function
 
-function PublicationsTypeAdmin({title, publications, instanceID}) {
+function PublicationsTypeAdmin({title, publications, instanceID, setArrAll}) {
   // console.log(publications[0].second);
   let [isEdit, setIsEdit] = useState(false);
   let [headerText, setHeaderText] = useState(title);
@@ -25,7 +25,13 @@ function PublicationsTypeAdmin({title, publications, instanceID}) {
     setIsEdit(false);
   }
 
-
+  function deleteAll(){
+    deleteServerPost(instanceID);
+    // setArr(current => current.filter((item)=>item.id !==instanceID));
+    setArrAll(current => current.filter((item)=>item.id !==instanceID));
+    // setArr(blogRecords.filter((record) => record.id !== id));
+    // reShuffleArrs();
+  }
 
   function deleteContent(e,idx){
     setPubArr((current)=>current.filter((content)=> content.id !== idx));
@@ -144,6 +150,7 @@ const updatePost = async (instanceID) => {
             <div className='addNewInnerContent' onClick={addNewContent}>Add New Content</div>
             <div className='pubEditBtnCollection'>
               <button className='publicationsAdminEditBtn' onClick={resetAll}>Cancel</button>
+              <button className='publicationsAdminEditBtn' onClick={deleteAll}>Delete All</button>
               <button className='publicationsAdminEditBtn' onClick={saveBtn}>Save</button>
             </div>
         </div>

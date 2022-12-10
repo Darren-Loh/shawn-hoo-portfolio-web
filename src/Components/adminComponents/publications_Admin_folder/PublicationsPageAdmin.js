@@ -8,17 +8,17 @@ function PublicationsPageAdmin() {
     // on mount, split map into 3 diff arrays by category index
     // render 3 different maps into 3 divs for 3 columns
     let [arrAll,setArrAll] = useState([]);
-    let [arr1,setArr1] = useState([]);
-    let [arr2,setArr2] = useState([]);
-    let [arr3,setArr3] = useState([]);
+    // let [arr1,setArr1] = useState([]);
+    // let [arr2,setArr2] = useState([]);
+    // let [arr3,setArr3] = useState([]);
 
     useEffect(() => {
         const getPosts = async() => {
         const postsFromServer = await fetchPosts();
         setArrAll(postsFromServer);
-        setArr1(postsFromServer.filter((cat,idx) => idx%3===0));
-        setArr2(postsFromServer.filter((cat,idx) => idx%3===1));
-        setArr3(postsFromServer.filter((cat,idx) => idx%3===2));
+        // setArr1(postsFromServer.filter((cat,idx) => idx%3===0));
+        // setArr2(postsFromServer.filter((cat,idx) => idx%3===1));
+        // setArr3(postsFromServer.filter((cat,idx) => idx%3===2));
         
         
         }
@@ -45,19 +45,25 @@ function PublicationsPageAdmin() {
         addPostFunction(newPost);
         setArrAll(current => [...current,newPost]);
 
-        let divisionNum = arrAll.length;
-        if(divisionNum%3===0){
-            setArr1(current=>[...current,newPost]);
-        }
-        else if (divisionNum%3===1){
-            setArr2(current=>[...current,newPost]);
-        }
-        else{
-            setArr3(current=>[...current,newPost]);
-        }
+        // let divisionNum = arrAll.length;
+        // if(divisionNum%3===0){
+        //     setArr1(current=>[...current,newPost]);
+        // }
+        // else if (divisionNum%3===1){
+        //     setArr2(current=>[...current,newPost]);
+        // }
+        // else{
+        //     setArr3(current=>[...current,newPost]);
+        // }
 
         
     }
+
+    // function reShuffleArrs(){
+    //     setArr1(arrAll.filter((cat,idx) => idx%3===0));
+    //     setArr2(arrAll.filter((cat,idx) => idx%3===1));
+    //     setArr3(arrAll.filter((cat,idx) => idx%3===2));
+    // }
 
     //----------------------database stuff------------------------------------------------
     const fetchPosts = async() => {
@@ -82,16 +88,6 @@ function PublicationsPageAdmin() {
         })
 
         const data = await res.json();
-        // setBlogRecords([data,...blogRecords]);
-    }
-    
-    const deleteServerPost = async (id) => {
-        await fetch(`http://localhost:5000/publications/${id}`,{
-        method: 'DELETE',
-        });
-    
-        // setBlogRecords(blogRecords.filter((record) => record.id !== id));
-        
     }
     
     const updatePost = async (instanceID) => {
@@ -123,15 +119,15 @@ function PublicationsPageAdmin() {
     return (
         <div style={containerStyle}>
             <div style={columnContainerStyle}>
-                {arr1 && arr1.map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} instanceID = {cat.id}/>)}
+                {arrAll && arrAll.filter((cat,idx) => idx%3===0).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} instanceID = {cat.id} setArrAll={setArrAll}/>)}
             </div>
 
             <div style={columnContainerStyle}>
-                {arr2 && arr2.map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
+                {arrAll && arrAll.filter((cat,idx) => idx%3===1).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} setArrAll={setArrAll}/>)}
             </div>
 
             <div style={columnContainerStyle}>
-                {arr3 && arr3.map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
+                {arrAll && arrAll.filter((cat,idx) => idx%3===2).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} setArrAll={setArrAll}/>)}
             </div>
             <button className='publicationNewCat' onClick={addNewCategory}>Create new category</button>
         </div>
