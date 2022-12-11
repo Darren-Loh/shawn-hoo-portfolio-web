@@ -2,27 +2,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
 .App{
-  margin: 0px 100px;
+  margin: 0px 10vw;
   font-family: 'Newsreader';
   color: #102851;
 }
 
 /* standardised font sizes */
 h1 {
-  font-size: 64px;
+  /* font-size: 64px; */
+  font-size: 4em;
   font-weight: normal;
   margin: 0px;
 }
 
 h2 {
-  font-size: 36px;
+  /* font-size: 36px; */
+  font-size: 3em;
   margin: 0px;
 }
 
 p, text, button {
-  font-size: 24px;
+  /* font-size: 36px; */
+  font-size: 2em;
 }
 
+@media (max-width: 480px) {
+  h1 {
+    font-size: calc(4em/4);
+  }
+  
+  h2 {
+    font-size: calc(3em/4);
+  }
+  
+  p, text, button {
+    font-size: calc(2em/4);
+  }
+}
+
+/* header styles */
 button {
   width: 100%;
   font-weight: 700;
@@ -39,7 +57,7 @@ button {
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  width: calc(100% - 200px);
+  width: calc(100% - 20vw);
   background-color: white;
   z-index: 100;
   padding-top: 10px;
@@ -78,4 +96,59 @@ a:hover, .nav-links .active  {
 
 .nav-menu li {
   padding: 5px 14px;
+}
+
+/* mobile nav bar */
+.nav-bar-small {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav-bar-main-small {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-bar-main-small:before {
+  display: inline-block;
+  content: "\2630"; /* 2A09 2573 00d7 This will render the 'X' */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  font-size: 28px;
+  z-index: 100;
+}
+
+.nav-bar-small-logo {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 32px;
+  text-decoration: none;
+  color: #102851;
+}
+
+.nav-links-small { 
+  list-style: none;
+  font-weight: 700;
+  font-size: 24px;
+  height: 100vh;
+}
+
+.nav-menu-small {
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding-left: 5vw;
+}
+
+.nav-menu-small .li {
+  z-index: 90;
+  background-color: white;
 }

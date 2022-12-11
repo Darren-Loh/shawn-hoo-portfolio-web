@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './CSS/HomePage.css';
 import { motion } from "framer-motion"
 import shawnhoo from '../assets/shawnhoo.jpg'
 import florids from '../assets/book-cover_of-the-florids.png'
@@ -29,9 +30,9 @@ const HomePage = () => {
   }
   
   return (
-    <div>
-      <div style={imageContainerStyle}>
-        <div style={textStyle}>
+    <div style={{display: 'flex'}}>
+      <div className="imageContainerStyle">
+        <div className="textStyle">
 
           {/* first line */}
           <div>
@@ -39,7 +40,8 @@ const HomePage = () => {
               variants={textVariant}
               initial="hidden"
               animate={isHovering ? "visible" : "hidden"}
-              style={{position: 'absolute', paddingLeft: textPadding, paddingRight: textPadding}}>
+              className="secondaryText"
+              >
               test
             </motion.h1>
 
@@ -48,7 +50,7 @@ const HomePage = () => {
               variants={textVariant}
               initial="visible"
               animate={isHovering ? "hidden" : "visible"}
-              style={{paddingLeft: textPadding, paddingRight: textPadding}}>
+              className="primaryText">
               Shawn Hoo
             </motion.h1>
           </div>
@@ -59,7 +61,7 @@ const HomePage = () => {
               variants={textVariant}
               initial="hidden"
               animate={isHovering ? "visible" : "hidden"}
-              style={{position: 'absolute', paddingLeft: textPadding, paddingRight: textPadding}}>
+              className="secondaryText">
               test
             </motion.h1>
 
@@ -67,7 +69,7 @@ const HomePage = () => {
               variants={textVariant}
               initial="visible"
               animate={isHovering ? "hidden" : "visible"}
-              style={{paddingLeft: textPadding, paddingRight: textPadding}}>
+              className="primaryText">
               is the author of
             </motion.h1>
           </div>
@@ -77,7 +79,12 @@ const HomePage = () => {
             // animate={{y: 1.5}}
             // transition={{duration: 0.8, yoyo: Infinity}}
             >
-            <i style={{color: '#EA0354', paddingLeft: textPadding, paddingRight: textPadding}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Of the Florids.</i>
+            <i 
+            className="floridsText"
+            onMouseOver={handleMouseOver} 
+            onMouseOut={handleMouseOut}>
+              Of the Florids.
+            </i>
           </motion.h1>
 
           {/* fourth line */}
@@ -86,7 +93,7 @@ const HomePage = () => {
               variants={textVariant}
               initial="hidden"
               animate={isHovering ? "visible" : "hidden"}
-              style={{position: 'absolute', paddingLeft: textPadding, paddingRight: textPadding}}>
+              className="secondaryText">
               test
             </motion.h1>
 
@@ -94,7 +101,7 @@ const HomePage = () => {
               variants={textVariant}
               initial="visible"
               animate={isHovering ? "hidden" : "visible"}
-              style={{paddingLeft: textPadding, paddingRight: textPadding}}>
+              className="primaryText">
               He is a person.
             </motion.h1>
           </div>
@@ -107,7 +114,7 @@ const HomePage = () => {
             initial="hidden"
             animate={isHovering ? "visible" : "hidden"}
             src={florids}
-            style={{height: '75vh', position: 'absolute', zIndex: '-10', right: 180}}
+            className="secondaryImage"
             alt='of the florids cover page'/>
 
           <motion.img 
@@ -115,7 +122,7 @@ const HomePage = () => {
             initial="visible"
             animate={isHovering ? "hidden" : "visible"}
             src={shawnhoo}
-            style={{height: '75vh', position: 'relative', margin: '0 auto', zIndex: '-10'}}
+            className="primaryImage"
             alt='author portrait'/>
         </div>
       </div>
@@ -123,21 +130,22 @@ const HomePage = () => {
   )
 }
 
-const textStyle = {
-    position: 'absolute',
-    left: 180,
-    color: '#102851',
-    backgroundColor: 'rgba(245, 203, 156, 0.6)',
-}
+// const textStyle = {
+//     position: 'absolute',
+//     left: 180,
+//     color: '#102851',
+//     backgroundColor: 'rgba(245, 203, 156, 0.6)',
+// }
 
-const imageContainerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'end',
-    height: '100vh',
-    marginLeft: 80,
-    marginRight: 80,
-}
+// const imageContainerStyle = {
+//     display: 'flex',
+//     flex: 1,
+//     flexDirection: 'column',
+//     justifyContent: 'center',
+//     alignItems: 'end',
+//     height: '100vh',
+//     marginLeft: '5vw',
+//     marginRight: '5vw',
+// }
 
 export default HomePage
