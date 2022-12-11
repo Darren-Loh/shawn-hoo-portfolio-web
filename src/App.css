@@ -28,15 +28,15 @@ p, text, button {
 
 @media (max-width: 480px) {
   h1 {
-    font-size: calc(64px/4);
+    font-size: calc(64px/2);
   }
   
   h2 {
-    font-size: calc(36px/4);
+    font-size: calc(36px/2);
   }
   
   p, text, button {
-    font-size: calc(24px/4);
+    font-size: calc(24px/2);
   }
 }
 
