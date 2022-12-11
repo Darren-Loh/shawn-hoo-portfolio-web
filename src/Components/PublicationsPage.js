@@ -1,21 +1,22 @@
 import React from 'react'
 import PublicationType from './PublicationType'
+import './CSS/PublicationsPage.css';
 
 const PublicationsPage = () => {
 
   return (
-    <div style={containerStyle}>
-        <div style={columnContainerStyle}>
+    <div className="containerStyle">
+        <div className="columnContainerStyle">
             <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}]}/>
             <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/>
         </div>
 
-        <div style={columnContainerStyle}>
+        <div className="columnContainerStyle">
             <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}]}/>
             <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/>
         </div>
 
-        <div style={columnContainerStyle}>
+        <div className="columnContainerStyle">
             <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/>
             <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/>
         </div>
