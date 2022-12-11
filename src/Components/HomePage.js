@@ -1,108 +1,133 @@
 import React, { useState } from 'react'
+import { motion } from "framer-motion"
 import shawnhoo from '../assets/shawnhoo.jpg'
 import florids from '../assets/book-cover_of-the-florids.png'
 
 const HomePage = () => {
 
   const [isHovering, setIsHovering] = useState(false)
-  const [firstLine, setFirstLine] = useState('Shawn Hoo')
-  const [secondLine, setSecondLine] = useState('is the author of')
-  const [fourthLine, setFourthLine] = useState('He is a person.')
 
   const handleMouseOver = () => {
     setIsHovering(true)
-    setFirstLine('test')
-    setSecondLine('test')
-    setFourthLine('test')
   }
 
   const handleMouseOut = () => {
     setIsHovering(false)
-    setFirstLine('Shawn Hoo')
-    setSecondLine('is the author of')
-    setFourthLine('He is a person')
+  }
+
+  const textPadding = 20
+
+  const textVariant = {
+    hidden: {
+      opacity: 0,
+      transition: { ease: "easeOut", duration: 0.4 }
+    },
+    visible: {
+      opacity: 1,
+      transition: { ease: "easeOut", duration: 0.4 }
+    }
   }
   
   return (
     <div>
       <div style={imageContainerStyle}>
-        {/* <div style={imageContainerStyle}> */}
         <div style={textStyle}>
-          <h1>
-            {firstLine}
-          </h1>
 
-          <h1 >
-            {secondLine}
-          </h1>
+          {/* first line */}
+          <div>
+            <motion.h1 
+              variants={textVariant}
+              initial="hidden"
+              animate={isHovering ? "visible" : "hidden"}
+              style={{position: 'absolute', paddingLeft: textPadding, paddingRight: textPadding}}>
+              test
+            </motion.h1>
 
-          <h1><i style={{color: '#EA0354'}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Of the Florids.</i></h1>
 
-          <h1 >
-            {fourthLine}
-          </h1>
+            <motion.h1 
+              variants={textVariant}
+              initial="visible"
+              animate={isHovering ? "hidden" : "visible"}
+              style={{paddingLeft: textPadding, paddingRight: textPadding}}>
+              Shawn Hoo
+            </motion.h1>
+          </div>
+
+          {/* second line */}
+          <div>
+            <motion.h1 
+              variants={textVariant}
+              initial="hidden"
+              animate={isHovering ? "visible" : "hidden"}
+              style={{position: 'absolute', paddingLeft: textPadding, paddingRight: textPadding}}>
+              test
+            </motion.h1>
+
+            <motion.h1 
+              variants={textVariant}
+              initial="visible"
+              animate={isHovering ? "hidden" : "visible"}
+              style={{paddingLeft: textPadding, paddingRight: textPadding}}>
+              is the author of
+            </motion.h1>
+          </div>
+          
+          {/* third line */}
+          <motion.h1
+            // animate={{y: 1.5}}
+            // transition={{duration: 0.8, yoyo: Infinity}}
+            >
+            <i style={{color: '#EA0354', paddingLeft: textPadding, paddingRight: textPadding}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Of the Florids.</i>
+          </motion.h1>
+
+          {/* fourth line */}
+          <div>
+            <motion.h1 
+              variants={textVariant}
+              initial="hidden"
+              animate={isHovering ? "visible" : "hidden"}
+              style={{position: 'absolute', paddingLeft: textPadding, paddingRight: textPadding}}>
+              test
+            </motion.h1>
+
+            <motion.h1 
+              variants={textVariant}
+              initial="visible"
+              animate={isHovering ? "hidden" : "visible"}
+              style={{paddingLeft: textPadding, paddingRight: textPadding}}>
+              He is a person.
+            </motion.h1>
+          </div>
         </div>
-        <img 
-        src={isHovering ? florids : shawnhoo} 
-        style={isHovering ? {height: '75vh'} : {height: '75vh'}}
-        alt={isHovering ? 'of the florids cover page' : 'author portrait'}/>
-        {/* </div> */}
-        {/* {
-          isHovering ? (
-            <div style={imageContainerStyle}>
-              <div style={textStyle}>
-                <h1 className='floridsHovering'>Shawn Hoo</h1>
-                <h1 className='floridsHovering'>is the author of</h1>
-                <h1 className='floridsHovering'><i style={{color: '#EA0354'}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Of the Florids.</i></h1>
-                <h1 className='floridsHovering'>He is a person.</h1>
-              </div>
-              <img className='floridsHovering' src={florids} alt='of the florids cover page'/>
-            </div>
-          ) : (
-            <div style={imageContainerStyle}>
-              <div style={textStyle}>
-                <h1 className='floridsNotHovering'>Shawn Hoo</h1>
-                <h1 className='floridsNotHovering'>is the author of</h1>
-                <h1 className='floridsNotHovering'><i style={{color: '#EA0354'}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Of the Florids.</i></h1>
-                <h1 className='floridsNotHovering'>He is a person.</h1>
-              </div>
-              <img className='floridsNotHovering' style={{width: '75%'}} src={shawnhoo} alt='author portrait'/>
-            </div>
-          )
-        } */}
-        {/* <div style={textStyle}>
-          <h1 style={highlightStyle}>Shawn Hoo</h1>
-          <h1 style={highlightStyle}>is the author of</h1>
-          <h1 style={highlightStyle}><i style={{color: '#EA0354'}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Of the Florids.</i></h1>
-          <h1 style={highlightStyle}>He is a person.</h1>
-        </div> */}
-        {/* <img style={{width: '75%'}} src={shawnhoo} alt='author portrait'/> */}
+
+        <div>
+          {/* image section */}
+          <motion.img 
+            variants={textVariant}
+            initial="hidden"
+            animate={isHovering ? "visible" : "hidden"}
+            src={florids}
+            style={{height: '75vh', position: 'absolute', zIndex: '-10', right: 180}}
+            alt='of the florids cover page'/>
+
+          <motion.img 
+            variants={textVariant}
+            initial="visible"
+            animate={isHovering ? "hidden" : "visible"}
+            src={shawnhoo}
+            style={{height: '75vh', position: 'relative', margin: '0 auto', zIndex: '-10'}}
+            alt='author portrait'/>
+        </div>
       </div>
-
-      {/* <div style={imageContainerStyle}>
-        <div style={textStyle}>
-          <h1>Shawn Hoo</h1>
-          <h1>is the author of</h1>
-          <h1><i style={{color: '#EA0354'}}>Of the Florids.</i></h1>
-          <h1>He is a person.</h1>
-        </div>
-        <img style={{width: '40%'}} src={florids} alt='of the florids cover page'/>
-      </div> */}
     </div>
   )
-}
-
-const highlightStyle = {
-    paddingLeft: 20,
-    paddingRight: 20,
-    backgroundColor: '#F5CB9C',
-    opacity: 0.6,
 }
 
 const textStyle = {
     position: 'absolute',
     left: 180,
     color: '#102851',
+    backgroundColor: 'rgba(245, 203, 156, 0.6)',
 }
 
 const imageContainerStyle = {
