@@ -42,6 +42,8 @@ button {
   width: calc(100% - 200px);
   background-color: white;
   z-index: 100;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .nav-logo .logo {
