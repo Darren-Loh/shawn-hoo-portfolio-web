@@ -18,20 +18,20 @@
 }
 
 .primaryText {
-    padding-left: 20;
-    padding-right: 20;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .secondaryText {
     position: absolute;
-    padding-left: 20;
-    padding-right: 20;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .floridsText {
     color: #EA0354;
-    padding-left: 20;
-    padding-right: 20;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .primaryImage {
