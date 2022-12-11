@@ -9,34 +9,34 @@
 
 /* standardised font sizes */
 h1 {
-  /* font-size: 64px; */
-  font-size: 4em;
+  font-size: 64px;
+  /* font-size: 4em; */
   font-weight: normal;
   margin: 0px;
 }
 
 h2 {
-  /* font-size: 36px; */
-  font-size: 3em;
+  font-size: 36px;
+  /* font-size: 3em; */
   margin: 0px;
 }
 
 p, text, button {
-  /* font-size: 36px; */
-  font-size: 2em;
+  font-size: 24px;
+  /* font-size: 2em; */
 }
 
 @media (max-width: 480px) {
   h1 {
-    font-size: calc(4em/4);
+    font-size: calc(64px/4);
   }
   
   h2 {
-    font-size: calc(3em/4);
+    font-size: calc(36px/4);
   }
   
   p, text, button {
-    font-size: calc(2em/4);
+    font-size: calc(24px/4);
   }
 }
 
