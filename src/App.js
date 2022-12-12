@@ -14,7 +14,10 @@ import HomePage from './Components/HomePage.js';
 import PublicationsPage from './Components/PublicationsPage';
 import BlogPageAdmin from './Components/blog/blogAdmin/BlogPageAdmin.js';
 
-function App() {
+import ProtectedLayout from './Components/ProtectedLayout';
+import PostsPage from './Components/PostsPage';
+
+function App() {  
   return (
     <BrowserRouter>
       <div className="App">
@@ -41,6 +44,10 @@ function App() {
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/publications' element={<PublicationsPage />} />
           <Route path='/admin/blog' element={<BlogPageAdmin />} />
+          
+          <Route path='/admin' element={<ProtectedLayout />} >
+            <Route path='posts' element={<PostsPage />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>
