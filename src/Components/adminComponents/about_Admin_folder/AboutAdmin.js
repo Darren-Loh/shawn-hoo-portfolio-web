@@ -76,7 +76,6 @@ function AboutAdmin() {
 // inner styling
   const bodyStyle = {
   marginTop: 64,
-  paddingTop: 20,
   fontWeight: 400,
   fontSize: '48px',
   color: '#102851',

@@ -16,9 +16,7 @@ import BlogPageAdmin from './Components/blog/blogAdmin/BlogPageAdmin.js';
 import AboutAdmin from "./Components/adminComponents/about_Admin_folder/AboutAdmin";
 import ContactAdmin from "./Components/adminComponents/contact_Admin_folder/ContactAdmin";
 import PublicationsPageAdmin from "./Components/adminComponents/publications_Admin_folder/PublicationsPageAdmin";
-
 import ProtectedLayout from './Components/ProtectedLayout';
-import PostsPage from './Components/PostsPage';
 
 import { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
@@ -90,13 +88,12 @@ function App() {
           <Route path='/blog' element={<BlogPage />} />
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/publications' element={<PublicationsPage />} />
-          <Route path='/admin/blog' element={<BlogPageAdmin />} />
           
           <Route path='/admin' element={<ProtectedLayout />} >
-            <Route path='posts' element={<PostsPage />} />
             <Route path='about' element={<AboutAdmin />} />
-            <Route path='contact' element={<ContactAdmin />} />
             <Route path='publications' element={<PublicationsPageAdmin />} />
+            <Route path='blog' element={<BlogPageAdmin />} />
+            <Route path='contact' element={<ContactAdmin />} />
           </Route>
 
         </Routes>

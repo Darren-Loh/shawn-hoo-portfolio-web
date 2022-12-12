@@ -32,19 +32,17 @@ function ProtectedLayout() {
 
     if(isAuthenticated) {
         return (
-            <div className="main-container">
-                <h1>Dashboard</h1>
-                <h2>Hi {user.name}</h2>
+            <div>
                 <Outlet />
-                <a href='/dashboard/posts'>posts</a>
+                {/* <a href='/dashboard/posts'>posts</a>
                 <button onClick={() => logout({ returnTo: window.location.origin })}>Log out</button>
-                <button onClick={callProtectedApi}>Protected API</button>
+                <button onClick={callProtectedApi}>Protected API</button> */}
             </div>
         )
     }
     else {
         return (
-            <div className="main-container">
+            <div>
                 <h1>NotAuthenticated</h1>
                 <button onClick={loginWithRedirect}>Log In</button>
                 <button onClick={callProtectedApi}>Protected API</button>
