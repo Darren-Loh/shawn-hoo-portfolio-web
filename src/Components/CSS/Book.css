@@ -67,3 +67,19 @@
 .h2-header {
     padding-top: 60px;
 }
+
+@media (max-width: 480px) {
+    .main-body-top {
+        display: flex;
+        flex-direction: column;
+        margin-top: 32px;
+        height: 60%;
+    }
+
+    .bookcover-img {
+        width: 80%;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}

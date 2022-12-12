@@ -1,0 +1,69 @@
+.textStyle {
+    position: absolute;
+    left: calc(10vw + 5vw);
+    color: #102851;
+    background-color: rgba(245, 203, 156, 0.6);
+}
+
+.imageContainerStyle {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    height: 100vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    /* background-color: red; */
+}
+
+.primaryText {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.secondaryText {
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.floridsText {
+    color: #EA0354;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.primaryImage {
+    height: 75vh;
+    position: relative;
+    margin: 0 auto;
+    z-index: -10;
+    max-width: 100%;
+    width: auto;
+}
+
+.secondaryImage {
+    height: 75vh;
+    position: absolute;
+    z-index: -10;
+    right: calc(10vw + 5vw);
+    max-height: 100%;
+    width: auto;
+}
+
+@media (max-width: 480px) {
+    .primaryImage {
+        width: 60vw;
+        height: auto;
+    }
+    
+    .secondaryImage {
+        width: 30vw;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+}

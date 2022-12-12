@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import PublicationType from './PublicationType'
+import './CSS/PublicationsPage.css';
 
 const PublicationsPage = () => {
   // have 1 overall map
@@ -32,23 +33,17 @@ const PublicationsPage = () => {
   }
 
   return (
-    <div style={containerStyle}>
-        <div style={columnContainerStyle}>
-            {/* <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}]}/>
-            <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/> */}
-            {arr1 && arr1.map((cat) => <PublicationType key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
+    <div className="containerStyle">
+        <div className="columnContainerStyle">
+          {arr1 && arr1.map((cat) => <PublicationType key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
         </div>
 
-        <div style={columnContainerStyle}>
-            {/* <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}, {first: 'One Poem', second: 'ABC Journal'}]}/>
-            <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/> */}
-            {arr2 && arr2.map((cat) => <PublicationType key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
+        <div className="columnContainerStyle">
+          {arr2 && arr2.map((cat) => <PublicationType key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
         </div>
 
-        <div style={columnContainerStyle}>
-            {/* <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/>
-            <PublicationType title={'Poetry'} publications={[{first: 'One Poem', second: 'ABC Journal'}]}/> */}
-            {arr3 && arr3.map((cat) => <PublicationType key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
+        <div className="columnContainerStyle">
+          {arr3 && arr3.map((cat) => <PublicationType key = {cat.id} title={cat.category[0]} publications={cat.category[1]}/>)}
         </div>
 
     </div>

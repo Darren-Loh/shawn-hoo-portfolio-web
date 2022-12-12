@@ -93,3 +93,25 @@
   font-weight: bold;
 }
   
+
+
+/* @media (max-width: 480px) {
+  .blogTagContainer{
+    display: flex;
+    width: 60vw;
+    gap: 12px;
+  }
+
+  .blogTag {
+    display: flex;
+    width: 60px;
+    height: 13px;
+    font-size: 8px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+} */

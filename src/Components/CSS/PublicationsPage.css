@@ -1,0 +1,29 @@
+.containerStyle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 64px;
+    padding-top: 20px;
+}
+  
+.columnContainerStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+@media (max-width: 480px) {
+    .containerStyle {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        padding-top: 20px;
+    }
+      
+    .columnContainerStyle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}

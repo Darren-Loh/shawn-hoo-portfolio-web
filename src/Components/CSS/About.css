@@ -1,0 +1,21 @@
+.bodyStyle {
+    margin-top: 64px;
+    padding-top: 20px;
+    font-weight: 400px;
+    font-size: 48px;
+    color: #102851;
+    width: 70%;
+    white-space: pre-line;
+}
+
+@media (max-width: 480px) {
+    .bodyStyle {
+        margin-top: 32px;
+        padding-top: 20px;
+        font-weight: 400px;
+        font-size: 24px;
+        color: #102851;
+        width: 70%;
+        white-space: pre-line;
+    }
+}
