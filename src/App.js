@@ -26,11 +26,11 @@ function App() {
 
   const navVariant = {
     hidden: {
-      y:-1000,
+      x:-1000,
       transition: { ease: "easeOut", duration: 0.8 }
     },
     visible: {
-      y:-10,
+      x:0,
       transition: { ease: "easeIn", duration: 0.8 }
     }
   }
