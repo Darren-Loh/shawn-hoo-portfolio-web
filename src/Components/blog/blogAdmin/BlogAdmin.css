@@ -71,7 +71,9 @@
 
   .darkTagAdmin:before, .lightTagAdmin:before{
     display: inline-block;
-    content: "\2573"; /* 2A09 2573 00d7 This will render the 'X' */
+    /*content: "\2573"; /* 2A09 2573 00d7 This will render the 'X' */
+    content: "\2715";
+    /* content: "\00d7"; */
   }
 
   .lightTag {
@@ -86,16 +88,17 @@
     gap: 10px;
   }
 
-  .editTags{
+  /* .editTags{
     display: flex;
     gap: 12px;
-  }
+  } */
+
   #addInnerTags{
     text-align: center;
   }
   .addTags{
     display: flex;
-    gap: 12px;
+    gap: 8px;
   }
   #addTagBtn{
     background-color: #0284B8;
@@ -111,20 +114,23 @@
 
   .headerContainer{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
   }
 
   .blogPostEditBtn{
-    width: 100px;
+    width: 50px;
     font-weight: 700;
-    padding: 5px 0px;
-    font-size: 16px;
-    border-radius: 2px;
+    /* padding: 5px 0px; */
+    padding: 0px;
+    /* font-size: 16px; */
+    font-size: 25px;
+    /* border-radius: 2px; */
     margin: 0px;
-    background-color: #D9D9D9;
-    color:  #102851;
+    background-color: transparent;
+    color:  #00b4d8;
     border-style: none;
+    /* border: 2px solid #00b4d8; */
   }
 
   .blogPostEditContainer{
@@ -134,7 +140,7 @@
     gap: 19px;
     margin-bottom: 50px;
 }
-.editHeader, .editPara, .editDate{
+.editHeader, .editPara, .editDate .editTags {
     display: flex;
     flex-direction: column;
 }
@@ -162,7 +168,7 @@
     font-family: 'Newsreader';
     font-weight: normal;
     font-size: 20px;
-    padding: 5px 10px;
+    padding: 10px 10px;
 }
 
 .adminBlogBtmDiv{
@@ -170,12 +176,11 @@
   justify-content: space-between;
   align-items: flex-end;
   /* background-color: red; */
-  
 }
 
 /* edit buttons */
 .adminBlogEditBtnCollection{
-  margin-left: 8px;
+  /* margin-left: 8px; */
   display: flex;
   gap: 8px;
 }
@@ -191,18 +196,22 @@
 }
 
 .admingBlogSaveBtn{
-  background-color: #C0EDA6;
-  color:  #102851;
+  background-color: #102851;
+  color: white;
 }
 
 .admingBlogDeleteBtn{
-  background-color: #E99497;
-  color:  #102851;
+  background-color: #EA0354;
+  color: white;
 }
 
 .admingBlogCancelBtn{
-  background-color: #D9D9D9;
+  /* background-color: #D9D9D9;
+  color:  #102851; */
+
+  background-color: white;
   color:  #102851;
+  border: 2px solid #102851;
 }
 
 
@@ -210,7 +219,7 @@
 
 .addNewPostHeader{
   border-style: dashed;
-  width: 60%;
+  width: 100%;
   height: 300px;
   margin-bottom: 50px;
   display: flex;
@@ -228,4 +237,26 @@
 
 .lightTagAdmin:active, .darkTagAdmin:active, .blogPostEditBtn:active, .admingBlogSaveBtn:active, .admingBlogDeleteBtn:active, #addTagBtn:active, .addNewPostHeader:active, .admingBlogCancelBtn:active{
   opacity: 100%;
+}
+
+.editTagsWrapper {
+  display: flex;
+  border: 2px solid #102851;
+  padding: 10px 10px;
+}
+
+.blogTagAdminInput {
+   flex: 1;
+   height: 44px;
+   padding: 0px 10px;
+   font-family: 'Newsreader';
+   font-weight: normal;
+   font-size: 20px;
+   border: none;
+   outline: none;
+}
+
+.blogTagAdminInput:active {
+  border: none;
+  outline: none;
 }
