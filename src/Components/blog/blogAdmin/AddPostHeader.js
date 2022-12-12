@@ -79,8 +79,8 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
     }
 
     function handleAddNewTag(e) {
-        e.preventDefault();
         if (e.key === 'Enter') {
+            e.preventDefault();
             console.log(addTagText);
             // console.log(e.target.value);
             // setTagArr(oldArray => [...oldArray, "qweqwe"]);
