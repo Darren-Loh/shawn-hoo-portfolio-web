@@ -1,6 +1,7 @@
 import React from 'react'
 
 const PublicationType = ({title, publications}) => {
+  // console.log(publications[0].second);
   return (
     <div>
         <h2 style={{paddingTop: 20}}>{title}</h2>

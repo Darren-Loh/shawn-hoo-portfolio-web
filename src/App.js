@@ -13,6 +13,9 @@ import ContactPage from './Components/contact/ContactPage.js';
 import HomePage from './Components/HomePage.js';
 import PublicationsPage from './Components/PublicationsPage';
 import BlogPageAdmin from './Components/blog/blogAdmin/BlogPageAdmin.js';
+import AboutAdmin from "./Components/adminComponents/about_Admin_folder/AboutAdmin";
+import ContactAdmin from "./Components/adminComponents/contact_Admin_folder/ContactAdmin";
+import PublicationsPageAdmin from "./Components/adminComponents/publications_Admin_folder/PublicationsPageAdmin";
 
 import ProtectedLayout from './Components/ProtectedLayout';
 import PostsPage from './Components/PostsPage';
@@ -47,7 +50,11 @@ function App() {
           
           <Route path='/admin' element={<ProtectedLayout />} >
             <Route path='posts' element={<PostsPage />} />
+            <Route path='about' element={<AboutAdmin />} />
+            <Route path='contact' element={<ContactAdmin />} />
+            <Route path='publications' element={<PublicationsPageAdmin />} />
           </Route>
+
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,0 +1,74 @@
+.contactPageOuter{
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 64px);
+    margin-top: 64px;
+}
+
+.contactPageContainer{
+    display: flex;
+    gap: 83px;
+    align-items: center;
+}
+.contactPageDesc{
+    display: flex;
+    flex-direction: column;
+    margin-top: 64px;
+    padding-top: 20px;
+    gap: 8px;
+    font-size: 64px;
+    color: #102851;
+    white-space: pre-line;
+}
+
+.editDescBox{
+    border-color: #102851;
+    border-width: 2px;
+    border-radius: 2px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 24px;
+    padding: 5px 10px;
+    width: 100%;
+    /* white-space: pre-line; */
+}
+
+.contactEditBtnCollection{
+    display: flex;
+    gap: 8px;
+}
+
+.contactPageIcons{
+    display: flex;
+    gap: 59px;
+    justify-content: center;
+}
+
+.contactPageLeft{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 23px;
+}
+
+.editContactAdminBtn{
+    width: 100px;
+    font-weight: 700;
+    padding: 5px 0px;
+    font-size: 16px;
+    border-radius: 2px;
+    margin: 0px;
+    background-color: #D9D9D9;
+    color:  #102851;
+    border-style: none;
+}
+
+/* click stlying */
+.editContactAdminBtn:hover{
+    opacity: 50%;
+    cursor: pointer;
+  }
+  
+  .editContactAdminBtn:active{
+    opacity: 100%;
+  }

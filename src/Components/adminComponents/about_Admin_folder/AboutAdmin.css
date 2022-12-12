@@ -1,0 +1,53 @@
+.aboutAdminContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.aboutAdminEditContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 64px;
+    padding-top: 20px;
+    gap: 8px;
+    font-size: 64px;
+    color: #102851;
+}
+
+.bottomBtns{
+    display: flex;
+    gap: 8px;
+}
+
+.editAboutAdminBtn{
+    width: 100px;
+    font-weight: 700;
+    padding: 5px 0px;
+    font-size: 16px;
+    border-radius: 2px;
+    margin: 0px;
+    background-color: #D9D9D9;
+    color:  #102851;
+    border-style: none;
+}
+
+.editDescBox{
+    border-color: #102851;
+    border-width: 2px;
+    border-radius: 2px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 48px;
+    padding: 5px 10px;
+    /* white-space: pre-line; */
+}
+
+/* click stlying */
+.editAboutAdminBtn:hover{
+    opacity: 50%;
+    cursor: pointer;
+  }
+  
+  .editAboutAdminBtn:active{
+    opacity: 100%;
+  }
