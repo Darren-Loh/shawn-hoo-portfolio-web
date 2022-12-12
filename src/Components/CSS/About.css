@@ -1,6 +1,6 @@
 .bodyStyle {
     margin-top: 64px;
-    padding-top: 20px;
+    padding-top: 40px;
     font-weight: 400px;
     font-size: 48px;
     color: #102851;
@@ -11,7 +11,7 @@
 @media (max-width: 480px) {
     .bodyStyle {
         margin-top: 32px;
-        padding-top: 20px;
+        padding-top: 40px;
         font-weight: 400px;
         font-size: 24px;
         color: #102851;
