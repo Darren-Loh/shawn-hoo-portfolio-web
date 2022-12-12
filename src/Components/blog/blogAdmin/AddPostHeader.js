@@ -22,8 +22,8 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
     setDateText(e.target.value);
     }
 
-    function handleAddTagChange(e){
-    setAddTagText(e.target.value);
+    let handleAddTagChange = (e) => {
+        setAddTagText(e.target.value);
     }
 
     function resetAllText(){
@@ -35,9 +35,9 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
     }
 
     let addToTagArr = (e) => {
-    e.preventDefault();
-    setTagArr(current => [...current, addTagText]);
-    setAddTagText("");
+        e.preventDefault();
+        setTagArr(current => [...current, addTagText]);
+        setAddTagText("");
     };
 
     let onAddPost = (e) => {
@@ -78,6 +78,18 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
         setBlogRecords([data,...blogRecords]);
     }
 
+    function handleAddNewTag(e) {
+        e.preventDefault();
+        if (e.key === 'Enter') {
+            console.log(addTagText);
+            // console.log(e.target.value);
+            // setTagArr(oldArray => [...oldArray, "qweqwe"]);
+            setTagArr(current => [...current, addTagText]);
+            setAddTagText("");
+            console.log(tagArr);
+        }
+    }
+
     // return here
     if(!triggerAddPost){
         return (
@@ -100,13 +112,18 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                     <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>
                 </div>
 
-                <div className='editTags'>
+                <div className='editTagsWrapper'>
+                    <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
+                    <input className='blogTagAdminInput' type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
+                </div>
+
+                {/* <div className='editTags'>
                     <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
                     <div className='addTags'>
-                    <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange}></input>
+                    <input className='blogTagAdmin' type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange}></input>
                     <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
                     </div>
-                </div>
+                </div> */}
                 
                 <div className='editPara'>
                 {/* <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label> */}
@@ -114,22 +131,14 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                 </div>
         
                 <div className='adminBlogBtmDiv'>
-                {/* <div className='editTags'>
-                    <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
-                    <div className='addTags'>
-                    <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange}></input>
-                    <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
+                    <div className='adminBlogEditBtnCollection'>
+                        <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
+                            Cancel
+                        </button>
+                        <button className='admingBlogSaveBtn' id='saveButton' type='submit' onClick={onAddPost} >
+                            Publish
+                        </button>
                     </div>
-                </div> */}
-        
-                <div className='adminBlogEditBtnCollection'>
-                <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
-                    Cancel
-                </button>
-                <button className='admingBlogSaveBtn' id='saveButton' type='submit' onClick={onAddPost} >
-                    Publish
-                </button>
-                </div>
         
                 </div>
             

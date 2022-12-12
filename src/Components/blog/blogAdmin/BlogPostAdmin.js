@@ -106,6 +106,16 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     setAddTagText("");
 }
 
+  function handleAddNewTag(e) {
+    e.preventDefault();
+    if (e.key === 'Enter') {
+        // console.log(e.target.value);
+        setTagArr(oldArray => [...oldArray, "qweqwe"]);
+        // setAddTagText("");
+        console.log(tagArr);
+    }
+  }
+
   // return function here
   if(!isEdit){
     //return this view if its not editing
@@ -138,6 +148,7 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     //return this view if it is currently editing
     return (
       <form className='blogPostEditContainer'>
+        <h2 style={{margin: 0}}>Edit Post</h2>
         <div className='editHeader'>
             <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label>
             <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
@@ -147,7 +158,14 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
             <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
             <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
           </div>
-
+      
+        <div className='editTags'>
+          <label className='editBlogPostLabels'>Tags</label>
+          <div className='editTagsWrapper'>
+              <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
+              <input className='blogTagAdminInput' type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
+          </div>
+        </div>
 
         
         <div className='editPara'>
@@ -156,13 +174,13 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
         </div>
 
         <div className='adminBlogBtmDiv'>
-          <div className='editTags'>
+          {/* <div className='editTags'>
             <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
             <div className='addTags'>
               <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
               <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
             </div>
-          </div>
+          </div> */}
 
         <div className='adminBlogEditBtnCollection'>
           <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
