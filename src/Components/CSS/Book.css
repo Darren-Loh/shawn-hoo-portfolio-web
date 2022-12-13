@@ -33,6 +33,7 @@
 
 .main-text {
     font-weight: 700;
+    white-space: pre-line;
 }
 
 .publisher {
