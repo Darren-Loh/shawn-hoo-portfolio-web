@@ -8,18 +8,11 @@ function PublicationsPageAdmin() {
     // on mount, split map into 3 diff arrays by category index
     // render 3 different maps into 3 divs for 3 columns
     let [arrAll,setArrAll] = useState([]);
-    // let [arr1,setArr1] = useState([]);
-    // let [arr2,setArr2] = useState([]);
-    // let [arr3,setArr3] = useState([]);
 
     useEffect(() => {
         const getPosts = async() => {
         const postsFromServer = await fetchPosts();
         setArrAll(postsFromServer);
-        // setArr1(postsFromServer.filter((cat,idx) => idx%3===0));
-        // setArr2(postsFromServer.filter((cat,idx) => idx%3===1));
-        // setArr3(postsFromServer.filter((cat,idx) => idx%3===2));
-        
         
         }
         getPosts();
@@ -44,26 +37,8 @@ function PublicationsPageAdmin() {
 
         addPostFunction(newPost);
         setArrAll(current => [...current,newPost]);
-
-        // let divisionNum = arrAll.length;
-        // if(divisionNum%3===0){
-        //     setArr1(current=>[...current,newPost]);
-        // }
-        // else if (divisionNum%3===1){
-        //     setArr2(current=>[...current,newPost]);
-        // }
-        // else{
-        //     setArr3(current=>[...current,newPost]);
-        // }
-
         
     }
-
-    // function reShuffleArrs(){
-    //     setArr1(arrAll.filter((cat,idx) => idx%3===0));
-    //     setArr2(arrAll.filter((cat,idx) => idx%3===1));
-    //     setArr3(arrAll.filter((cat,idx) => idx%3===2));
-    // }
 
     //----------------------database stuff------------------------------------------------
     const fetchPosts = async() => {

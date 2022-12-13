@@ -1,10 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import BookCover from '../assets/book-cover_of-the-florids.png';
 import './CSS/Book.css';
 
-class Book extends Component {
-    render() {
+function Book() {
+
+    let [bookAll,setBookAll] = useState("");
+
+    useEffect(() => {
+        const getPosts = async() => {
+        const postsFromServer = await fetchPosts();
+        setBookAll(postsFromServer);
+        
+        }
+        getPosts();
+
+    },[])
+
+    //----------------------database stuff------------------------------------------------
+    const fetchPosts = async() => {
+        const res = await fetch('http://localhost:5000/books');
+        const data = await res.json();
+        return data;
+    }
+
         return (
+            
+
+
+
+
             <div>
                 <div className='main-body-top'>
                     <div className='body-col-left'>
@@ -32,7 +56,7 @@ class Book extends Component {
                 </div>
             </div>
         )
-    }
+    
 }
 
 export default Book;
