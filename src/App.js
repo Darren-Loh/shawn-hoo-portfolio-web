@@ -20,6 +20,7 @@ import ProtectedLayout from './Components/ProtectedLayout';
 
 import { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
+import BookAdmin from "./Components/adminComponents/book_Admin_folder/BookAdmin";
 
 function App() {
 
@@ -94,6 +95,7 @@ function App() {
             <Route path='publications' element={<PublicationsPageAdmin />} />
             <Route path='blog' element={<BlogPageAdmin />} />
             <Route path='contact' element={<ContactAdmin />} />
+            <Route path='of-the-florids' element={<BookAdmin />} />
           </Route>
 
         </Routes>

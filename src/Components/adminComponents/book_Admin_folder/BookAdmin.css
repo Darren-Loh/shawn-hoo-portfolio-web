@@ -1,0 +1,113 @@
+.main-body-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 64px;
+    padding-top: 40px;
+    height: 60%;
+}
+
+.body-col-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-col-left div {
+    width: 450px;
+}
+
+.bookcover-img {
+    height: 100%;
+}
+
+.body-col-right {
+    height: 100%;
+}
+
+.body-col-right h1 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-style: italic;
+    margin: 0;
+}
+
+.main-text {
+    font-weight: 700;
+    white-space: pre-line;
+}
+
+.publisher {
+    margin-top: 0px;
+    padding-bottom: 20px;
+}
+
+.editPara{
+    font-size: 24px;
+    color: #102851;
+    font-family: 'Newsreader';
+}
+
+.awards {
+    margin: 0px;
+}
+
+.short-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.body-col-right h2 {
+    font-family: 'Inter';
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.text {
+    font-weight: 400;
+}
+
+.reviews-signoff-name {
+    font-weight: 700;
+}
+
+.h2-header {
+    padding-top: 60px;
+}
+
+.editBookTitle{
+    font-size: 64px;
+    margin: 0px;
+    color: #102851;
+    font-style: italic;
+    font-family: 'Inter';
+    font-weight: 700;
+}
+
+.editReviewDescription{
+    font-size: 24px;
+    font-family: "Newsreader";
+    color: #102851;
+}
+
+.editReviewAuthor{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Newsreader";
+    color: #102851;
+}
+@media (max-width: 480px) {
+    .main-body-top {
+        display: flex;
+        flex-direction: column;
+        margin-top: 32px;
+        height: 60%;
+    }
+
+    .bookcover-img {
+        width: 80%;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
