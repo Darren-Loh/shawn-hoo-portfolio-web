@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import BlogTagAdmin from './BlogTagAdmin.js'
+import React, { useState } from 'react';
+import BlogTagAdmin from './BlogTagAdmin.js';
+import inputTagStyle from "../../CSS/input-tag-style.module.css";
 
 function AddPostHeader({blogRecords, setBlogRecords}) {
     let [triggerAddPost, setTriggerAddPost] = useState(false);
@@ -112,9 +113,9 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                     <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>
                 </div>
 
-                <div className='editTagsWrapper'>
+                <div className={inputTagStyle.inputTextAreaWrapper}>
                     <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
-                    <input className='blogTagAdminInput' type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
+                    <input className={inputTagStyle.inputTextArea} type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
                 </div>
 
                 {/* <div className='editTags'>
