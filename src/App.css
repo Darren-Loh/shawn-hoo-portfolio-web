@@ -62,6 +62,8 @@ button {
   z-index: 100;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .nav-logo .logo {
@@ -157,4 +159,37 @@ a:hover, .nav-links .active  {
 .nav-menu-small li {
   padding-left: 5vw;
   background-color: white;
+}
+
+
+/* admin nav bar styling */
+.nav-bar-admin {
+  background-color: #102851;
+}
+
+.nav-logo-admin .logo {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 48px;
+  text-decoration: none;
+  color: white;
+}
+/* a:link, a:visited */
+
+.admin-link:link, .admin-link:visited {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+
+.admin-link:hover, .nav-links .active  {
+  color: #EA0354;
+  text-decoration: underline;
+}
+
+.logout-button {
+  color: #EA0354;;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
