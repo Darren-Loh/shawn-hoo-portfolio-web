@@ -87,6 +87,18 @@ function BookAdminInner({book, setBookAll}) {
         setBookAll(current => current.filter((innerItem)=> innerItem.id!==book.id));
     }
 
+    function addNewReview(){
+        let newID = reviewsArr[reviewsArr.length-1][0]+1;
+        let newReview = [newID,"Review Text","Writer Name"];
+        setReviewsArr(current => [...current,newReview]);
+        
+    }
+
+    function deleteReview(idx){
+        setReviewsArr(current => current.filter((innerItem) => innerItem[0]!==idx));
+        
+    }
+
       //----------------------database stuff------------------------------------------------
   const fetchPost = async(instanceID) => {
     const res = await fetch(`http://localhost:5000/books/${instanceID}`);
@@ -194,8 +206,11 @@ function BookAdminInner({book, setBookAll}) {
                             <span>” —</span>
                             <input type="text" id="editReviewAuthor" name="editReviewAuthor" className='editReviewAuthor' value={review[2]} onChange={(e)=>reviewsAuthorChange(e,review[0])}></input>
                         </p>
+                        <button onClick={()=>deleteReview(review[0])}>Delete this review</button>
+                        
                     </div> 
                     )}
+                    <button onClick={addNewReview}>Add New Review</button>
                     
                     <h2 className='h2-header'>Interviews</h2>
                     <h2 className='h2-header'>Description</h2>
