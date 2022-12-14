@@ -30,7 +30,7 @@
 
 .editContentBorderWrapper:hover {
     border-color: #0E52CF;
-    cursor: pointer;
+    cursor: text;
     opacity: 65%;
 }
 
