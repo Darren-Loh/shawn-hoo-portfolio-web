@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import BookCover from '../../../assets/book-cover_of-the-florids.png';
 import './BookAdmin.css';
 
-function BookAdminInner({book}) {
+function BookAdminInner({book, setBookAll}) {
     let [isEdit,setIsEdit] = useState(false);
     let [titleText,setTitleText] = useState(book.title);
     let [editionText,setEditionText] = useState(book.edition);
@@ -10,6 +10,14 @@ function BookAdminInner({book}) {
     let [descText,setDescText] = useState(book.description);
     let [reviewsArr,setReviewsArr] = useState(book.reviews);
     let [interviewsArr,setInterviewsArr] = useState(book.interviews);
+
+    //original values
+    let [oriTitleText,setOriTitleText] = useState(book.title);
+    let [oriEditionText,setOriEditionText] = useState(book.edition);
+    let [oriAwardsText,setOriAwardsText] = useState(book.awards);
+    let [oriDescText,setOriDescText] = useState(book.description);
+    let [oriReviewsArr,setOriReviewsArr] = useState(book.reviews);
+    let [oriInterviewsArr,setOriInterviewsArr] = useState(book.interviews);
 
 
     function triggerEdit(){
@@ -52,7 +60,76 @@ function BookAdminInner({book}) {
         }))
     }
 
-    //edit here 
+    function saveButton(){
+        updatePost(book.id);
+        setOriTitleText(titleText);
+        setOriEditionText(editionText);
+        setOriAwardsText(awardsText);
+        setOriDescText(descText);
+        setOriReviewsArr(reviewsArr);
+        setOriInterviewsArr(interviewsArr);
+        setIsEdit(false);
+    }
+
+    function cancelButton(){
+        // updatePost(book.id);
+        setTitleText(oriTitleText);
+        setEditionText(oriEditionText);
+        setAwardsText(oriAwardsText);
+        setDescText(oriDescText);
+        setReviewsArr(oriReviewsArr);
+        setInterviewsArr(oriInterviewsArr);
+        setIsEdit(false);
+    }
+
+    function deleteBookButton(){
+        deleteServerPost(book.id);
+        setBookAll(current => current.filter((innerItem)=> innerItem.id!==book.id));
+    }
+
+      //----------------------database stuff------------------------------------------------
+  const fetchPost = async(instanceID) => {
+    const res = await fetch(`http://localhost:5000/books/${instanceID}`);
+    const data = await res.json();
+
+    return data;
+  }
+
+  const deleteServerPost = async (id) => {
+    await fetch(`http://localhost:5000/books/${id}`,{
+      method: 'DELETE',
+    });
+
+    // setBlogRecords(blogRecords.filter((record) => record.id !== id));
+    
+  }
+
+  const updatePost = async (instanceID) => {
+    const postToUpdate = await fetchPost(instanceID);
+    const updatedPost = {
+      ...postToUpdate, 
+      "title": titleText,
+      "edition": editionText,
+      "awards": awardsText,
+      "description": descText,
+      "reviews": reviewsArr,
+      "interviews": interviewsArr
+    }
+
+    const res = await fetch(`http://localhost:5000/books/${instanceID}`, {
+      method:'PUT',
+      headers:{
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(updatedPost)
+    })
+
+    const data = await res.json();
+  }
+
+  //----------------------database stuff------------------------------------------------
+
+    //return here 
     if(!isEdit){
         return (
             <div>
@@ -122,6 +199,9 @@ function BookAdminInner({book}) {
                     
                     <h2 className='h2-header'>Interviews</h2>
                     <h2 className='h2-header'>Description</h2>
+                    <button onClick={cancelButton}>Cancel</button>
+                    <button onClick={deleteBookButton}>Delete Book</button>
+                    <button onClick={saveButton}>Save</button>
                 </div>
             </div>
         )

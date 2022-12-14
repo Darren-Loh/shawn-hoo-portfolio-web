@@ -13,8 +13,16 @@
       "awards": "Winner of the 2021 Diode Editions Chapbook Prize \nRunner-up of the 2021 Tupelo Press Sunken Garden Chapbook Prize",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus dui nec dignissim tempor. Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris. Sed sed euismod mi, sit amet hendrerit ipsum.",
       "reviews": [
-        [0,"Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.","John Doe"],
-        [1,"Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.","John Doe"]
+        [
+          0,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ],
+        [
+          1,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ]
       ],
       "interviews": []
     },
@@ -25,8 +33,16 @@
       "awards": "Winner of the 2021 Diode Editions Chapbook Prize \nRunner-up of the 2021 Tupelo Press Sunken Garden Chapbook Prize",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus dui nec dignissim tempor. Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris. Sed sed euismod mi, sit amet hendrerit ipsum.",
       "reviews": [
-        [0,"Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.","John Doe"],
-        [1,"Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.","John Doe"]
+        [
+          0,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ],
+        [
+          1,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ]
       ],
       "interviews": []
     }

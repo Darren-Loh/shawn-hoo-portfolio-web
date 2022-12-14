@@ -21,8 +21,9 @@ function PublicationsPageAdmin() {
     },[])
 
     function addNewCategory(){
+        let newID = arrAll[arrAll.length-1].id+1;
         let newPost = {
-            "id": 0,
+            "id": newID,
             "category": [
               "Category Name",
               [
