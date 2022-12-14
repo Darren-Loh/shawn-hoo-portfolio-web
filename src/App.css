@@ -162,7 +162,7 @@ a:hover, .nav-links .active  {
 }
 
 
-/* admin nav bar styling */
+/* admin nav bar styling - web view */
 .nav-bar-admin {
   background-color: #102851;
 }
@@ -174,7 +174,6 @@ a:hover, .nav-links .active  {
   text-decoration: none;
   color: white;
 }
-/* a:link, a:visited */
 
 .admin-link:link, .admin-link:visited {
   list-style: none;
