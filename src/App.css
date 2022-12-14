@@ -48,6 +48,7 @@ button {
   margin-bottom: 10px;
   color: #FFFFFF;
   background-color: #102851;
+  cursor: pointer;
 }
 
 .nav-bar {
