@@ -173,13 +173,13 @@ a:hover, .nav-links .active  {
   font-weight: 700;
   font-size: 48px;
   text-decoration: none;
-  color: white;
+  color: #f7eeed;
 }
 
 .admin-link:link, .admin-link:visited {
   list-style: none;
   text-decoration: none;
-  color: white;
+  color: #f7eeed;
 }
 
 .admin-link:hover, .nav-links .active  {
