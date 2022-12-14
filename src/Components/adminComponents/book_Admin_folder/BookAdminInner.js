@@ -60,6 +60,24 @@ function BookAdminInner({book, setBookAll}) {
         }))
     }
 
+    function interviewChange(e,idx){
+        setInterviewsArr(current => current.map((innerInterview)=>{
+            if(innerInterview[0] === idx){
+                return [idx,e.target.value,innerInterview[2]];
+            }
+            return innerInterview;
+        }))
+    }
+
+    function interviewAuthorChange(e,idx){
+        setInterviewsArr(current => current.map((innerInterview)=>{
+            if(innerInterview[0] === idx){
+                return [idx,innerInterview[1],e.target.value];
+            }
+            return innerInterview;
+        }))
+    }
+
     function saveButton(){
         updatePost(book.id);
         setOriTitleText(titleText);
@@ -96,6 +114,18 @@ function BookAdminInner({book, setBookAll}) {
 
     function deleteReview(idx){
         setReviewsArr(current => current.filter((innerItem) => innerItem[0]!==idx));
+        
+    }
+
+    function addNewInterview(){
+        let newID = reviewsArr[reviewsArr.length-1][0]+1;
+        let newInterview = [newID,"Interview Text","Writer Name"];
+        setInterviewsArr(current => [...current,newInterview]);
+        
+    }
+
+    function deleteInterview(idx){
+        setInterviewsArr(current => current.filter((innerItem) => innerItem[0]!==idx));
         
     }
 
@@ -170,6 +200,11 @@ function BookAdminInner({book, setBookAll}) {
                     )}
                     
                     <h2 className='h2-header'>Interviews</h2>
+                    {interviewsArr.map((interview) => 
+                    <div key={interview[0]}>
+                        <p className='text'><span>“</span><span>{interview[1]}</span><span>” —</span><span className='reviews-signoff-name'>{interview[2]}</span></p>
+                    </div> 
+                    )}
                     <h2 className='h2-header'>Description</h2>
                 </div>
                 <button onClick={triggerEdit}>Edit</button>
@@ -213,6 +248,19 @@ function BookAdminInner({book, setBookAll}) {
                     <button onClick={addNewReview}>Add New Review</button>
                     
                     <h2 className='h2-header'>Interviews</h2>
+                    {interviewsArr.map((interview) => 
+                    <div key={interview[0]}>
+                        <p className='text'>
+                            <span>“</span>
+                            <textarea className='editReviewDescription' type="text" id="editReviewDescription" name="editReviewDescription" rows="5" cols="100" value={interview[1]} onChange={(e)=>interviewChange(e,interview[0])}/>
+                            <span>” —</span>
+                            <input type="text" id="editReviewAuthor" name="editReviewAuthor" className='editReviewAuthor' value={interview[2]} onChange={(e)=>interviewAuthorChange(e,interview[0])}></input>
+                        </p>
+                        <button onClick={()=>deleteInterview(interview[0])}>Delete this interview</button>
+                        
+                    </div> 
+                    )}
+                    <button onClick={addNewInterview}>Add New Interview</button>
                     <h2 className='h2-header'>Description</h2>
                     <button onClick={cancelButton}>Cancel</button>
                     <button onClick={deleteBookButton}>Delete Book</button>

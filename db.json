@@ -24,7 +24,18 @@
           "John Doe"
         ]
       ],
-      "interviews": []
+      "interviews": [
+        [
+          0,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ],
+        [
+          1,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe 123"
+        ]
+      ]
     },
     {
       "id": 1,
@@ -44,7 +55,18 @@
           "John Doe"
         ]
       ],
-      "interviews": []
+      "interviews": [
+        [
+          0,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ],
+        [
+          1,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ]
+      ]
     }
   ],
   "publications": [
