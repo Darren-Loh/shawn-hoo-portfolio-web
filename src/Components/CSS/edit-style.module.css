@@ -7,6 +7,17 @@
     padding-right: 5px;
 }
 
+.editHeaderButton {
+    font-weight: 700;
+    padding: 0px;
+    font-size: 25px;
+    margin: 0px;
+    background-color: transparent;
+    color:  #00b4d8;
+    border-style: none;
+    text-align: left;
+}
+
 .editContentBorderWrapper {
     border: 2px solid #f8f9fa;
     /* border: 2px solid green; */
@@ -25,16 +36,20 @@
 
 .editDescBox {
     border-color: transparent;
-    border-radius: 2px;
+    border-radius: 5px;
     font-family: 'Newsreader';
     font-weight: normal;
-    font-size: 48px;
+    font-size: 24px;
     width: 100%;
     padding: 10px 25px 0px 25px;
     background-color: #f8f9fa;
     /* background-color: green; */
     color: #102851;
     /* white-space: pre-line; */
+}
+
+.editDescBox:hover {
+    border-color: #0E52CF;
 }
 
 .btnRow {
