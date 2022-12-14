@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AiOutlineEdit } from "react-icons/ai";
 import './AboutAdmin.css';
 import editStyles from "../../CSS/edit-style.module.css";
@@ -8,6 +8,7 @@ function AboutAdmin() {
   let [oriAboutContent,setOriAboutContent] = useState("");
   let [aboutContent,setAboutContent] = useState("");
   let [isEdit,setIsEdit] = useState(false);
+  let timer = useRef();
   
   useEffect(() => {
       const getPosts = async() => {
@@ -75,6 +76,18 @@ function AboutAdmin() {
     setAboutContent(e.target.value);
   }
 
+  function onDoubleClick() {
+    triggerEdit();
+  }
+
+  function onClickEditTextArea(e) {
+    clearTimeout(timer.current);
+
+    if (e.detail === 2) {
+        onDoubleClick();
+    }
+  }
+
   
   if(!isEdit){
     return (
@@ -84,7 +97,7 @@ function AboutAdmin() {
           <button className={editStyles.editHeaderButton} onClick={triggerEdit}><AiOutlineEdit className={editStyles.editIconMediumSize}/></button>
         </div>
 
-        <div className={editStyles.editContentBorderWrapper}>
+        <div className={editStyles.editContentBorderWrapper} onClick={onClickEditTextArea}>
           <p className='about-content-admin'>{aboutContent}</p>
         </div>
       </div>
