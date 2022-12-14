@@ -81,7 +81,7 @@ function AboutAdmin() {
       <div className="about-wrapper-admin">
         <div className={editStyles.editHeaderWrapper}>
           <h2 className={editStyles.editHeader}>Description</h2>
-          <button className='about-edit-header-admin' onClick={triggerEdit}><AiOutlineEdit className={editStyles.editIconMediumSize}/></button>
+          <button className={editStyles.editHeaderButton} onClick={triggerEdit}><AiOutlineEdit className={editStyles.editIconMediumSize}/></button>
         </div>
 
         <div className={editStyles.editContentBorderWrapper}>
