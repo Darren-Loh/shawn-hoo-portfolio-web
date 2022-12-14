@@ -56,16 +56,11 @@
 }
 
 .editSaveBtn {
-    /* background-color: #EA0354;
-    color: white; */
     background-color: #102851;
     color: white;
 }
 
 .editCancelBtn {
-    /* border-color: #102851;
-    background-color: transparent;
-    color: #102851; */
     border-color: #EA0354;
     background-color: transparent;
     color: #EA0354;
