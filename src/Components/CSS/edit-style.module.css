@@ -30,6 +30,8 @@
 
 .editContentBorderWrapper:hover {
     border-color: #0E52CF;
+    cursor: pointer;
+    opacity: 65%;
 }
 
 .editIconMediumSize {
