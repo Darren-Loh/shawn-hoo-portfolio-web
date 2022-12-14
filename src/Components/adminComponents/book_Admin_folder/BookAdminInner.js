@@ -205,7 +205,6 @@ function BookAdminInner({book, setBookAll}) {
                         <p className='text'><span>“</span><span>{interview[1]}</span><span>” —</span><span className='reviews-signoff-name'>{interview[2]}</span></p>
                     </div> 
                     )}
-                    <h2 className='h2-header'>Description</h2>
                 </div>
                 <button onClick={triggerEdit}>Edit</button>
             </div>
@@ -241,7 +240,7 @@ function BookAdminInner({book, setBookAll}) {
                             <span>” —</span>
                             <input type="text" id="editReviewAuthor" name="editReviewAuthor" className='editReviewAuthor' value={review[2]} onChange={(e)=>reviewsAuthorChange(e,review[0])}></input>
                         </p>
-                        <button onClick={()=>deleteReview(review[0])}>Delete this review</button>
+                        <button className='internalButton' onClick={()=>deleteReview(review[0])}>Delete this review</button>
                         
                     </div> 
                     )}
@@ -256,15 +255,17 @@ function BookAdminInner({book, setBookAll}) {
                             <span>” —</span>
                             <input type="text" id="editReviewAuthor" name="editReviewAuthor" className='editReviewAuthor' value={interview[2]} onChange={(e)=>interviewAuthorChange(e,interview[0])}></input>
                         </p>
-                        <button onClick={()=>deleteInterview(interview[0])}>Delete this interview</button>
+                        <button className='internalButton' onClick={()=>deleteInterview(interview[0])}>Delete this interview</button>
                         
                     </div> 
                     )}
                     <button onClick={addNewInterview}>Add New Interview</button>
-                    <h2 className='h2-header'>Description</h2>
-                    <button onClick={cancelButton}>Cancel</button>
-                    <button onClick={deleteBookButton}>Delete Book</button>
-                    <button onClick={saveButton}>Save</button>
+                    <div className='innerBookBtnCollection'>
+                        <button className='internalButton' onClick={cancelButton}>Cancel</button>
+                        <button className='internalButton' onClick={deleteBookButton}>Delete Book</button>
+                        <button className='internalButton' onClick={saveButton}>Save</button>
+                    </div>
+
                 </div>
             </div>
         )
