@@ -15,7 +15,7 @@ function BlogTagAdmin({tagArr, setTagArr}) {
     // 'blogTagContainer'
     <div className={inputTagStyle.inputTagWrapper}>
       {/* {renderContainer} */}
-      {tagArr.map((tag,index) => <div className={inputTagStyle.inputTag} key = {index} idx = {index} onClick={()=>removeTag(index)}>{tag}<MdCancel className={inputTagStyle.cancelIcon}/></div>)}
+      {tagArr.map((tag,index) => <div className={inputTagStyle.inputTag} key = {index} idx = {index}>{tag}<MdCancel className={inputTagStyle.cancelIcon} onClick={()=>removeTag(index)}/></div>)}
     </div>
   )
 }
