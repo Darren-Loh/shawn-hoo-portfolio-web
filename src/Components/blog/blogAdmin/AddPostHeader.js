@@ -42,20 +42,21 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
 
     let onAddPost = (e) => {
         e.preventDefault();
-        //since arr is reversed, highest index will be the first one
-        let newestID = blogRecords[0].id+1;
-        let newRecord = {
-            "id": newestID,
-            "header": headerText,
-            "tags": tagArr,
-            "bodyPara": paraText,
-            "date": dateText
-        }
+        if (window.confirm("Proceed to add post?")) {
+            //since arr is reversed, highest index will be the first one
+            let newestID = blogRecords[0].id+1;
+            let newRecord = {
+                "id": newestID,
+                "header": headerText,
+                "tags": tagArr,
+                "bodyPara": paraText,
+                "date": dateText
+            }
 
-        addPostFunction(newRecord);
-        setTriggerAddPost(false);
-        resetAllText();
-        
+            addPostFunction(newRecord);
+            setTriggerAddPost(false);
+            resetAllText();
+        }
       };
 
       let onCancel = (e) => {
