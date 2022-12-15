@@ -31,9 +31,8 @@ function BlogPage() {
 
   return (
     <div className='blogPageOuter'>
-      {/* {blogPosts} */}
+      {blogPosts}
       {/* <BlogPost key={0} instanceID = {0} recordHeader = {"SealyHeaderChallenge"} bodyPara = {"testing"} recordDate = {"2022"} recordTags = {["poetry","poetry2"]} /> */}
-      <CreateDynamicBlog />
     </div>
   )
 }
