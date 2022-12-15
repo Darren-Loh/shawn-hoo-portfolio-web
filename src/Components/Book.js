@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import BookCover from '../assets/book-cover_of-the-florids.png';
 import './CSS/Book.css';
+import {FaFileImage} from "react-icons/fa";
 
 function Book() {
 
@@ -30,7 +31,8 @@ function Book() {
                 <div>
                     <div className='main-body-top'>
                         <div className='body-col-left'>
-                            <img className='bookcover-img' src={BookCover} />
+                            {/* <img className='bookcover-img' src={BookCover} /> */}
+                            {book.imageUrl==null?<FaFileImage size={300} />:<img className='bookcover-img' src={book.imageUrl} />}
                         </div>
                         <div className='body-col-right'>
                             <h1>{book.title}</h1>
