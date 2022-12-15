@@ -82,4 +82,8 @@
         padding-top: 20px;
         padding-bottom: 20px;
     }
+
+    button {
+        height: 60px;
+    }
 }
