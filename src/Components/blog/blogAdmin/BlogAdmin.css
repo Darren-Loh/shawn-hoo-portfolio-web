@@ -231,6 +231,32 @@
   
 }
 
+.editImage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fileInputBook{
+  font-size: 24px;
+  
+}
+
+.internalButtonLeft{
+  width: 40%;
+  font-weight: 700;
+  padding: 5px 0px;
+  font-size: 24px;
+  border-radius: 2px;
+  margin: 0px;
+  background-color: #D9D9D9;
+  color:  #102851;
+  border-style: none;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 /* click stlying */
 .lightTagAdmin:hover, .darkTagAdmin:hover, .blogPostEditBtn:hover, .admingBlogSaveBtn:hover, .admingBlogDeleteBtn:hover, #addTagBtn:hover, .addNewPostHeader:hover, .admingBlogCancelBtn:hover{
   opacity: 50%;

@@ -153,6 +153,7 @@
     {
       "id": 0,
       "header": "Sealey Challenge 1 2022 ",
+      "imageUrl": null,
       "tags": [
         "poetry1",
         "poetry2",
@@ -164,6 +165,7 @@
     {
       "id": 1,
       "header": "Sealey Challenge 2 2022",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shawnhooportfolio.appspot.com/o/blogImages%2Fcard.jfif99b09267-e58a-4364-8cde-7b1031f879b7?alt=media&token=0ef6c1e3-3717-4e72-b7db-b3aef8170cf2",
       "tags": [
         "poetry1",
         "poetry2",
@@ -175,6 +177,7 @@
     {
       "id": 2,
       "header": "Sealey Challenge 3 2022",
+      "imageUrl": null,
       "tags": [
         "poetry1",
         "poetry2"
