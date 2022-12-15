@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import BookCover from '../../../assets/book-cover_of-the-florids.png';
 import './BookAdmin.css';
+import BookAdminHeader from './BookAdminHeader';
 import BookAdminInner from './BookAdminInner';
 
 function BookAdmin() {
@@ -10,7 +11,7 @@ function BookAdmin() {
     useEffect(() => {
         const getPosts = async() => {
         const postsFromServer = await fetchPosts();
-        setBookAll(postsFromServer);
+        setBookAll(postsFromServer.slice(0).reverse());
         
         }
         getPosts();
@@ -19,7 +20,8 @@ function BookAdmin() {
 
     //functions
     function addNewBook(){
-        let newID = bookAll[bookAll.length-1].id+1;
+        let newID = bookAll[0].id+1;
+        console.log(newID);
         let newBook = {
             "id": newID,
             "imageUrl": null,
@@ -58,12 +60,14 @@ function BookAdmin() {
     //return here
     return (
         
-        <div>
-            {bookAll && bookAll.map((bookProp) => <BookAdminInner key={bookProp.id} book = {bookProp} setBookAll = {setBookAll}/>)}
+        <div className='bookAdminOuter'>
             <div className='addNewBook' onClick={addNewBook}>
               {/* <div className='circle plus'></div> */}
               Create a new post
             </div>
+            {/* <BookAdminHeader setBookAll = {setBookAll}/> */}
+            {bookAll && bookAll.map((bookProp) => <BookAdminInner key={bookProp.id} book = {bookProp} setBookAll = {setBookAll}/>)}
+
         </div>
     )
     // onClick={()=> setTriggerAddPost(true)}

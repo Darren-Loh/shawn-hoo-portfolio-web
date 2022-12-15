@@ -47,6 +47,16 @@
       "description": "Book Description",
       "reviews": [],
       "interviews": []
+    },
+    {
+      "id": 2,
+      "imageUrl": null,
+      "title": "New Title",
+      "edition": "Edition Number",
+      "awards": "Awards Text",
+      "description": "Book Description",
+      "reviews": [],
+      "interviews": []
     }
   ],
   "publications": [

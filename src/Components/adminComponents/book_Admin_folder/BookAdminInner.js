@@ -27,6 +27,7 @@ function BookAdminInner({book, setBookAll}) {
     let [imageUpload,setImageUpload] = useState(null);
     let [oriImageURL, setOriImageURL] = useState(book.imageUrl);
     let [imageURL, setImageURL] = useState(book.imageUrl);
+    let [imageChanged, setImageChanged] = useState(false);
 
 
     //----------------------firebase stuff------------------------------------------------
@@ -45,6 +46,7 @@ function BookAdminInner({book, setBookAll}) {
                 setImageURL(innerUrl);
             });
             alert("Image Successfully Uploaded!");
+            setImageChanged(true);
         });
 
     };
@@ -137,7 +139,10 @@ function BookAdminInner({book, setBookAll}) {
 
     function cancelButton(){
         // updatePost(book.id);
-        deleteFromFirebase(imageURL);
+        if(imageChanged){
+            deleteFromFirebase(imageURL);
+        }
+        setImageChanged(false);
         setImageURL(oriImageURL);
         setTitleText(oriTitleText);
         setEditionText(oriEditionText);
