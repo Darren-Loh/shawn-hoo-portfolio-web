@@ -2,6 +2,7 @@ import React from 'react'
 import BlogPost from './BlogPost'
 import './BlogPage.css';
 import { useState, useEffect } from 'react';
+import CreateDynamicBlog from './CreateDynamicBlog'
 
 // this is the main page for blog
 function BlogPage() {
@@ -30,8 +31,9 @@ function BlogPage() {
 
   return (
     <div className='blogPageOuter'>
-      {blogPosts}
+      {/* {blogPosts} */}
       {/* <BlogPost key={0} instanceID = {0} recordHeader = {"SealyHeaderChallenge"} bodyPara = {"testing"} recordDate = {"2022"} recordTags = {["poetry","poetry2"]} /> */}
+      <CreateDynamicBlog />
     </div>
   )
 }
