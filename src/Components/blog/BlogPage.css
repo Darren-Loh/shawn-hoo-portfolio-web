@@ -97,6 +97,11 @@
 
 
 @media (max-width: 480px) {
+  .blogPageOuter{
+    margin-top: 32px;
+    padding-top: 40px;
+  }
+
   .blogTagContainer{
     display: flex;
     width: 60vw;
