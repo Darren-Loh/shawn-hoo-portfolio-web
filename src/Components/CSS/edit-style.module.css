@@ -87,3 +87,46 @@
     background-color: transparent;
     color: #EA0354;
 }
+
+.editInputBoxWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+}
+
+.editInputBoxWrapper:hover {
+    border-color: #0E52CF;
+}
+
+.editInputBox {
+    height: 50px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    color: #102851;
+    padding: 0px 20px;
+    border: none;
+    outline: none;
+}
+
+.editTextAreaBoxWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+}
+
+.editTextAreaBox {
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    color: #102851;
+    padding: 20px 20px;
+    border: none;
+    outline: none;
+}
+
+.editTextAreaBoxWrapper:hover {
+    border-color: #0E52CF;
+}

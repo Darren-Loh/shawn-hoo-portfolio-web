@@ -3,6 +3,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 
 import BlogTags from '../BlogTags';
 import BlogTagAdmin from './BlogTagAdmin.js';
+import inputTagStyle from "../../CSS/input-tag-style.module.css";
 
 function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate, recordTags, blogRecords, setBlogRecords}) {
   let [isEdit, setIsEdit] = useState(false);
@@ -104,15 +105,13 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     setDateText(recordDate);
     setTagArr(recordTags);
     setAddTagText("");
-}
+  }
 
   function handleAddNewTag(e) {
-    e.preventDefault();
     if (e.key === 'Enter') {
-        // console.log(e.target.value);
-        setTagArr(oldArray => [...oldArray, "qweqwe"]);
-        // setAddTagText("");
-        console.log(tagArr);
+        e.preventDefault();
+        setTagArr(current => [...current, addTagText]);
+        setAddTagText("");
     }
   }
 
@@ -136,10 +135,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
           </p>
         <div className='blogPostAdminBtmDiv'>
           <BlogTags recordTags = {tagArr}/>
-
-          {/* <div className='headerBtns'>
-            <button className='blogPostEditBtn' onClick={triggerEditMode}>Edit</button>
-          </div> */}
         </div>
         
       </div>
@@ -159,12 +154,9 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
             <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
           </div>
       
-        <div className='editTags'>
-          <label className='editBlogPostLabels'>Tags</label>
-          <div className='editTagsWrapper'>
-              <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
-              <input className='blogTagAdminInput' type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
-          </div>
+        <div className={inputTagStyle.inputTextAreaWrapper}>
+            <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
+            <input className={inputTagStyle.inputTextArea} type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
         </div>
 
         
@@ -174,14 +166,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
         </div>
 
         <div className='adminBlogBtmDiv'>
-          {/* <div className='editTags'>
-            <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
-            <div className='addTags'>
-              <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
-              <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
-            </div>
-          </div> */}
-
         <div className='adminBlogEditBtnCollection'>
           <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
             Cancel
