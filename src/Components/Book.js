@@ -49,7 +49,7 @@ function Book() {
                         {book.reviews.map((review) => <p className='text'><span>“</span><span>{review[1]}</span><span>” —</span><span className='reviews-signoff-name'>{review[2]}</span></p> )}
                         
                         <h2 className='h2-header'>Interviews</h2>
-                        <h2 className='h2-header'>Description</h2>
+                        {book.interviews.map((interview) => <p className='text'><span>“</span><span>{interview[1]}</span><span>” —</span><span className='reviews-signoff-name'>{interview[2]}</span></p> )}
                     </div>
                 </div>
                 )}

@@ -8,6 +8,7 @@
   "books": [
     {
       "id": 0,
+      "imageUrl": null,
       "title": "Of the Florids",
       "edition": "Diode Editions, 2022",
       "awards": "Winner of the 2021 Diode Editions Chapbook Prize \nRunner-up of the 2021 Tupelo Press Sunken Garden Chapbook Prize",
@@ -39,6 +40,7 @@
     },
     {
       "id": 1,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shawnhooportfolio.appspot.com/o/bookImages%2Fbook-cover_of-the-florids.png2d835007-e964-4698-af6c-d46c73b5e513?alt=media&token=3a1b066b-7872-4e29-b974-3a8dd11f8357",
       "title": "New Title",
       "edition": "Edition Number",
       "awards": "Awards Text",

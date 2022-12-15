@@ -22,6 +22,7 @@ function BookAdmin() {
         let newID = bookAll[bookAll.length-1].id+1;
         let newBook = {
             "id": newID,
+            "imageUrl": null,
             "title": "New Title",
             "edition": "Edition Number",
             "awards": "Awards Text",
@@ -58,7 +59,7 @@ function BookAdmin() {
     return (
         
         <div>
-            {bookAll && bookAll.map((bookProp) => <BookAdminInner book = {bookProp} setBookAll = {setBookAll}/>)}
+            {bookAll && bookAll.map((bookProp) => <BookAdminInner key={bookProp.id} book = {bookProp} setBookAll = {setBookAll}/>)}
             <div className='addNewBook' onClick={addNewBook}>
               {/* <div className='circle plus'></div> */}
               Create a new post

@@ -1,6 +1,10 @@
 import React, { useState, useEffect, Component } from 'react';
 import BookCover from '../../../assets/book-cover_of-the-florids.png';
 import './BookAdmin.css';
+import {storage} from "../../../firebase.js";
+import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
+import {v4} from 'uuid';
+import {FaFileImage} from "react-icons/fa";
 
 function BookAdminInner({book, setBookAll}) {
     let [isEdit,setIsEdit] = useState(false);
@@ -19,6 +23,47 @@ function BookAdminInner({book, setBookAll}) {
     let [oriReviewsArr,setOriReviewsArr] = useState(book.reviews);
     let [oriInterviewsArr,setOriInterviewsArr] = useState(book.interviews);
 
+    //firebase values
+    let [imageUpload,setImageUpload] = useState(null);
+    let [oriImageURL, setOriImageURL] = useState(book.imageUrl);
+    let [imageURL, setImageURL] = useState(book.imageUrl);
+
+
+    //----------------------firebase stuff------------------------------------------------
+    const uploadImage = () => {
+        if(imageUpload==null)return;
+        //if not null have to first remove old image
+        if(imageURL!=null){
+            deleteFromFirebase(imageURL);
+        }
+
+        //add new image
+        let imageRef = ref(storage,`bookImages/${imageUpload.name+v4()}`);
+
+        uploadBytes(imageRef,imageUpload).then(()=>{
+            getDownloadURL(imageRef).then((innerUrl)=>{
+                setImageURL(innerUrl);
+            });
+            alert("Image Successfully Uploaded!");
+        });
+
+    };
+
+    const deleteFromFirebase = (url) => {
+        //1.
+        let pictureRef = ref(storage,imageURL);
+       //2.
+        deleteObject(pictureRef)
+          .then(() => {
+            //3.
+            // setImages(allImages.filter((image) => image !== url));
+            // alert("Picture is deleted successfully!");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+    
 
     function triggerEdit(){
         setIsEdit(true);
@@ -80,6 +125,7 @@ function BookAdminInner({book, setBookAll}) {
 
     function saveButton(){
         updatePost(book.id);
+        setOriImageURL(imageURL);
         setOriTitleText(titleText);
         setOriEditionText(editionText);
         setOriAwardsText(awardsText);
@@ -91,6 +137,8 @@ function BookAdminInner({book, setBookAll}) {
 
     function cancelButton(){
         // updatePost(book.id);
+        deleteFromFirebase(imageURL);
+        setImageURL(oriImageURL);
         setTitleText(oriTitleText);
         setEditionText(oriEditionText);
         setAwardsText(oriAwardsText);
@@ -98,9 +146,13 @@ function BookAdminInner({book, setBookAll}) {
         setReviewsArr(oriReviewsArr);
         setInterviewsArr(oriInterviewsArr);
         setIsEdit(false);
+        
     }
 
     function deleteBookButton(){
+        if(imageURL!=null){
+            deleteFromFirebase(imageURL);
+        }
         deleteServerPost(book.id);
         setBookAll(current => current.filter((innerItem)=> innerItem.id!==book.id));
     }
@@ -151,6 +203,7 @@ function BookAdminInner({book, setBookAll}) {
     const updatedPost = {
       ...postToUpdate, 
       "title": titleText,
+      "imageUrl": imageURL,
       "edition": editionText,
       "awards": awardsText,
       "description": descText,
@@ -171,13 +224,16 @@ function BookAdminInner({book, setBookAll}) {
 
   //----------------------database stuff------------------------------------------------
 
+
+
     //return here 
     if(!isEdit){
         return (
             <div>
                 <div className='main-body-top'>
                     <div className='body-col-left'>
-                        <img className='bookcover-img' src={BookCover} />
+                        {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
+                        
                     </div>
                     <div className='body-col-right'>
                         <h1>{titleText}</h1>
@@ -216,7 +272,12 @@ function BookAdminInner({book, setBookAll}) {
             <div>
                 <div className='main-body-top'>
                     <div className='body-col-left'>
-                        <img className='bookcover-img' src={BookCover} />
+                        {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
+                        {/* <img className='bookcover-img' src={imageURL} /> */}
+                        <div className='col-left-btn-collection'>
+                            <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
+                            <button className='internalButtonLeft' onClick={uploadImage}>Upload</button>
+                        </div>
                     </div>
                     <div className='body-col-right'>
                         <input type="text" id="editBookHeader" name="editBookHeader" className='editBookTitle' value={titleText} onChange={handleTitleChange}></input>
