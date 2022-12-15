@@ -25,7 +25,7 @@ function BlogPage() {
     return data;
   }
 
-  let blogPosts = blogRecords && blogRecords.slice(0).reverse().map((post,index) => <BlogPost key={index} instanceID = {index} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags} />)
+  let blogPosts = blogRecords && blogRecords.slice(0).reverse().map((post,index) => <BlogPost key={index} instanceID = {index} imageUrl = {post.imageUrl} recordHeader = {post.header} bodyPara = {post.bodyPara} recordDate = {post.date} recordTags = {post.tags} />)
   
 
   return (
