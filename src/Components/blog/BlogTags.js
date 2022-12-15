@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './BlogPage.css';
 //component for blogtags to be used in a singular blogpost
 
 function BlogTags({recordTags}) {
