@@ -238,3 +238,13 @@
 .lightTagAdmin:active, .darkTagAdmin:active, .blogPostEditBtn:active, .admingBlogSaveBtn:active, .admingBlogDeleteBtn:active, #addTagBtn:active, .addNewPostHeader:active, .admingBlogCancelBtn:active{
   opacity: 100%;
 }
+
+.btnRowCollectionSplitCol {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnCollectionStickLeft {
+  display: flex;
+  gap: 8px;
+}
