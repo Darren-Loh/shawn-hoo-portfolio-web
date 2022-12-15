@@ -18,25 +18,7 @@ function BookAdmin() {
 
     },[])
 
-    //functions
-    function addNewBook(){
-        let newID = bookAll[0].id+1;
-        console.log(newID);
-        let newBook = {
-            "id": newID,
-            "imageUrl": null,
-            "title": "New Title",
-            "edition": "Edition Number",
-            "awards": "Awards Text",
-            "description": "Book Description",
-            "reviews": [],
-            "interviews": []
-          };
 
-        addPostFunction(newBook);
-        setBookAll(current => [...current,newBook]);
-        
-    }
 
     //----------------------database stuff------------------------------------------------
     const fetchPosts = async() => {
@@ -45,27 +27,14 @@ function BookAdmin() {
         return data;
     }
 
-    const addPostFunction = async (post) => {
-        const res = await fetch('http://localhost:5000/books', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(post),
-        })
 
-        const data = await res.json();
-    }
 
     //return here
     return (
         
         <div className='bookAdminOuter'>
-            <div className='addNewBook' onClick={addNewBook}>
-              {/* <div className='circle plus'></div> */}
-              Create a new post
-            </div>
-            {/* <BookAdminHeader setBookAll = {setBookAll}/> */}
+            
+            <BookAdminHeader bookAll = {bookAll} setBookAll = {setBookAll}/>
             {bookAll && bookAll.map((bookProp) => <BookAdminInner key={bookProp.id} book = {bookProp} setBookAll = {setBookAll}/>)}
 
         </div>
