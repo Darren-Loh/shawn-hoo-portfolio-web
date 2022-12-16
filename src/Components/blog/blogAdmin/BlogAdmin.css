@@ -262,3 +262,15 @@
   border: none;
   outline: none;
 }
+
+@media (max-width: 480px) {
+  /* .blogTagContainer{
+    display: flex;
+    width: 60vw;
+    gap: 12px;
+  } */
+
+  .blogTag {
+    font-size: 8px;
+  }
+}

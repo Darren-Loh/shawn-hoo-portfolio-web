@@ -88,7 +88,9 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
 
   let onDeletePost = (e) => {
     e.preventDefault();
-    deleteServerPost(instanceID);
+    if (window.confirm("Proceed to delete post?")) {
+      deleteServerPost(instanceID);
+    }
   };
 
   let onCancel = (e) => {

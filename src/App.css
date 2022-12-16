@@ -118,15 +118,13 @@ a:hover, .nav-links .active  {
   width: 100%;
   height: 100%;
   z-index: 100;
+  text-decoration: none;
 }
 
-.nav-bar-main-small:before {
-  display: inline-block;
-  content: "\2630"; /* 2A09 2573 00d7 This will render the 'X' */
+.nav-bar-small-icon {
   padding-left: 5vw;
   padding-right: 5vw;
   font-size: 28px;
-  /* background-color: purple; */
 }
 
 .nav-bar-small-logo {
@@ -137,24 +135,37 @@ a:hover, .nav-links .active  {
   color: #102851;
 }
 
-.nav-links-small { 
+.nav-bar-small-logo:visited, 
+.nav-bar-small-logo:link {
+  text-decoration: none;
+  color: #102851;
+}
+
+.nav-menu-small {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  z-index: 90;
   list-style: none;
   font-weight: 700;
   font-size: 24px;
   height: 100vh;
 }
 
-.nav-menu-small {
-  position: fixed;
-  top: 52px;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  z-index: 90;
+.nav-menu-small li {
+  width: 100%;
+  background-color: white;
 }
 
-.nav-menu-small li {
+.nav-menu-small li:hover,
+.nav-menu-small li:active {
+  background-color: #ececec;
+}
+
+.nav-menu-small li > * {
+  display: block;
   padding-left: 5vw;
-  background-color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }

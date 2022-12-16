@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BlogTags from './BlogTags'
+import './BlogPage.css';
 
 //this defines a singular blog post that will be used on blogpage
 function BlogPost({instanceID, recordHeader, bodyPara, recordDate, recordTags}) {
