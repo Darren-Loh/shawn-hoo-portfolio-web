@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { MdOutlineLogout } from "react-icons/md";
 
-function MediumNavMenuAdmin() {
+function MediumNavMenuAdmin(props) {
     const { logout } = useAuth0();
 
     return (
@@ -13,7 +13,7 @@ function MediumNavMenuAdmin() {
             <ul className='nav-links'>
                 <div className='nav-menu'>
                     <li><NavLink to='/admin/about' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>about</NavLink></li>
-                    <li><NavLink to='/admin/of-the-florids' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>of the florids</NavLink></li>
+                    <li><NavLink to='/admin/books' className={({isActive}) => isActive ? "active" : undefined}>{props.bookAll.length>1?"books":props.bookTitle}</NavLink></li>
                     <li><NavLink to='/admin/publications' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>publications</NavLink></li>
                     <li><NavLink to='/admin/blog' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>blog</NavLink></li>
                     <li><NavLink to='/admin/contact' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>contact</NavLink></li>

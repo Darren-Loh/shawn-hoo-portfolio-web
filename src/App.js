@@ -18,9 +18,6 @@ import AboutAdmin from "./Components/adminComponents/about_Admin_folder/AboutAdm
 import ContactAdmin from "./Components/adminComponents/contact_Admin_folder/ContactAdmin";
 import PublicationsPageAdmin from "./Components/adminComponents/publications_Admin_folder/PublicationsPageAdmin";
 
-import { useState, useEffect } from 'react';
-
-
 import BookAdmin from "./Components/adminComponents/book_Admin_folder/BookAdmin";
 import MediumNavMenu from "./Components/navMenu/mediumNavMenu";
 import SmallNavMenu from "./Components/navMenu/smallNavMenu";
