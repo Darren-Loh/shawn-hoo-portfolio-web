@@ -20,7 +20,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
 
   function handleHeaderChange(e){
     setHeaderText(e.target.value);
-    
   }
 
   function handleBodyParaChange(e){

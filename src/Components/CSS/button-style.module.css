@@ -1,0 +1,26 @@
+.saveBtn, .cancelBtn, .deleteBtn {
+    height: 40px;
+    /* width: 100px; */
+    font-weight: 700;
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+    border-color: transparent;
+}
+
+.saveBtn {
+    background-color: #102851;
+    color: white;
+}
+
+.cancelBtn {
+    border-color: #EA0354;
+    background-color: transparent;
+    color: #EA0354;
+}
+
+.deleteBtn {
+    background-color: #EA0354;
+    color: white;
+}
