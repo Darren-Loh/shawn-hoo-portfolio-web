@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import BlogTagAdmin from './BlogTagAdmin.js'
+import {storage} from "../../../firebase.js";
+import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
+import {v4} from 'uuid';
+import {FaFileImage} from "react-icons/fa";
 
 function AddPostHeader({blogRecords, setBlogRecords}) {
     let [triggerAddPost, setTriggerAddPost] = useState(false);
@@ -9,6 +13,50 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
     let [dateText, setDateText] = useState("");
     let [tagArr, setTagArr] = useState([]);
     let [addTagText, setAddTagText] = useState("");
+
+    //firebase values
+    let [imageUpload,setImageUpload] = useState(null);
+    let [imageURL, setImageURL] = useState(null);
+
+
+    //----------------------firebase stuff------------------------------------------------
+    const uploadImage = (e) => {
+        e.preventDefault();
+        // console.log("hello");
+        if(imageUpload==null)return;
+        //if not null have to first remove old image
+        if(imageURL!=null){
+            deleteFromFirebase(imageURL);
+        }
+
+        //add new image
+        let imageRef = ref(storage,`blogImages/${imageUpload.name+v4()}`);
+
+        uploadBytes(imageRef,imageUpload).then(()=>{
+            getDownloadURL(imageRef).then((innerUrl)=>{
+                console.log(innerUrl);
+                setImageURL(innerUrl);
+            });
+            alert("Image Successfully Uploaded!");
+            
+        });
+
+    };
+
+    const deleteFromFirebase = (url) => {
+        //1.
+        let pictureRef = ref(storage,imageURL);
+        //2.
+        deleteObject(pictureRef)
+            .then(() => {
+            //3.
+            // setImages(allImages.filter((image) => image !== url));
+            // alert("Picture is deleted successfully!");
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+        };
 
     function handleHeaderChange(e){
         setHeaderText(e.target.value);
@@ -28,6 +76,7 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
 
     function resetAllText(){
         setHeaderText("");
+        setImageURL(null);
         setParaText("");
         setDateText("");
         setTagArr([]);
@@ -48,6 +97,7 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
             let newRecord = {
                 "id": newestID,
                 "header": headerText,
+                "imageUrl":imageURL,
                 "tags": tagArr,
                 "bodyPara": paraText,
                 "date": dateText
@@ -61,6 +111,9 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
 
       let onCancel = (e) => {
         e.preventDefault();
+        if(imageURL!=null){
+            deleteFromFirebase(imageURL);
+        }
         setTriggerAddPost(false);
         resetAllText();
         
@@ -107,7 +160,14 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                     {/* <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label> */}
                     <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange} placeholder="Title"></input>
                 </div> 
-
+                <div className='editImage'>
+                    {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
+                    {/* <img className='bookcover-img' src={imageURL} /> */}
+                    <div className='col-left-btn-collection'>
+                        <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
+                        <button className='internalButtonLeft' onClick={(e)=>uploadImage(e)}>Upload</button>
+                    </div>
+                </div>
                 <div className='editDate'>
                     {/* <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label> */}
                     <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>

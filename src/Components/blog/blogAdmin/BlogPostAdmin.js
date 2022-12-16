@@ -4,13 +4,65 @@ import { AiOutlineEdit } from "react-icons/ai";
 import BlogTags from '../BlogTags';
 import BlogTagAdmin from './BlogTagAdmin.js';
 
-function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate, recordTags, blogRecords, setBlogRecords}) {
+import {storage} from "../../../firebase.js";
+import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
+import {v4} from 'uuid';
+import {FaFileImage} from "react-icons/fa";
+
+function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyPara, recordDate, recordTags, blogRecords, setBlogRecords}) {
   let [isEdit, setIsEdit] = useState(false);
   let [headerText, setHeaderText] = useState(recordHeader);
   let [paraText, setParaText] = useState(bodyPara);
   let [dateText, setDateText] = useState(recordDate);
   let [tagArr, setTagArr] = useState(recordTags);
   let [addTagText, setAddTagText] = useState("");
+
+  //firebase values
+  let [imageUpload,setImageUpload] = useState(null);
+  let [oriImageURL, setOriImageURL] = useState(recordImageUrl);
+  let [imageURL, setImageURL] = useState(recordImageUrl);
+  let [imageChanged, setImageChanged] = useState(false);
+
+
+  //----------------------firebase stuff------------------------------------------------
+  const uploadImage = (e) => {
+      e.preventDefault();
+      // console.log("hello");
+      if(imageUpload==null)return;
+      //if not null have to first remove old image
+      if(imageURL!=null){
+          deleteFromFirebase(imageURL);
+      }
+
+      //add new image
+      let imageRef = ref(storage,`blogImages/${imageUpload.name+v4()}`);
+
+      uploadBytes(imageRef,imageUpload).then(()=>{
+          getDownloadURL(imageRef).then((innerUrl)=>{
+              console.log(innerUrl);
+              setImageURL(innerUrl);
+          });
+          alert("Image Successfully Uploaded!");
+          setImageChanged(true);
+          
+      });
+
+  };
+
+  const deleteFromFirebase = (url) => {
+      //1.
+      let pictureRef = ref(storage,imageURL);
+      //2.
+      deleteObject(pictureRef)
+          .then(() => {
+          //3.
+          // setImages(allImages.filter((image) => image !== url));
+          // alert("Picture is deleted successfully!");
+          })
+          .catch((err) => {
+          console.log(err);
+          });
+      };
 
   function triggerEditMode(){
     setIsEdit(!isEdit);
@@ -61,6 +113,7 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
     const updatedPost = {
       ...postToUpdate, 
       "header": headerText,
+      "imageUrl":imageURL,
       "bodyPara": paraText,
       "date": dateText,
       "tags": tagArr
@@ -83,12 +136,15 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
   let onSavePost = (e) => {
     e.preventDefault();
     setIsEdit(!isEdit);
+    setImageChanged(false);
+    setOriImageURL(imageURL);
     updatePost(instanceID);
   };
 
   let onDeletePost = (e) => {
     e.preventDefault();
     if (window.confirm("Proceed to delete post?")) {
+      deleteFromFirebase(imageURL);
       deleteServerPost(instanceID);
     }
   };
@@ -96,12 +152,17 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
   let onCancel = (e) => {
     e.preventDefault();
     setIsEdit(false);
+    if(imageChanged){
+      deleteFromFirebase(imageURL);
+    }
+    setImageChanged(false);
     resetAllText();
     
   };
 
   function resetAllText(){
     setHeaderText(recordHeader);
+    setImageURL(oriImageURL);
     setParaText(bodyPara);
     setDateText(recordDate);
     setTagArr(recordTags);
@@ -131,6 +192,9 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
             </button>
           </div>
         </div>
+        <div className='editImage'>
+            {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
+        </div>
         <p className='blogPostAdminDate'>{dateText}</p>
         
         <p className='blogPostAdminPara'>
@@ -155,7 +219,14 @@ function BlogPostAdmin({itemIdx, instanceID, recordHeader, bodyPara, recordDate,
             <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label>
             <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
         </div> 
-
+        <div className='editImage'>
+            {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
+            {/* <img className='bookcover-img' src={imageURL} /> */}
+            <div className='col-left-btn-collection'>
+                <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
+                <button className='internalButtonLeft' onClick={(e)=>uploadImage(e)}>Upload</button>
+            </div>
+        </div>
         <div className='editDate'>
             <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
             <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>

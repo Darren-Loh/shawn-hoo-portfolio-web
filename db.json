@@ -8,12 +8,35 @@
   "books": [
     {
       "id": 0,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shawnhooportfolio.appspot.com/o/bookImages%2Fbook-cover_of-the-florids.png2506e0c2-7061-445e-b21e-4a5a9649d43b?alt=media&token=30ba50bf-7635-4d4b-b894-308cdbb7f04a",
       "title": "Of the Florids",
       "edition": "Diode Editions, 2022",
-      "awards": "Winner of the 2021 Diode Editions Chapbook Prize \n Runner-up of the 2021 Tupelo Press Sunken Garden Chapbook Prize",
+      "awards": "Winner of the 2021 Diode Editions Chapbook Prize \nRunner-up of the 2021 Tupelo Press Sunken Garden Chapbook Prize",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus dui nec dignissim tempor. Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris. Sed sed euismod mi, sit amet hendrerit ipsum.",
-      "reviews": [],
-      "interviews": []
+      "reviews": [
+        [
+          0,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ],
+        [
+          1,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ]
+      ],
+      "interviews": [
+        [
+          0,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe"
+        ],
+        [
+          1,
+          "Vivamus viverra dictum libero, sed tempus arcu varius id. Nam luctus luctus enim, sit amet viverra arcu consequat fringilla. Sed non lectus eu elit convallis finibus in vitae orci. In vel turpis mollis, pharetra ex quis, ultrices mauris.",
+          "John Doe 123"
+        ]
+      ]
     }
   ],
   "publications": [
@@ -120,6 +143,7 @@
     {
       "id": 0,
       "header": "Sealey Challenge 1 2022 ",
+      "imageUrl": null,
       "tags": [
         "poetry1",
         "poetry2",
@@ -131,6 +155,7 @@
     {
       "id": 1,
       "header": "Sealey Challenge 2 2022",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shawnhooportfolio.appspot.com/o/blogImages%2Fbook-cover_of-the-florids.pngc6caa7e2-3c0a-4054-a718-925c42f5f6fb?alt=media&token=28dfaddb-c443-4d5f-884b-f9ecd9863eb1",
       "tags": [
         "poetry1",
         "poetry2",
@@ -142,6 +167,7 @@
     {
       "id": 2,
       "header": "Sealey Challenge 3 2022",
+      "imageUrl": null,
       "tags": [
         "poetry1",
         "poetry2"

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import BlogTags from './BlogTags'
 import './BlogPage.css';
 
+import {FaFileImage} from "react-icons/fa";
+
 //this defines a singular blog post that will be used on blogpage
-function BlogPost({instanceID, recordHeader, bodyPara, recordDate, recordTags}) {
+function BlogPost({instanceID, imageUrl, recordHeader, bodyPara, recordDate, recordTags}) {
 
   // state to check if keep reading has been clicked
   const [isKeepReading, setIsKeepReading] = useState(false);
@@ -58,6 +60,9 @@ function BlogPost({instanceID, recordHeader, bodyPara, recordDate, recordTags}) 
   return (
     <div className='blogPostContainer'>
       <h2 className='blogPostHeader'>{recordHeader}</h2>
+      <div className='editImage'>
+            {imageUrl==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageUrl} />}
+        </div>
       <p className='blogPostDate'>{recordDate}</p>
       
       <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>
