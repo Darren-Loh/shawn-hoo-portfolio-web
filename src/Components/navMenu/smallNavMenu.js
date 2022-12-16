@@ -33,7 +33,7 @@ function SmallNavMenu(props) {
             onClick={() => {setNavClicked(false)}}
             >
                 <li><NavLink to='/about' className={(({isActive}) => isActive ? "active" : undefined)}>about</NavLink></li>
-                <li><NavLink to='/books' className={(({isActive}) => isActive ? "active" : undefined)}>{props.bookAll.length>1?"books":props.bookTitle}</NavLink></li>
+                <li><NavLink to='/books' className={(({isActive}) => isActive ? "active" : undefined)}>{props.bookLength>1?"books":props.bookTitle}</NavLink></li>
                 <li><NavLink to='/publications' className={(({isActive}) => isActive ? "active" : undefined)}>publications</NavLink></li>
                 <li><NavLink to='/blog' className={(({isActive}) => isActive ? "active" : undefined)}>blog</NavLink></li>
                 <li><NavLink to='/contact' className={(({isActive}) => isActive ? "active" : undefined)}>contact</NavLink></li>

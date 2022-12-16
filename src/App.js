@@ -78,8 +78,8 @@ function App() {
     return (
       <BrowserRouter>
         {(viewWidth > 480) ? 
-          <MediumNavMenuAdmin bookAll={bookAll} bookTitle={bookTitle} /> : 
-          <SmallNavMenuAdmin bookAll={bookAll} bookTitle={bookTitle} /> 
+          <MediumNavMenuAdmin bookLength={bookAll.length} bookTitle={bookTitle} /> : 
+          <SmallNavMenuAdmin bookLength={bookAll.length} bookTitle={bookTitle} /> 
         }
         <div className="App">
           <Routes>
@@ -97,7 +97,10 @@ function App() {
   else {
     return (
       <BrowserRouter>
-        {(viewWidth > 480) ? <MediumNavMenu /> : <SmallNavMenu /> }
+        {(viewWidth > 480) ? 
+          <MediumNavMenu bookLength={bookAll.length} bookTitle={bookTitle} /> : 
+          <SmallNavMenu bookLength={bookAll.length} bookTitle={bookTitle} /> 
+        }
         <div className="App">
           <Routes>
             <Route path='/' element={<HomePage />} />

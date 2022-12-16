@@ -13,7 +13,7 @@ function MediumNavMenuAdmin(props) {
             <ul className='nav-links'>
                 <div className='nav-menu'>
                     <li><NavLink to='/admin/about' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>about</NavLink></li>
-                    <li><NavLink to='/admin/books' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>{props.bookAll.length>1?"books":props.bookTitle}</NavLink></li>
+                    <li><NavLink to='/admin/books' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>{props.bookLength>1?"books":props.bookTitle}</NavLink></li>
                     <li><NavLink to='/admin/publications' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>publications</NavLink></li>
                     <li><NavLink to='/admin/blog' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>blog</NavLink></li>
                     <li><NavLink to='/admin/contact' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>contact</NavLink></li>
