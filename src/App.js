@@ -52,7 +52,7 @@ function App() {
     }
     getPosts();
 
-})
+},[])
       //----------------------database stuff------------------------------------------------
       const fetchPosts = async() => {
         const res = await fetch('http://localhost:5000/books');

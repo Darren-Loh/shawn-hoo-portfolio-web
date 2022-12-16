@@ -10,7 +10,7 @@ function Book() {
     useEffect(() => {
         const getPosts = async() => {
         const postsFromServer = await fetchPosts();
-        setBookAll(postsFromServer);
+        setBookAll(postsFromServer.slice(0).reverse());
         
         }
         getPosts();
