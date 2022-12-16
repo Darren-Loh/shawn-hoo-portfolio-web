@@ -65,7 +65,6 @@ function PublicationsTypeAdmin({title, publications, instanceID, setArrAll}) {
   }
 
   function handleResetCat(){
-    console.log(oriPubArr);
     setPubArr(_.cloneDeep(oriPubArr));
     setIsEdit(false);
   }
@@ -140,9 +139,9 @@ const updatePost = async (instanceID) => {
           </div>
 
           {pubArr.map((publication) => (
-              <div>
+              <div key={publication.id}>
                   {/* possibly has to change this to an a tag */}
-                  <text>{publication.first}. <i>{publication.second}</i>. </text>
+                  <p style={{margin: 0}}>{publication.first}. <i>{publication.second}</i>. </p>
               </div>
           ))}
         </div>
