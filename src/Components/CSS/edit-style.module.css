@@ -20,12 +20,9 @@
 }
 
 .editContentBorderWrapper {
-    /* border: 2px solid #f8f9fa; */
     border: 4px dashed #F7EEED;
     border-radius: 5px;
     padding: 10px 25px;
-    /* background-color: #f8f9fa; */
-    /* background-color: green; */
 }
 
 .editContentBorderWrapper:hover {
@@ -50,9 +47,7 @@
     width: 100%;
     padding: 10px 25px 0px 25px;
     background-color: #f8f9fa;
-    /* background-color: green; */
     color: #102851;
-    /* white-space: pre-line; */
 }
 
 .editDescBox:hover {
