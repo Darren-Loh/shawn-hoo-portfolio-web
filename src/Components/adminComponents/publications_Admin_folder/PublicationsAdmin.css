@@ -15,8 +15,10 @@
     border-style: none;
 }
 
-.publicationNewCat{
-    margin-top: 16px;
+.publicationNewCatBtnWrapper {
+    display: inline-block;
+    margin-top: 64px;
+    padding-top: 40px;
 }
 
 .editPubTypeCat, .editPubTypeContent{
@@ -90,8 +92,16 @@
 .publicationsAdminEditBtn:hover,.deleteText:hover,.addNewInnerContent:hover{
     opacity: 50%;
     cursor: pointer;
-  }
+}
   
 .publicationsAdminEditBtn:active,.deleteText:active,.addNewInnerContent:active{
     opacity: 100%;
-  }
+}
+
+/* icon styling */
+.publicationSmallBtnIcon {
+    vertical-align: middle;
+    font-size: 22px;
+    cursor: pointer;
+    padding-left: 10px;
+}

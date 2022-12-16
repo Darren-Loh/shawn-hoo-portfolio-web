@@ -1,8 +1,11 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import _ from "lodash"; // Import the entire lodash library, deepcopy required for cancel function
+import { AiOutlineEdit } from "react-icons/ai";
+
 import PopupEditor from '../popup/PopupEditor';
 import popupStyle from "../popup/PopupEditor.module.css";
+import editStyles from "../../CSS/edit-style.module.css";
 
 function PublicationsTypeAdmin({title, publications, instanceID, setArrAll}) {
   // console.log(publications[0].second);
@@ -10,6 +13,7 @@ function PublicationsTypeAdmin({title, publications, instanceID, setArrAll}) {
   let [headerText, setHeaderText] = useState(title);
   let [oriPubArr, setOriPubArr] = useState(_.cloneDeep(publications));
   let [pubArr, setPubArr] = useState(_.cloneDeep(publications));
+  let timer = useRef();
 
   function triggerEdit(){
     setIsEdit(true);
@@ -71,6 +75,18 @@ function PublicationsTypeAdmin({title, publications, instanceID, setArrAll}) {
     setArrAll(current => current.filter((item)=>item.id !==instanceID));
   }
 
+  function onDoubleClick() {
+    triggerEdit();
+  }
+
+  function onClickEditTextArea(e) {
+    clearTimeout(timer.current);
+
+    if (e.detail === 2) {
+        onDoubleClick();
+    }
+  }
+
 //----------------------------------------------
 
 //----------------------database stuff------------------------------------------------
@@ -117,15 +133,18 @@ const updatePost = async (instanceID) => {
   //return here
   if(!isEdit){
     return (
-        <div>
-            <h2 style={{paddingTop: 20}}>{title}</h2>
-            {pubArr.map((publication) => (
-                <div>
-                    {/* possibly has to change this to an a tag */}
-                    <text>{publication.first}. <i>{publication.second}</i>. </text>
-                </div>
-            ))}
-            <button className='publicationsAdminEditBtn' onClick={triggerEdit}>Edit</button>
+        <div className={editStyles.editContentBorderWrapper} style={{marginTop: 20, marginBottom: 20}} onClick={onClickEditTextArea}>
+          <div className={editStyles.editHeaderWrapper}>
+            <h2 className={editStyles.editHeader}>{title}</h2>
+              <button className={editStyles.editHeaderButton} onClick={triggerEdit}><AiOutlineEdit className={editStyles.editIconMediumSize}/></button>
+          </div>
+
+          {pubArr.map((publication) => (
+              <div>
+                  {/* possibly has to change this to an a tag */}
+                  <text>{publication.first}. <i>{publication.second}</i>. </text>
+              </div>
+          ))}
         </div>
       )
   }
