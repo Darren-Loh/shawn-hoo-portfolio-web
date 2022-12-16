@@ -58,8 +58,8 @@ function PopupEditor(props) {
                 <div className={popupStyle.popupContentWrapper}>
                     {props.content.map( (publication) => (
                         <div className={popupStyle.popupContentGridWrapper} key={publication.id}>
-                            <input className={popupStyle.popupContentInputBox} type="text" value={publication.first} onChange={(e) => handleContentChange1(e, publication.id)} placeholder="Add item description" />
-                            <input className={popupStyle.popupContentInputBox} type="text" value={publication.second} onChange={(e) => handleContentChange2(e, publication.id)} placeholder="Add link" />
+                            <input className={popupStyle.popupContentInputBox} type="text" value={publication.first} onChange={(e) => handleContentChange1(e, publication.id)} placeholder="Add description" />
+                            <input className={popupStyle.popupContentInputBox} type="text" value={publication.second} onChange={(e) => handleContentChange2(e, publication.id)} placeholder="Add source" />
                             <AiOutlineMinusCircle className={popupStyle.deleteIconSmall} onClick={()=>handleDeleteItem(publication.id)}/>
                         </div>
                     ))}
