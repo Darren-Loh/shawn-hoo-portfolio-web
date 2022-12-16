@@ -9,21 +9,21 @@
 
 /* standardised font sizes */
 h1 {
-  font-size: 64px;
-  /* font-size: 4em; */
+  /* font-size: 64px; */
+  font-size: 48px;
   font-weight: normal;
   margin: 0px;
 }
 
 h2 {
-  font-size: 36px;
-  /* font-size: 3em; */
+  /* font-size: 36px; */
+  font-size: 28px;
   margin: 0px;
 }
 
 p, text, button {
-  font-size: 24px;
-  /* font-size: 2em; */
+  /* font-size: 24px; */
+  font-size: 20px;
 }
 
 @media (max-width: 480px) {
