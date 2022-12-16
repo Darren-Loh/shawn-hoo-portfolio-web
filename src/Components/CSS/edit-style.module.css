@@ -20,11 +20,11 @@
 }
 
 .editContentBorderWrapper {
-    border: 2px solid #f8f9fa;
-    /* border: 2px solid green; */
+    /* border: 2px solid #f8f9fa; */
+    border: 4px dashed #F7EEED;
     border-radius: 5px;
     padding: 10px 25px;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
     /* background-color: green; */
 }
 
