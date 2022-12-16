@@ -25,7 +25,7 @@ function SmallNavMenuAdmin(props) {
         <nav className='nav-bar-small'>
             <div className="nav-bar-main-small">
             <FaBars className="nav-bar-small-icon" onClick={() => {setNavClicked(!navClicked)}}/>
-            <NavLink to='/admin' className="nav-bar-small-logo">shawn hoo</NavLink>
+            <NavLink to='/admin' className="nav-bar-small-logo" onClick={() => {setNavClicked(false)}}>shawn hoo</NavLink>
             </div>
 
             <motion.div 
@@ -36,7 +36,7 @@ function SmallNavMenuAdmin(props) {
             onClick={() => {setNavClicked(false)}}
             >
                 <li><NavLink to='/admin/about' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>about</NavLink></li>
-                <li><NavLink to='/admin/books' className={({isActive}) => isActive ? "active" : undefined}>{props.bookAll.length>1?"books":props.bookTitle}</NavLink></li>
+                <li><NavLink to='/admin/books' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>{props.bookAll.length>1?"books":props.bookTitle}</NavLink></li>
                 <li><NavLink to='/admin/publications' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>publications</NavLink></li>
                 <li><NavLink to='/admin/blog' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>blog</NavLink></li>
                 <li><NavLink to='/admin/contact' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>contact</NavLink></li>
