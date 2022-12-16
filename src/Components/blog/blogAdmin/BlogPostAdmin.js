@@ -192,7 +192,7 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
           </div>
         </div>
         <div className='editImage'>
-            {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
+            {imageURL==null?<FaFileImage size={300} />:<img className='.bookcover-img-blog' src={imageURL} />}
         </div>
         <p className='blogPostAdminDate'>{dateText}</p>
         
