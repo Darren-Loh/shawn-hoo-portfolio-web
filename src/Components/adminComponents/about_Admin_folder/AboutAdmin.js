@@ -1,11 +1,14 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { AiOutlineEdit } from "react-icons/ai";
 import './AboutAdmin.css';
+import editStyles from "../../CSS/edit-style.module.css";
 
 function AboutAdmin() {
   let [oriAboutContent,setOriAboutContent] = useState("");
   let [aboutContent,setAboutContent] = useState("");
   let [isEdit,setIsEdit] = useState(false);
+  let timer = useRef();
   
   useEffect(() => {
       const getPosts = async() => {
@@ -73,38 +76,46 @@ function AboutAdmin() {
     setAboutContent(e.target.value);
   }
 
-// inner styling
-  const bodyStyle = {
-  marginTop: 64,
-  fontWeight: 400,
-  fontSize: '48px',
-  color: '#102851',
-  width: '70%',
-  whiteSpace: "pre-line"
-      }
+  function onDoubleClick() {
+    triggerEdit();
+  }
 
+  function onClickEditTextArea(e) {
+    clearTimeout(timer.current);
+
+    if (e.detail === 2) {
+        onDoubleClick();
+    }
+  }
+
+  
   if(!isEdit){
     return (
-      <div className='aboutAdminContainer'>
-        <p className='contentContainer' style={bodyStyle}>
-        {/* is the author of Of the Florids (Diode Editions, 2022), winner of the 2021 Diode Editions Chapbook Prize. His poetry has been anthologised in New Singapore Poetries (Gaudy Boy, 2022) and Exhale: An Anthology of Queer Singapore Voices (Math Paper Press, 2021) and published in New Delta Review, Queer Southeast Asia, Quarterly Literary Review Singapore, Voice and Verse Poetry Magazine and elsewhere. His Mandarin Chinese to English translations have been published in Journal of Practice, Research and Tangential Activities (PR&TA) and Exchanges: Journal of Literary Translation. He is Translation Tuesdays Editor at Asymptote. Shawn is born and based in Singapore. */}
-        {aboutContent}
-        </p>
-        <button className='editAboutAdminBtn' onClick={triggerEdit}>Edit</button>
+      <div className="about-wrapper-admin">
+        <div className={editStyles.editHeaderWrapper}>
+          <h2 className={editStyles.editHeader}>Description</h2>
+          <button className={editStyles.editHeaderButton} onClick={triggerEdit}><AiOutlineEdit className={editStyles.editIconMediumSize}/></button>
+        </div>
 
+        <div className={editStyles.editContentBorderWrapper} onClick={onClickEditTextArea}>
+          <p className='about-content-admin'>{aboutContent}</p>
+        </div>
       </div>
-
-      
     )
   }
   else{
     return(
-      <div className='aboutAdminEditContainer'>
-        <label htmlFor="editAdminAbout">Description</label>
-        <textarea className='editDescBox' type="text" id="editAdminAbout" name="editAdminAbout" rows="20" cols="50" value={aboutContent} onChange={handleBodyParaChange}/>
-        <div className='bottomBtns'>
-          <button className='editAboutAdminBtn' onClick={cancelEdit}>Cancel</button>
-          <button className='editAboutAdminBtn' onClick={saveEdit}>Save</button>
+      <div className="about-wrapper-admin">
+        <div className={editStyles.editHeaderWrapper}>
+          <h2 className={editStyles.editHeader}>Edit Description</h2>
+          <AiOutlineEdit className={editStyles.editIconMediumSize}/>
+        </div>
+        <div>
+          <textarea className={editStyles.editDescBox} type="text" id="editAdminAbout" name="editAdminAbout" rows="10" value={aboutContent} onChange={handleBodyParaChange}/>
+        </div>
+        <div className={editStyles.btnRow}>
+          <button className={editStyles.editCancelBtn} onClick={cancelEdit}>Cancel</button>
+          <button className={editStyles.editSaveBtn} onClick={saveEdit}>Save</button>
         </div>
       </div>
     )

@@ -1,0 +1,101 @@
+/* overlay styling */
+.popupOverlay {
+    background-color: lightgray;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 90%;
+}
+
+/* popup styling */
+.popupWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.popupWrapperItems {
+    position: fixed;
+    left: calc(50% - 350px); /* half of width */
+    top: calc(40% - 250px); /* half of height */
+    margin-top: 64px;
+    width: 700px;
+    background-color: #F7EEED;
+    padding: 40px 40px 25px 40px;
+    border-radius: 10px;
+}
+
+.popupHeaderLarge {
+    font-family: "Inter";
+    font-size: 36px;
+    font-weight: 700;
+    color: #102851;
+    border: none;
+    margin-bottom: 20px;
+    outline: none;
+    width: 100%;
+    background-color: transparent;
+}
+
+
+.popupMediumHeaderWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 35px;
+    font-family: "Inter";
+    font-size: 18px;
+    font-weight: 700;
+    color: #434343;
+    margin-bottom: 20px;
+}
+
+.popupContentWrapper {
+    margin-bottom: 40px;
+}
+
+.popupContentGridWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 35px;
+    padding-bottom: 20px;
+}
+
+.popupContentInputBox {
+    font-family: "Inter";
+    font-size: 18px;
+    color: #102851;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding-bottom: 5px;
+}
+
+.popupAddItemButtonWrapper {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Inter";
+    font-size: 18px;
+    color: #FF7768;
+    background-color: white;
+    padding: 18px 18px 18px 18px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popupBtnRowCollectionSplitCol {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.popupBtnCollectionStickRight {
+    display: flex;
+    gap: 8px;
+}
+
+.deleteIconSmall {
+    font-size: 25px;
+    color: #EA0354;
+    margin-left: 10px;
+    margin-right: 0px;
+    cursor: pointer;
+}

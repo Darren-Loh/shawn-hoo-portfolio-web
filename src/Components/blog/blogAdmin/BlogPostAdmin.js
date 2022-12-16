@@ -3,6 +3,8 @@ import { AiOutlineEdit } from "react-icons/ai";
 
 import BlogTags from '../BlogTags';
 import BlogTagAdmin from './BlogTagAdmin.js';
+import inputTagStyle from "../../CSS/input-tag-style.module.css";
+import editStyles from "../../CSS/edit-style.module.css";
 
 import {storage} from "../../../firebase.js";
 import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
@@ -70,7 +72,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
 
   function handleHeaderChange(e){
     setHeaderText(e.target.value);
-    
   }
 
   function handleBodyParaChange(e){
@@ -167,15 +168,13 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
     setDateText(recordDate);
     setTagArr(recordTags);
     setAddTagText("");
-}
+  }
 
   function handleAddNewTag(e) {
-    e.preventDefault();
     if (e.key === 'Enter') {
-        // console.log(e.target.value);
-        setTagArr(oldArray => [...oldArray, "qweqwe"]);
-        // setAddTagText("");
-        console.log(tagArr);
+        e.preventDefault();
+        setTagArr(current => [...current, addTagText]);
+        setAddTagText("");
     }
   }
 
@@ -202,10 +201,6 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
           </p>
         <div className='blogPostAdminBtmDiv'>
           <BlogTags recordTags = {tagArr}/>
-
-          {/* <div className='headerBtns'>
-            <button className='blogPostEditBtn' onClick={triggerEditMode}>Edit</button>
-          </div> */}
         </div>
         
       </div>
@@ -215,10 +210,10 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
     return (
       <form className='blogPostEditContainer'>
         <h2 style={{margin: 0}}>Edit Post</h2>
-        <div className='editHeader'>
-            <label className='editBlogPostLabels' htmlFor="editInnerHeader" >Header</label>
-            <input className='editInputs' type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange}></input>
+        <div className={editStyles.editInputBoxWrapper}>
+            <input className={editStyles.editInputBox} type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange} placeholder="Title"></input>
         </div> 
+
         <div className='editImage'>
             {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
             {/* <img className='bookcover-img' src={imageURL} /> */}
@@ -227,46 +222,28 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
                 <button className='internalButtonLeft' onClick={(e)=>uploadImage(e)}>Upload</button>
             </div>
         </div>
-        <div className='editDate'>
-            <label className='editBlogPostLabels' htmlFor="editInnerDate">Date</label>
-            <input className='editInputs' type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange}/>
-          </div>
-      
-        <div className='editTags'>
-          <label className='editBlogPostLabels'>Tags</label>
-          <div className='editTagsWrapper'>
-              <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
-              <input className='blogTagAdminInput' type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
-          </div>
-        </div>
-
         
-        <div className='editPara'>
-          <label className='editBlogPostLabels' htmlFor="editInnerPara">Description</label>
-          <textarea className='editParaBox' type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange}/>
+        <div className={editStyles.editInputBoxWrapper}>
+            <input className={editStyles.editInputBox} type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>
         </div>
-
-        <div className='adminBlogBtmDiv'>
-          {/* <div className='editTags'>
+      
+        <div className={inputTagStyle.inputTextAreaWrapper}>
             <BlogTagAdmin tagArr = {tagArr} setTagArr={setTagArr}/>
-            <div className='addTags'>
-              <input className='blogTagAdmin' type="text" id="addInnerTags" name="addInnerTags" placeholder='add tag here' value={addTagText} onChange={handleAddTagChange}></input>
-              <button className='editInputs blogTag' id='addTagBtn' onClick={addToTagArr}>Add</button>
-            </div>
-          </div> */}
-
-        <div className='adminBlogEditBtnCollection'>
-          <button className='admingBlogCancelBtn' id='cancelButton' type='submit' onClick={onCancel}>
-            Cancel
-          </button>
-          <button className='admingBlogDeleteBtn' id='deleteButton' type='submit' onClick={onDeletePost}>
-            Delete
-          </button>
-          <button className='admingBlogSaveBtn' id='saveButton' type='submit' onClick={onSavePost}>
-            Save
-          </button>
+            <input className={inputTagStyle.inputTextArea} type="text" name="addInnerTags" placeholder='Add tag here' value={addTagText} onChange={handleAddTagChange} onKeyDown={handleAddNewTag}></input>
         </div>
 
+        <div className={editStyles.editTextAreaBoxWrapper}>
+            <textarea className={editStyles.editTextAreaBox} type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/>
+        </div>
+
+        <div className={`${editStyles.btnRow} btnRowCollectionSplitCol`}>
+            <div className='btnCollectionStickLeft'>
+              <button className={editStyles.editCancelBtn} type='submit' onClick={onCancel}>Cancel</button>
+              <button className={editStyles.editSaveBtn} type='submit' onClick={onSavePost} >Save</button>
+            </div>
+            <div>
+              <button className={editStyles.editDeleteBtn} type='submit' onClick={onDeletePost} >Delete</button>
+            </div>
         </div>
 
   </form>

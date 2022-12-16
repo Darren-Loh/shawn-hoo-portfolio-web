@@ -1,0 +1,39 @@
+.saveBtn, .cancelBtn, .deleteBtn, .createMediumBtn {
+    height: 40px;
+    font-weight: 700;
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+    border-color: transparent;
+}
+
+/* when cursor hover over button */
+.saveBtn:hover, .cancelBtn:hover, .deleteBtn:hover, .createMediumBtn:hover {
+    opacity: 50%;
+}
+
+.saveBtn {
+    background-color: #102851;
+    color: white;
+}
+
+.cancelBtn {
+    border-color: #EA0354;
+    background-color: transparent;
+    color: #EA0354;
+}
+
+.deleteBtn {
+    background-color: #EA0354;
+    color: white;
+}
+
+.createMediumBtn {
+    background-color: #102851;
+    color: white;
+    /* overwrite values */
+    height: 60px;
+    font-size: 20px;
+    padding: 10px 20px;
+}

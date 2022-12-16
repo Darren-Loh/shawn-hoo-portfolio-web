@@ -71,9 +71,6 @@
 
   .darkTagAdmin:before, .lightTagAdmin:before{
     display: inline-block;
-    /*content: "\2573"; /* 2A09 2573 00d7 This will render the 'X' */
-    content: "\2715";
-    /* content: "\00d7"; */
   }
 
   .lightTag {
@@ -140,6 +137,7 @@
     gap: 19px;
     margin-bottom: 50px;
     margin-top: 20px;
+    height: calc(100vh - 64px);
 }
 .editHeader, .editPara, .editDate .editTags {
     display: flex;
@@ -267,10 +265,9 @@
   opacity: 100%;
 }
 
-.editTagsWrapper {
+.btnRowCollectionSplitCol {
   display: flex;
-  border: 2px solid #102851;
-  padding: 10px 10px;
+  justify-content: space-between;
 }
 
 .blogTagAdminInput {
@@ -289,14 +286,20 @@
   outline: none;
 }
 
+.btnCollectionStickLeft {
+  display: flex;
+  gap: 8px;
+}
+
 @media (max-width: 480px) {
-  /* .blogTagContainer{
+  .blogTagContainer{
     display: flex;
     width: 60vw;
     gap: 12px;
-  } */
+  }
 
   .blogTag {
     font-size: 8px;
   }
 }
+

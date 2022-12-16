@@ -1,0 +1,132 @@
+.editHeaderWrapper {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.editHeader {
+    padding-right: 5px;
+}
+
+.editHeaderButton {
+    font-weight: 700;
+    padding: 0px;
+    font-size: 25px;
+    margin: 0px;
+    background-color: transparent;
+    color:  #00b4d8;
+    border-style: none;
+    text-align: left;
+    width: fit-content;
+}
+
+.editContentBorderWrapper {
+    border: 4px dashed #F7EEED;
+    border-radius: 5px;
+    padding: 10px 25px;
+}
+
+.editContentBorderWrapper:hover {
+    border-color: #0E52CF;
+    cursor: text;
+    opacity: 65%;
+}
+
+.editIconMediumSize {
+    vertical-align: middle;
+    font-size: 35px;
+    color: #00b4d8;
+    cursor: pointer;
+}
+
+.editDescBox {
+    border-color: transparent;
+    border-radius: 5px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 24px;
+    width: 100%;
+    padding: 10px 25px 0px 25px;
+    background-color: #f8f9fa;
+    color: #102851;
+}
+
+.editDescBox:hover {
+    border-color: #0E52CF;
+}
+
+.btnRow {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.editSaveBtn, .editCancelBtn, .editDeleteBtn {
+    height: 50px;
+    width: 100px;
+    font-weight: 700;
+    padding: 5px 0px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 0px;
+    border-color: transparent;
+}
+
+.editSaveBtn {
+    background-color: #102851;
+    color: white;
+}
+
+.editCancelBtn {
+    border-color: #EA0354;
+    background-color: transparent;
+    color: #EA0354;
+}
+
+.editDeleteBtn {
+    background-color: #EA0354;
+    color: white;
+}
+
+.editInputBoxWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+}
+
+.editInputBoxWrapper:hover {
+    border-color: #0E52CF;
+}
+
+.editInputBox {
+    height: 50px;
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    color: #102851;
+    padding: 0px 20px;
+    border: none;
+    outline: none;
+}
+
+.editTextAreaBoxWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+}
+
+.editTextAreaBox {
+    font-family: 'Newsreader';
+    font-weight: normal;
+    font-size: 20px;
+    color: #102851;
+    padding: 20px 20px;
+    border: none;
+    outline: none;
+}
+
+.editTextAreaBoxWrapper:hover {
+    border-color: #0E52CF;
+}

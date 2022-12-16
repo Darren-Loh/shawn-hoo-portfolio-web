@@ -1,53 +1,26 @@
-.aboutAdminContainer{
-    display: flex;
-    flex-direction: column;
-    padding-top: 40px;
-}
-
-.aboutAdminEditContainer{
-    display: flex;
-    flex-direction: column;
+.about-wrapper-admin {
     margin-top: 64px;
-    padding-top: 20px;
-    gap: 8px;
-    font-size: 64px;
+    padding-top: 40px;
     color: #102851;
+    width: 70%;
+    margin-bottom: 50px;
 }
 
-.bottomBtns{
-    display: flex;
-    gap: 8px;
-}
-
-.editAboutAdminBtn{
-    width: 100px;
+.about-edit-header-admin{
     font-weight: 700;
-    padding: 5px 0px;
-    font-size: 16px;
-    border-radius: 2px;
+    padding: 0px;
+    font-size: 25px;
     margin: 0px;
-    background-color: #D9D9D9;
-    color:  #102851;
+    background-color: transparent;
+    color:  #00b4d8;
     border-style: none;
+    text-align: left;
 }
 
-.editDescBox{
-    border-color: #102851;
-    border-width: 2px;
-    border-radius: 2px;
-    font-family: 'Newsreader';
-    font-weight: normal;
+.about-content-admin {
+    font-weight: 400px;
     font-size: 48px;
-    padding: 5px 10px;
-    /* white-space: pre-line; */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: pre-line;
 }
-
-/* click stlying */
-.editAboutAdminBtn:hover{
-    opacity: 50%;
-    cursor: pointer;
-  }
-  
-  .editAboutAdminBtn:active{
-    opacity: 100%;
-  }

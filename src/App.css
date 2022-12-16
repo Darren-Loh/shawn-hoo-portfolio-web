@@ -48,6 +48,7 @@ button {
   margin-bottom: 10px;
   color: #FFFFFF;
   background-color: #102851;
+  cursor: pointer;
 }
 
 .nav-bar {
@@ -62,6 +63,8 @@ button {
   z-index: 100;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .nav-logo .logo {
@@ -168,4 +171,37 @@ a:hover, .nav-links .active  {
   padding-left: 5vw;
   padding-top: 8px;
   padding-bottom: 8px;
+  background-color: white;
+}
+
+
+/* admin nav bar styling - web view */
+.nav-bar-admin {
+  background-color: #102851;
+}
+
+.nav-logo-admin .logo {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 48px;
+  text-decoration: none;
+  color: #f7eeed;
+}
+
+.admin-link:link, .admin-link:visited {
+  list-style: none;
+  text-decoration: none;
+  color: #f7eeed;
+}
+
+.admin-link:hover, .nav-links .active  {
+  color: #EA0354;
+  text-decoration: underline;
+}
+
+.logout-button {
+  color: #EA0354;;
+  border: none;
+  padding: 0;
+  margin: 0;
 }

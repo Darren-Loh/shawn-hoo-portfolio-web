@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { MdCancel } from "react-icons/md";
+
+import inputTagStyle from "../../CSS/input-tag-style.module.css";
 //component for blogtags to be used in a singular blogpost
 
 function BlogTagAdmin({tagArr, setTagArr}) {
@@ -9,9 +12,10 @@ function BlogTagAdmin({tagArr, setTagArr}) {
     }
     
   return (
-    <div className='blogTagContainer'>
+    // 'blogTagContainer'
+    <div className={inputTagStyle.inputTagWrapper}>
       {/* {renderContainer} */}
-      {tagArr.map((tag,index) => <div className={`blogTag ${index%2===0? "darkTagAdmin": "lightTagAdmin"}`} key = {index} idx = {index} onClick={()=>removeTag(index)}>{tag}</div>)}
+      {tagArr.map((tag,index) => <div className={inputTagStyle.inputTag} key = {index} idx = {index}>{tag}<MdCancel className={inputTagStyle.cancelIcon} onClick={()=>removeTag(index)}/></div>)}
     </div>
   )
 }

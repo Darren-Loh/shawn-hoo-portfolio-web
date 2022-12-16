@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import PublicationsTypeAdmin from './PublicationsTypeAdmin'
+import { IoIosCreate } from "react-icons/io";
+
+import PublicationsTypeAdmin from './PublicationsTypeAdmin';
 import './PublicationsAdmin.css';
+import buttonStyle from "../../CSS/button-style.module.css";
 
 function PublicationsPageAdmin() {
     // have 1 overall map
@@ -93,26 +96,30 @@ function PublicationsPageAdmin() {
     //----------------------database stuff------------------------------------------------
 
     return (
-        <div style={containerStyle}>
-            <div style={columnContainerStyle}>
-                {arrAll && arrAll.filter((cat,idx) => idx%3===0).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} instanceID = {cat.id} setArrAll={setArrAll}/>)}
+        <div>
+            <div className='publicationNewCatBtnWrapper'>
+                <button className={buttonStyle.createMediumBtn} onClick={addNewCategory}>Create category<IoIosCreate className="publicationSmallBtnIcon"/></button>
             </div>
+            
+            <div style={containerStyle}>
+                <div style={columnContainerStyle}>
+                    {arrAll && arrAll.filter((cat,idx) => idx%3===0).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} instanceID = {cat.id} setArrAll={setArrAll}/>)}
+                </div>
 
-            <div style={columnContainerStyle}>
-                {arrAll && arrAll.filter((cat,idx) => idx%3===1).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} setArrAll={setArrAll}/>)}
-            </div>
+                <div style={columnContainerStyle}>
+                    {arrAll && arrAll.filter((cat,idx) => idx%3===1).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} setArrAll={setArrAll}/>)}
+                </div>
 
-            <div style={columnContainerStyle}>
-                {arrAll && arrAll.filter((cat,idx) => idx%3===2).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} setArrAll={setArrAll}/>)}
+                <div style={columnContainerStyle}>
+                    {arrAll && arrAll.filter((cat,idx) => idx%3===2).map((cat) => <PublicationsTypeAdmin key = {cat.id} title={cat.category[0]} publications={cat.category[1]} setArrAll={setArrAll}/>)}
+                </div>
             </div>
-            <button className='publicationNewCat' onClick={addNewCategory}>Create new category</button>
         </div>
     )
 }
 const containerStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    marginTop: 64,
     paddingTop: 20,
   }
   
