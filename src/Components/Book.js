@@ -30,6 +30,7 @@ function Book() {
 
 
             <div>
+
                 <div className='main-body-top'>
                     <div className='body-col-left'>
                         <img className='bookcover-img' src={BookCover} />
