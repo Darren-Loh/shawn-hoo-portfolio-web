@@ -61,7 +61,7 @@ function BlogPost({instanceID, imageUrl, recordHeader, bodyPara, recordDate, rec
     <div className='blogPostContainer'>
       <h2 className='blogPostHeader'>{recordHeader}</h2>
       <div className='editImage'>
-            {imageUrl==null?<FaFileImage size={300} />:<img className='.bookcover-img-blog' src={imageUrl} />}
+            {imageUrl==null?<FaFileImage size={300} />:<img className='bookcover-img-blog' src={imageUrl} />}
         </div>
       <p className='blogPostDate'>{recordDate}</p>
       
