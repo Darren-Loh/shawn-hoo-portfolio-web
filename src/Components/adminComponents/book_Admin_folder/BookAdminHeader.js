@@ -10,10 +10,10 @@ import buttonStyle from "../../CSS/button-style.module.css";
 
 function BookAdminHeader({bookAll, setBookAll}) {
     let [isEdit,setIsEdit] = useState(false);
-    let [titleText,setTitleText] = useState("New Title");
-    let [editionText,setEditionText] = useState("Edition Number");
-    let [awardsText,setAwardsText] = useState("Awards Text");
-    let [descText,setDescText] = useState("Book Description");
+    let [titleText,setTitleText] = useState("");
+    let [editionText,setEditionText] = useState("");
+    let [awardsText,setAwardsText] = useState("");
+    let [descText,setDescText] = useState("");
     let [reviewsArr,setReviewsArr] = useState([]);
     let [interviewsArr,setInterviewsArr] = useState([]);
 
