@@ -1,8 +1,7 @@
-import React, { useState, useEffect, Component } from 'react';
-import BookCover from '../../../assets/book-cover_of-the-florids.png';
+import React, { useState } from 'react';
 import './BookAdmin.css';
 import {storage} from "../../../firebase.js";
-import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
+import {ref,uploadBytes, getDownloadURL, deleteObject} from "firebase/storage";
 import {v4} from 'uuid';
 import {FaFileImage} from "react-icons/fa";
 import editStyles from "../../CSS/edit-style.module.css";
