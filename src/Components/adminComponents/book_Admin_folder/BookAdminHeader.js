@@ -263,7 +263,7 @@ function BookAdminHeader({bookAll, setBookAll}) {
             <div>
                 <div className='main-body-top'>
                     <div className='body-col-left'>
-                        {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
+                        {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} alt="bookcover" />}
                         <div className='col-left-btn-collection'>
                             <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
                         </div>
