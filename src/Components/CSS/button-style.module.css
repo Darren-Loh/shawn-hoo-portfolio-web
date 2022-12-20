@@ -1,4 +1,4 @@
-.saveBtn, .cancelBtn, .deleteBtn, .createMediumBtn {
+.saveBtn, .cancelBtn, .deleteBtn, .createMediumBtn, .addBtn {
     height: 40px;
     font-weight: 700;
     padding: 5px 20px;
@@ -9,7 +9,7 @@
 }
 
 /* when cursor hover over button */
-.saveBtn:hover, .cancelBtn:hover, .deleteBtn:hover, .createMediumBtn:hover {
+.saveBtn:hover, .cancelBtn:hover, .deleteBtn:hover, .createMediumBtn:hover, .addBtn:hover {
     opacity: 50%;
 }
 
@@ -27,6 +27,12 @@
 .deleteBtn {
     background-color: #EA0354;
     color: white;
+}
+
+.addBtn {
+    border-color: #102851;
+    background-color: transparent;
+    color: #102851;
 }
 
 .createMediumBtn {

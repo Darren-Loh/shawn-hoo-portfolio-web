@@ -5,6 +5,8 @@ import {storage} from "../../../firebase.js";
 import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
 import {v4} from 'uuid';
 import {FaFileImage} from "react-icons/fa";
+import editStyles from "../../CSS/edit-style.module.css";
+import buttonStyle from "../../CSS/button-style.module.css";
 
 function BookAdminHeader({bookAll, setBookAll}) {
     let [isEdit,setIsEdit] = useState(false);
@@ -141,16 +143,21 @@ function BookAdminHeader({bookAll, setBookAll}) {
 
     function cancelButton(){
         // updatePost(book.id);
-        deleteFromFirebase(imageURL);
-        setImageURL(null);
-        setTitleText("");
-        setEditionText("");
-        setAwardsText("");
-        setDescText("");
-        setReviewsArr([]);
-        setInterviewsArr([]);
-        setIsEdit(false);
-        
+        try {
+            deleteFromFirebase(imageURL);
+            setImageURL(null);
+            setTitleText("");
+            setEditionText("");
+            setAwardsText("");
+            setDescText("");
+            setReviewsArr([]);
+            setInterviewsArr([]);
+            setIsEdit(false);
+        }
+        catch (e) {
+            console.log(e);
+        }
+
     }
 
     // function deleteBookButton(){
@@ -245,9 +252,9 @@ function BookAdminHeader({bookAll, setBookAll}) {
     //return here 
     if(!isEdit){
         return (
-            <div className='addNewBook'onClick={triggerEdit}>
+            <div className='addNewBook' onClick={triggerEdit}>
               {/* <div className='circle plus'></div> */}
-              Create a new post
+              Add a new book
             </div>
           )
     }
@@ -258,26 +265,44 @@ function BookAdminHeader({bookAll, setBookAll}) {
                 <div className='main-body-top'>
                     <div className='body-col-left'>
                         {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
-                        {/* <img className='bookcover-img' src={imageURL} /> */}
                         <div className='col-left-btn-collection'>
                             <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
-                            <button className='internalButtonLeft' onClick={uploadImage}>Upload</button>
+                        </div>
+                        <div style={{display: 'flex', width: 'fit-content'}}>
+                            <button className={buttonStyle.saveBtn} onClick={uploadImage}>Upload</button>
                         </div>
                     </div>
                     <div className='body-col-right'>
-                        <input type="text" id="editBookHeader" name="editBookHeader" className='editBookTitle' value={titleText} onChange={handleTitleChange}></input>
-                        <input type="text" id="editBookEdition" name="editBookEdition" className='main-text publisher editPara' value={editionText} onChange={handleEditionChange}></input>
-                        <textarea className='main-text awards editPara' type="text" id="editBookAwards" name="editBookAwards" rows="5" cols="75" value={awardsText} onChange={handleAwardsChange}/>
-                        <textarea className='main-text short-text editPara' type="text" id="editBookDescription" name="editBookDescription" rows="10" cols="75" value={descText} onChange={handleDescChange}/>
+                        <div className={editStyles.editInputBoxWrapper} style={{marginBottom: 10}}>
+                            <input type="text" id="editBookHeader" name="editBookHeader" className={`editBookTitle ${editStyles.editInputBox}`} value={titleText} onChange={handleTitleChange} style={{height: 'auto'}} placeholder='Title'></input>
+                        </div>
+                        <div className={editStyles.editInputBoxWrapper} style={{marginBottom: 10}}>
+                            <input type="text" id="editBookEdition" name="editBookEdition" className={`main-text publisher editPara ${editStyles.editInputBox}`} value={editionText} onChange={handleEditionChange} placeholder='Add book edition'></input>
+                        </div>
+
+                        <div className={editStyles.editTextAreaBoxWrapper} style={{marginBottom: 10}}>
+                            <textarea className={`main-text awards editPara ${editStyles.editTextAreaBox}`} type="text" id="editBookAwards" name="editBookAwards" rows="3" cols="75" value={awardsText} onChange={handleAwardsChange} placeholder='Add awards'/>
+                        </div>
+                        
+                        <div className={editStyles.editTextAreaBoxWrapper} style={{marginBottom: 10}}>
+                            <textarea className={`main-text short-text editPara ${editStyles.editTextAreaBox}`} type="text" id="editBookDescription" name="editBookDescription" rows="8" cols="75" value={descText} onChange={handleDescChange} placeholder='Add short description of the book'/>
+                        </div>
+                        
                         <div>
                             <p style={{fontFamily: 'Inter'}}>Purchase a copy from:</p>
-                            <button>EPIGRAM BOOKS</button>
-                            <button style={{marginBottom: 0}}>DIODE EDITIONS</button>
+                            <button style={{opacity: 0.5, cursor: 'default'}}>EPIGRAM BOOKS</button>
+                            <button style={{marginBottom: 0, opacity: 0.5, cursor: 'default'}}>DIODE EDITIONS</button>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 className='h2-header'>Reviews</h2>
+                    <div className='headerWrapper' style={{marginBottom: 20}}>
+                        <h2 className='h2-header'>Reviews</h2>
+                        <div className='button-right-align'>
+                            <button className={buttonStyle.addBtn} style={{width: 'fit-content'}} onClick={addNewReview}>Add New Review</button>
+                        </div>
+                    </div>
+
                     {reviewsArr.map((review) => 
                     <div key={review[0]}>
                         <p className='text'>
@@ -290,9 +315,14 @@ function BookAdminHeader({bookAll, setBookAll}) {
                         
                     </div> 
                     )}
-                    <button onClick={addNewReview}>Add New Review</button>
                     
-                    <h2 className='h2-header'>Interviews</h2>
+                    <div className='headerWrapper' style={{marginBottom: 20}}>
+                        <h2 className='h2-header'>Interviews</h2>
+                        <div className='button-right-align'>
+                            <button className={buttonStyle.addBtn} style={{width: 'fit-content'}} onClick={addNewInterview}>Add New Interview</button>
+                        </div>
+                    </div>
+
                     {interviewsArr.map((interview) => 
                     <div key={interview[0]}>
                         <p className='text'>
@@ -305,12 +335,13 @@ function BookAdminHeader({bookAll, setBookAll}) {
                         
                     </div> 
                     )}
-                    <button onClick={addNewInterview}>Add New Interview</button>
-                    <div className='innerBookBtnCollection'>
-                        <button className='internalButton' onClick={cancelButton}>Cancel</button>
-                        <button className='internalButton' onClick={saveButton}>Publish</button>
-                    </div>
 
+                    <div className={`${editStyles.btnRow} btnRowCollectionSplitCol`}>
+                        <div className='btnCollectionStickLeft'>
+                            <button className={buttonStyle.cancelBtn} onClick={cancelButton}>Cancel</button>
+                            <button className={buttonStyle.saveBtn} onClick={saveButton}>Publish</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

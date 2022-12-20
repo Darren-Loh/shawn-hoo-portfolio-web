@@ -77,7 +77,8 @@
 }
 
 .h2-header {
-    padding-top: 60px;
+    margin: 0;
+    padding: 0;
 }
 
 .editBookTitle{
@@ -149,6 +150,7 @@
     border-style: none;
     margin-top: 8px;
     margin-bottom: 8px;
+    border-radius: 5px;
   }
 
   .fileInputBook{
@@ -170,6 +172,62 @@
   .addNewBook:active{
     opacity: 100%;
   }
+
+.bookcover-small-img {
+    height: 300px;
+}
+
+.grid-3-column-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 20px 200px 20px 100px;
+    margin-bottom: 15px;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteMediumIcon {
+    font-size: 35px;
+    color: #EA0354;
+    cursor: pointer;
+}
+
+.btnRowCollectionSplitCol {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnCollectionStickLeft {
+    display: flex;
+    gap: 8px;
+}
+
+.addMediumIcon {
+    font-size: 35px;
+    color: #EA0354;
+    cursor: pointer;
+}
+
+.headerWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+.bookEditBtn{
+    width: 50px;
+    font-weight: 700;
+    padding: 0px;
+    font-size: 35px;
+    margin: 0px;
+    background-color: transparent;
+    color:  #00b4d8;
+    border-style: none;
+}
+
 
 @media (max-width: 480px) {
     .main-body-top {
