@@ -19,6 +19,7 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
     //firebase values
     let [imageUpload,setImageUpload] = useState(null);
     let [imageURL, setImageURL] = useState(null);
+    let [imageChanged, setImageChanged] = useState(false);
 
 
     //----------------------firebase stuff------------------------------------------------
@@ -40,6 +41,7 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                 setImageURL(innerUrl);
             });
             alert("Image Successfully Uploaded!");
+            setImageChanged(true);
             
         });
 
@@ -113,9 +115,10 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
 
       let onCancel = (e) => {
         e.preventDefault();
-        if(imageURL!=null){
+        if(imageURL!=null && imageChanged === false){
             deleteFromFirebase(imageURL);
         }
+        setImageChanged(false);
         setTriggerAddPost(false);
         resetAllText();
         

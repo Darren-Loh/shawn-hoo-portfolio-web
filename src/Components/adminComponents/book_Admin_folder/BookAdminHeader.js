@@ -18,7 +18,7 @@ function BookAdminHeader({bookAll, setBookAll}) {
     //firebase values
     let [imageUpload,setImageUpload] = useState(null);
     let [imageURL, setImageURL] = useState(null);
-
+    let [imageChanged, setImageChanged] = useState(false);
 
     //----------------------firebase stuff------------------------------------------------
     const uploadImage = () => {
@@ -36,6 +36,7 @@ function BookAdminHeader({bookAll, setBookAll}) {
                 setImageURL(innerUrl);
             });
             alert("Image Successfully Uploaded!");
+            setImageChanged(true);
         });
 
     };
@@ -141,7 +142,10 @@ function BookAdminHeader({bookAll, setBookAll}) {
 
     function cancelButton(){
         // updatePost(book.id);
-        deleteFromFirebase(imageURL);
+        if(imageChanged){
+            deleteFromFirebase(imageURL);
+        }
+        setImageChanged(false);
         setImageURL(null);
         setTitleText("");
         setEditionText("");
@@ -152,14 +156,6 @@ function BookAdminHeader({bookAll, setBookAll}) {
         setIsEdit(false);
         
     }
-
-    // function deleteBookButton(){
-    //     if(imageURL!=null){
-    //         deleteFromFirebase(imageURL);
-    //     }
-    //     deleteServerPost(book.id);
-    //     setBookAll(current => current.filter((innerItem)=> innerItem.id!==book.id));
-    // }
 
     function addNewReview(){
         let newID = reviewsArr[reviewsArr.length-1][0]+1;
