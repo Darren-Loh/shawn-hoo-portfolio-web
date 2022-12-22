@@ -34,7 +34,7 @@ root.render(
       <Auth0Provider
         domain={process.env.REACT_APP_AUTH0_DOMAIN}
         clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-        redirectUri={"http://localhost:3000/admin"}
+        redirectUri={"https://shawn-hoo-portfolio-server.onrender.com//admin"}
         scope={'openid'}
         audience={'shawnHooExpressBackend'}
         // redirectUri={window.location.href}
