@@ -183,14 +183,14 @@ function BookAdminHeader({bookAll, setBookAll}) {
 
       //----------------------database stuff------------------------------------------------
   const fetchPost = async(instanceID) => {
-    const res = await fetch(`http://localhost:5000/books/${instanceID}`);
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/books/${instanceID}`);
     const data = await res.json();
 
     return data;
   }
 
   const deleteServerPost = async (id) => {
-    await fetch(`http://localhost:5000/books/${id}`,{
+    await fetch(`https://shawn-hoo-portfolio-server.onrender.com/books/${id}`,{
       method: 'DELETE',
     });
 
@@ -211,7 +211,7 @@ function BookAdminHeader({bookAll, setBookAll}) {
       "interviews": interviewsArr
     }
 
-    const res = await fetch(`http://localhost:5000/books/${instanceID}`, {
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/books/${instanceID}`, {
       method:'PUT',
       headers:{
         'Content-type': 'application/json'
@@ -223,7 +223,7 @@ function BookAdminHeader({bookAll, setBookAll}) {
   }
 
   const addPostFunction = async (post) => {
-    const res = await fetch('http://localhost:5000/books', {
+    const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/books', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',

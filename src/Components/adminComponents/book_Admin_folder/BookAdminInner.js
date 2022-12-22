@@ -188,14 +188,14 @@ function BookAdminInner({book, setBookAll}) {
 
       //----------------------database stuff------------------------------------------------
   const fetchPost = async(instanceID) => {
-    const res = await fetch(`http://localhost:5000/books/${instanceID}`);
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/books/${instanceID}`);
     const data = await res.json();
 
     return data;
   }
 
   const deleteServerPost = async (id) => {
-    await fetch(`http://localhost:5000/books/${id}`,{
+    await fetch(`https://shawn-hoo-portfolio-server.onrender.com/books/${id}`,{
       method: 'DELETE',
     });
 
@@ -216,7 +216,7 @@ function BookAdminInner({book, setBookAll}) {
       "interviews": interviewsArr
     }
 
-    const res = await fetch(`http://localhost:5000/books/${instanceID}`, {
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/books/${instanceID}`, {
       method:'PUT',
       headers:{
         'Content-type': 'application/json'

@@ -21,7 +21,7 @@ function BlogPageAdmin() {
 
   // Fetch blogPosts from backend
   const fetchPosts = async() => {
-    const res = await fetch('http://localhost:5000/blogPosts');
+    const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/blogPosts');
     const data = await res.json();
 
     return data;

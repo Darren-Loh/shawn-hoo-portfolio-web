@@ -94,14 +94,14 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
 
   //----------------------database stuff------------------------------------------------
   const fetchPost = async(instanceID) => {
-    const res = await fetch(`http://localhost:5000/blogPosts/${instanceID}`);
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/blogPosts/${instanceID}`);
     const data = await res.json();
 
     return data;
   }
 
   const deleteServerPost = async (id) => {
-    await fetch(`http://localhost:5000/blogPosts/${id}`,{
+    await fetch(`https://shawn-hoo-portfolio-server.onrender.com/blogPosts/${id}`,{
       method: 'DELETE',
     });
 
@@ -120,7 +120,7 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
       "tags": tagArr
     }
 
-    const res = await fetch(`http://localhost:5000/blogPosts/${instanceID}`, {
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/blogPosts/${instanceID}`, {
       method:'PUT',
       headers:{
         'Content-type': 'application/json'

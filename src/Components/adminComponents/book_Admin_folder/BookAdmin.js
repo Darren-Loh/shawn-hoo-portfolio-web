@@ -22,7 +22,7 @@ function BookAdmin() {
 
     //----------------------database stuff------------------------------------------------
     const fetchPosts = async() => {
-        const res = await fetch('http://localhost:5000/books');
+        const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/books');
         const data = await res.json();
         return data;
     }

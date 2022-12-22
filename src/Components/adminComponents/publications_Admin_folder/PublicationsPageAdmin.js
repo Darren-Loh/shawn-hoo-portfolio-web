@@ -46,19 +46,19 @@ function PublicationsPageAdmin() {
 
     //----------------------database stuff------------------------------------------------
     const fetchPosts = async() => {
-        const res = await fetch('http://localhost:5000/publications');
+        const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/publications');
         const data = await res.json();
         return data;
     }
     const fetchPost = async(instanceID) => {
-        const res = await fetch(`http://localhost:5000/publications/${instanceID}`);
+        const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/publications/${instanceID}`);
         const data = await res.json();
     
         return data;
     }
 
     const addPostFunction = async (post) => {
-        const res = await fetch('http://localhost:5000/publications', {
+        const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/publications', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -82,7 +82,7 @@ function PublicationsPageAdmin() {
         // "tags": tagArr
         }
     
-        const res = await fetch(`http://localhost:5000/publications/${instanceID}`, {
+        const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/publications/${instanceID}`, {
         method:'PUT',
         headers:{
             'Content-type': 'application/json'

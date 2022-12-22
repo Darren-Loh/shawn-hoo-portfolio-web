@@ -28,13 +28,13 @@ function ContactAdminLeft() {
 
 //----------------------database stuff------------------------------------------------
   const fetchPosts = async() => {
-    const res = await fetch('http://localhost:5000/contact');
+    const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/contact');
     const data = await res.json();
     return data;
   }
 
   const fetchPost = async() => {
-    const res = await fetch(`http://localhost:5000/contact/0`);
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/contact/0`);
     const data = await res.json();
 
     return data;
@@ -47,7 +47,7 @@ function ContactAdminLeft() {
       "content": contactContent
     }
 
-    const res = await fetch(`http://localhost:5000/contact/0`, {
+    const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/contact/0`, {
       method:'PUT',
       headers:{
         'Content-type': 'application/json'

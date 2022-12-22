@@ -25,13 +25,13 @@ function AboutAdmin() {
 
   //----------------------database stuff------------------------------------------------
     const fetchPosts = async() => {
-      const res = await fetch('http://localhost:5000/about');
+      const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/about');
       const data = await res.json();
       return data;
     }
 
     const fetchPost = async() => {
-      const res = await fetch(`http://localhost:5000/about/0`);
+      const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/about/0`);
       const data = await res.json();
 
       return data;
@@ -44,7 +44,7 @@ function AboutAdmin() {
         "content": aboutContent
       }
 
-      const res = await fetch(`http://localhost:5000/about/0`, {
+      const res = await fetch(`https://shawn-hoo-portfolio-server.onrender.com/about/0`, {
         method:'PUT',
         headers:{
           'Content-type': 'application/json'

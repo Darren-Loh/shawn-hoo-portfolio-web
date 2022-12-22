@@ -19,7 +19,7 @@ function ContactPageLeft() {
 
 //----------------------database stuff------------------------------------------------
   const fetchPosts = async() => {
-    const res = await fetch('http://localhost:5000/contact');
+    const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/contact');
     const data = await res.json();
     return data;
   }

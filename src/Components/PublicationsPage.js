@@ -27,7 +27,7 @@ const PublicationsPage = () => {
 
 //----------------------database stuff------------------------------------------------
   const fetchPosts = async() => {
-    const res = await fetch('http://localhost:5000/publications');
+    const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/publications');
     const data = await res.json();
     return data;
   }
