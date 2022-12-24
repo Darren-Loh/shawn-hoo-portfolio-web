@@ -1,0 +1,148 @@
+.book-page-cover-wrapper {
+    margin-top: 64px;
+    padding-top: 40px;
+    display: flex;
+    background-color: darkgoldenrod;
+}
+
+.book-page-cover-wrapper__left-col {
+    flex-basis: 50%;
+}
+
+.book-page-cover-wrapper__left-col img {
+    max-width: 380px;
+    padding-left: 60px;
+}
+
+.book-page-cover-wrapper__right-col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.book-page-cover-wrapper__right-col h1 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-style: italic;
+    margin: 0;
+}
+
+.book-page-cover-wrapper__right-col p {
+    font-weight: 700;
+    white-space: pre-line;
+}
+
+.book-page-cover-wrapper__right-col-publisher {
+    margin-top: 0px;
+}
+
+.book-page-cover-wrapper__right-col-awards {
+    margin: 0px;
+}
+
+.book-page-cover-wrapper__right-col-short-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.book-page-body-wrapper {
+    width: 100%;
+    background-color: red;
+}
+
+
+/* old code */
+.main-body-top {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    margin-top: 64px;
+    padding-top: 40px;
+    /* height: 60%; */
+    margin-left: 60px;
+    margin-right: 60px;
+    background-color: darkgoldenrod;
+}
+
+.body-col-left {
+    display: flex;
+    /* position: relative; */
+    /* display: block; */
+    width: 50%;
+    background-color: blue;
+}
+
+.body-col-left div {
+    width: 450px;
+}
+
+.bookcover-img {
+    /* height: 100%; */
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    max-height: 500px;
+    height: 75vh !important;
+}
+
+.bookcover-img-blog {
+    height: 75vh !important;
+}
+
+.body-col-right {
+    /* height: 80vh !important; */
+    /* background-color: blue; */
+}
+
+.body-col-right h1 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-style: italic;
+    margin: 0;
+}
+
+
+
+.body-col-right h2 {
+    font-family: 'Inter';
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.text {
+    font-weight: 400;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.reviews-signoff-name {
+    font-weight: 700;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.h2-header {
+    padding-top: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+@media (max-width: 480px) {
+    .main-body-top {
+        display: flex;
+        flex-direction: column;
+        margin-top: 32px;
+        height: 60%;
+    }
+
+    .bookcover-img {
+        width: 80%;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    button {
+        height: 60px;
+    }
+}

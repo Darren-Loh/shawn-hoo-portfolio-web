@@ -3,11 +3,13 @@
     padding-top: 20px;
 }
 .main-body-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    /* display: block; */
     margin-top: 64px;
     padding-top: 40px;
-    height: 60%;
+    /* height: 60%; */
+    background-color: red;
 }
 
 .body-col-left {
@@ -27,6 +29,7 @@
 
 .body-col-right {
     height: 100%;
+    background-color: green;
 }
 
 .body-col-right h1 {

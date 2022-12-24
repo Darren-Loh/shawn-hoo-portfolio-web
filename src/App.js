@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import './App.css';
 import About from './Components/About.js';
-import Book from './Components/Book.js';
+import BookPage from './Components/BookPage.js';
 import BlogPage from './Components/blog/BlogPage.js';
 import ContactPage from './Components/contact/ContactPage.js';
 import HomePage from './Components/HomePage.js';
@@ -105,7 +105,7 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/about' element={<About />} />
-            <Route path='/books' element={<Book />} />
+            <Route path='/books' element={<BookPage />} />
             <Route path='/blog' element={<BlogPage />} />
             <Route path='/contact' element={<ContactPage />} />
             <Route path='/publications' element={<PublicationsPage />} />
