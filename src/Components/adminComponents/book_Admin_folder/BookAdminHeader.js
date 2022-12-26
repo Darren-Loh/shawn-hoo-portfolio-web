@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './BookAdmin.css';
+import './BookAdmin.css';
 import {storage} from "../../../firebase.js";
 import {ref,uploadBytes, getDownloadURL, deleteObject} from "firebase/storage";
 import {v4} from 'uuid';
@@ -261,9 +261,10 @@ function BookAdminHeader({bookAll, setBookAll}) {
     else{
         return (
             <div>
-                <div className='main-body-top'>
-                    <div className='body-col-left'>
-                        {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-small-img' src={imageURL} alt="bookcover" />}
+                <div className='main-body-top' style={{marginTop: 0, paddingTop: 20}}>
+                    <h2>Add a New Book</h2>
+                    <div className='body-col-left' style={{paddingBottom: 20}}>
+                        {imageURL==null?<FaFileImage size={150} color={'darkgrey'} />:<img className='bookcover-small-img' src={imageURL} alt="bookcover" />}
                         <div className='col-left-btn-collection'>
                             <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
                         </div>

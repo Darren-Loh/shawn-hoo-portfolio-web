@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './BookAdmin.css';
+import './BookAdmin.css';
 import {storage} from "../../../firebase.js";
 import {ref,uploadBytes, getDownloadURL, deleteObject} from "firebase/storage";
 import {v4} from 'uuid';
@@ -237,12 +237,11 @@ function BookAdminInner({book, setBookAll}) {
     if(!isEdit){
         return (
             <div>
-                <div className='main-body-top'>
-                    <div className='body-col-left'>
-                        {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} alt="bookcover" />}
-                        
+                <div className='book-page-cover-wrapper'>
+                    <div className='book-page-cover-wrapper__left-col'>
+                        {imageURL==null?<FaFileImage size={150} color={'darkgrey'} />:<img className='bookcover-img' src={imageURL} alt="bookcover" />}
                     </div>
-                    <div className='body-col-right'>
+                    <div className='book-page-cover-wrapper__right-col'>
                         <div className='headerContainer'>
                             <h1>{titleText}</h1>
                             <div className='headerBtns'>
@@ -251,9 +250,9 @@ function BookAdminInner({book, setBookAll}) {
                                 </button>
                             </div>
                         </div>
-                        <p className='main-text publisher'>{editionText}</p>
-                        <p className='main-text awards'>{awardsText}</p>
-                        <p className='main-text short-text'>{descText}</p>
+                        <p className='book-page-cover-wrapper__right-col-publisher'>{editionText}</p>
+                        <p className='book-page-cover-wrapper__right-col-awards'>{awardsText}</p>
+                        <p className='book-page-cover-wrapper__right-col-short-text'>{descText}</p>
                         <div>
                             <p style={{fontFamily: 'Inter'}}>Purchase a copy from:</p>
                             <button>EPIGRAM BOOKS</button>
@@ -261,18 +260,18 @@ function BookAdminInner({book, setBookAll}) {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h2 className='h2-header'>Reviews</h2>
+                <div className='book-page-body-wrapper'>
+                    <h2 className='book-page-body-wrapper__h2-header'>Reviews</h2>
                     {reviewsArr.map((review) => 
                     <div key={review[0]}>
-                        <p className='text'><span>“</span><span>{review[1]}</span><span>” —</span><span className='reviews-signoff-name'>{review[2]}</span></p>
+                        <p className='book-page-body-wrapper__text'><span>“</span><span>{review[1]}</span><span>” —</span><span className='book-page-body-wrapper__bold-text'>{review[2]}</span></p>
                     </div> 
                     )}
                     
-                    <h2 className='h2-header'>Interviews</h2>
+                    <h2 className='book-page-body-wrapper__h2-header'>Interviews</h2>
                     {interviewsArr.map((interview) => 
                     <div key={interview[0]}>
-                        <p className='text'><span>“</span><span>{interview[1]}</span><span>” —</span><span className='reviews-signoff-name'>{interview[2]}</span></p>
+                        <p className='book-page-body-wrapper__text'><span>“</span><span>{interview[1]}</span><span>” —</span><span className='book-page-body-wrapper__bold-text'>{interview[2]}</span></p>
                     </div> 
                     )}
                 </div>
@@ -285,7 +284,8 @@ function BookAdminInner({book, setBookAll}) {
         return (
             <div>
                 <div className='main-body-top'>
-                    <div className='body-col-left'>
+                    <h2>Edit Book</h2>
+                    <div className='body-col-left' style={{paddingBottom: 20}}>
                         {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-small-img' src={imageURL} alt="bookcover" />}
                         <div className='col-left-btn-collection'>
                             <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
