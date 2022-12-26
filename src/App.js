@@ -68,8 +68,8 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="main-container">
-          <h1>Loading</h1>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100vh'}}>
+          <span style={{fontFamily: 'Inter', fontWeight: 'bold'}}>loading...</span>
       </div>
     );
   }
