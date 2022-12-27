@@ -65,9 +65,12 @@ function BlogPost({instanceID, imageUrl, recordHeader, bodyPara, recordDate, rec
         </div>
       <p className='blogPostDate'>{recordDate}</p>
       
-      <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>
+      {/* <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>
         {bodyPara}
-       </p>
+      </p> */}
+
+      <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'} dangerouslySetInnerHTML={{__html: bodyPara}} />
+
       <div className='blogPostBtmDiv'>
         <BlogTags recordTags = {recordTags}/>
         {/* {this.checkVisability()} */}

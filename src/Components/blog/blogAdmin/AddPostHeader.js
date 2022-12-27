@@ -6,8 +6,16 @@ import {v4} from 'uuid';
 import {FaFileImage} from "react-icons/fa";
 import inputTagStyle from "../../CSS/input-tag-style.module.css";
 import editStyles from "../../CSS/edit-style.module.css";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
+import {CKEditor} from '@ckeditor/ckeditor5-react'
 
 function AddPostHeader({blogRecords, setBlogRecords}) {
+
+    // text editor
+    const [text, setText] = useState("")
+
+
     let [triggerAddPost, setTriggerAddPost] = useState(false);
 
     let [headerText, setHeaderText] = useState("");
@@ -179,7 +187,15 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                 </div>
 
                 <div className={editStyles.editTextAreaBoxWrapper}>
-                    <textarea className={editStyles.editTextAreaBox} type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/>
+                    {/* <textarea className={editStyles.editTextAreaBox} type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/> */}
+                    <CKEditor
+                    editor={ClassicEditor}
+                    data={text}
+                    onChange={(event, editor) => {
+                        const data = editor.getData()
+                        setText(data)
+                        setParaText(data)
+                    }} />
                 </div>
 
                 <div className={editStyles.btnRow}>

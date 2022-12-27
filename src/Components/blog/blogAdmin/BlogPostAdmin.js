@@ -10,8 +10,13 @@ import {storage} from "../../../firebase.js";
 import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
 import {v4} from 'uuid';
 import {FaFileImage} from "react-icons/fa";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
+import {CKEditor} from '@ckeditor/ckeditor5-react'
+import '../../CSS/ckeditor.css';
 
 function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyPara, recordDate, recordTags, blogRecords, setBlogRecords}) {
+
   let [isEdit, setIsEdit] = useState(false);
   let [headerText, setHeaderText] = useState(recordHeader);
   let [paraText, setParaText] = useState(bodyPara);
@@ -196,12 +201,14 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
         </div>
         <p className='blogPostAdminDate'>{dateText}</p>
         
-        <p className='blogPostAdminPara'>
+        {/* <p className='blogPostAdminPara'>
           {paraText}
-          </p>
-        <div className='blogPostAdminBtmDiv'>
+        </p> */}
+        <p className='blogPostAdminPara ck-content' dangerouslySetInnerHTML={{__html: paraText}} />
+
+        {/* <div className='blogPostAdminBtmDiv'>
           <BlogTags recordTags = {tagArr}/>
-        </div>
+        </div> */}
         
       </div>
     )
@@ -233,7 +240,16 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
         </div>
 
         <div className={editStyles.editTextAreaBoxWrapper}>
-            <textarea className={editStyles.editTextAreaBox} type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/>
+            {/* <textarea className={editStyles.editTextAreaBox} type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/> */}
+
+            <CKEditor
+            editor={ClassicEditor}
+            data={paraText}
+            onChange={(event, editor) => {
+                const data = editor.getData()
+                // setText(data)
+                setParaText(data)
+            }} />
         </div>
 
         <div className={`${editStyles.btnRow} btnRowCollectionSplitCol`}>
