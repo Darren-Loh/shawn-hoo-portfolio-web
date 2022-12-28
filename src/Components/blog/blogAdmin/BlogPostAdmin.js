@@ -220,9 +220,9 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
         </p> */}
         <p className='blogPostAdminPara ck-content' dangerouslySetInnerHTML={{__html: paraText}} />
 
-        {/* <div className='blogPostAdminBtmDiv'>
+        <div className='blogPostAdminBtmDiv'>
           <BlogTags recordTags = {tagArr}/>
-        </div> */}
+        </div>
         
       </div>
     )
