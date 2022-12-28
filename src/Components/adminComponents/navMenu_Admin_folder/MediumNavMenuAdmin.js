@@ -17,7 +17,7 @@ function MediumNavMenuAdmin(props) {
                     <li><NavLink to='/admin/publications' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>publications</NavLink></li>
                     <li><NavLink to='/admin/blog' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>blog</NavLink></li>
                     <li><NavLink to='/admin/contact' className={(({isActive}) => isActive ? "active" : undefined) + " admin-link"}>contact</NavLink></li>
-                    <li><a className="logout-button" onClick={() => logout({ returnTo: window.location.origin })}>logout <MdOutlineLogout style={{verticalAlign: 'middle'}}/></a></li>
+                    <li><a className="logout-button" onClick={() => logout({ returnTo: window.location.origin })}>logout <MdOutlineLogout style={{verticalAlign: 'middle', cursor: 'pointer'}}/></a></li>
                 </div>
             </ul>
         </nav>

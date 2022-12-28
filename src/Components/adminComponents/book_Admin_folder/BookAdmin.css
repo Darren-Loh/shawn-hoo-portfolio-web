@@ -1,13 +1,78 @@
+.book-page-cover-wrapper {
+    margin-top: 64px;
+    padding-top: 40px;
+    display: flex;
+}
+
+.book-page-cover-wrapper__left-col {
+    flex-basis: 50%;
+}
+
+.book-page-cover-wrapper__left-col img {
+    max-width: 380px;
+    padding-left: 60px;
+}
+
+.book-page-cover-wrapper__right-col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.book-page-cover-wrapper__right-col h1 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-style: italic;
+    margin: 0;
+}
+
+.book-page-cover-wrapper__right-col p {
+    font-weight: 700;
+    white-space: pre-line;
+}
+
+.book-page-cover-wrapper__right-col-publisher {
+    margin-top: 0px;
+}
+
+.book-page-cover-wrapper__right-col-awards {
+    margin: 0px;
+}
+
+.book-page-cover-wrapper__right-col-short-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.book-page-body-wrapper {
+    width: 100%;
+}
+
+.book-page-body-wrapper__h2-header {
+    padding-top: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.book-page-body-wrapper__text {
+    font-weight: 400;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-bottom: 10px;
+}
+
+.book-page-body-wrapper__bold-text {
+    font-weight: 700;
+}
+
+
 .bookAdminOuter{
     margin-top: 64px;
     padding-top: 20px;
 }
 .main-body-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     margin-top: 64px;
     padding-top: 40px;
-    height: 60%;
 }
 
 .body-col-left {
@@ -77,7 +142,8 @@
 }
 
 .h2-header {
-    padding-top: 60px;
+    margin: 0;
+    padding: 0;
 }
 
 .editBookTitle{
@@ -149,6 +215,7 @@
     border-style: none;
     margin-top: 8px;
     margin-bottom: 8px;
+    border-radius: 5px;
   }
 
   .fileInputBook{
@@ -171,18 +238,99 @@
     opacity: 100%;
   }
 
+.bookcover-small-img {
+    height: 300px;
+}
+
+.grid-3-column-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 20px 200px 20px 100px;
+    margin-bottom: 15px;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteMediumIcon {
+    font-size: 35px;
+    color: #EA0354;
+    cursor: pointer;
+}
+
+.btnRowCollectionSplitCol {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnCollectionStickLeft {
+    display: flex;
+    gap: 8px;
+}
+
+.addMediumIcon {
+    font-size: 35px;
+    color: #EA0354;
+    cursor: pointer;
+}
+
+.headerWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+.bookEditBtn{
+    width: 50px;
+    font-weight: 700;
+    padding: 0px;
+    font-size: 35px;
+    margin: 0px;
+    background-color: transparent;
+    color:  #00b4d8;
+    border-style: none;
+}
+
 @media (max-width: 480px) {
-    .main-body-top {
-        display: flex;
-        flex-direction: column;
-        margin-top: 32px;
-        height: 60%;
+    .book-page-cover-wrapper {
+        margin-top: 64px;
+        padding-top: 40px;
+        display: block;
     }
 
-    .bookcover-img {
-        width: 80%;
-        height: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
+    .book-page-cover-wrapper__left-col {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
     }
+
+    .book-page-cover-wrapper__left-col img {
+        max-width: 200px;
+        padding-left: 0px;
+    }
+
+    .book-page-cover-wrapper__right-col {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        display: block;
+    }
+
+    .book-page-body-wrapper__h2-header {
+        padding-top: 30px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .book-page-body-wrapper__text {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    button {
+        height: 60px;
+    }
+    
 }
