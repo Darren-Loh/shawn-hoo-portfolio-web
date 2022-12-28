@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import BlogTags from './BlogTags'
 import './BlogPage.css';
+import '../CSS/ckeditor.css';
 
 import {FaFileImage} from "react-icons/fa";
 
@@ -69,7 +70,7 @@ function BlogPost({instanceID, imageUrl, recordHeader, bodyPara, recordDate, rec
         {bodyPara}
       </p> */}
 
-      <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'} dangerouslySetInnerHTML={{__html: bodyPara}} />
+      <p className={isKeepReading? 'blogPostParaKeepReading ck-content':'blogPostPara ck-content'} dangerouslySetInnerHTML={{__html: bodyPara}} />
 
       <div className='blogPostBtmDiv'>
         <BlogTags recordTags = {recordTags}/>
