@@ -1,40 +1,19 @@
 import React from 'react'
 import florids from '../../assets/book-cover_of-the-florids.png'
+import '../CSS/ckeditor.css';
+import './blogAdmin/BlogAdmin.css';
+import BlogTags from './BlogTags'
 
-function CreateDynamicBlog() {
-
-  let data = [
-    {
-      type: 'img',
-      content: require('../../assets/book-cover_of-the-florids.png')
-    },
-    {
-      type: 'text',
-      content: 'lorem ipsum'
-    },
-    {
-      type: 'img',
-      content: require('../../assets/book-cover_of-the-florids.png')
-    },
-    {
-      type: 'text',
-      content: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    }
-  ]
+function CreateDynamicBlog({content}) {
 
   return (
-    <div style={pageContainer}>
-      {data.map((item) => {
-        if (item.type === 'img') {
-          return (
-            <img src={item.content} style={{width: '30vw'}}/>
-          )
-        } else if (item.type === 'text') {
-          return (
-            <p>{item.content}</p>
-          )
-        }
-      })}
+    <div className='dynamicContainer'>
+      <h2>{content.header}</h2>
+      <p>{content.date}</p>
+      <p className='ck-content' dangerouslySetInnerHTML={{__html: content.bodyPara}} />
+      <div>
+        <BlogTags recordTags = {content.tags}/>
+      </div>
     </div>
   )
 }

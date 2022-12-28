@@ -25,10 +25,14 @@ import MediumNavMenuAdmin from "./Components/adminComponents/navMenu_Admin_folde
 import SmallNavMenuAdmin from "./Components/adminComponents/navMenu_Admin_folder/SmallNavMenuAdmin";
 import LoginPage from "./Components/adminComponents/LoginPage";
 
+
+import CreateDynamicBlog from './Components/blog/CreateDynamicBlog.js';
+
 function App() {
   const { isLoading, isAuthenticated } = useAuth0();
   let [bookAll,setBookAll] = useState("");
   let [bookTitle,setBookTitle] = useState("");
+  let [blogPosts, setblogPosts] = useState("");
 
   const windowSize = useWindowSize();
   const viewWidth = windowSize.width;
@@ -53,17 +57,28 @@ function App() {
     const postsFromServer = await fetchPosts();
     setBookAll(postsFromServer);
     setBookTitle(postsFromServer[0].title.toLowerCase());
+
+    // blog posts
+    const blogPostsFromServer = await fetchBlogPosts();
+    setblogPosts(blogPostsFromServer);
     
     }
     getPosts();
 
   },[])
-      //----------------------database stuff------------------------------------------------
-      const fetchPosts = async() => {
-        const res = await fetch('http://localhost:5000/books');
-        const data = await res.json();
-        return data;
-    }
+
+  //----------------------database stuff------------------------------------------------
+  const fetchPosts = async() => {
+    const res = await fetch('http://localhost:5000/books');
+    const data = await res.json();
+    return data;
+  }
+
+  const fetchBlogPosts = async() => {
+    const res = await fetch('http://localhost:5000/blogPosts');
+    const data = await res.json();
+    return data;
+  }
 
 
   if (isLoading) {
@@ -107,6 +122,14 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/books' element={<BookPage />} />
             <Route path='/blog' element={<BlogPage />} />
+            {
+
+            blogPosts.map((blogpost) => {
+              console.log(`/blog${blogpost.id}`)
+              return (
+                <Route key={blogpost.id} path={`/blog${blogpost.id}`} element={<CreateDynamicBlog content={blogpost}/>} />
+              )
+            })}
             <Route path='/contact' element={<ContactPage />} />
             <Route path='/publications' element={<PublicationsPage />} />
             <Route path='/login' element={<LoginPage />} />

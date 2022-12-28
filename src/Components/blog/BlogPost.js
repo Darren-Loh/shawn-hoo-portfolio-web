@@ -6,15 +6,15 @@ import '../CSS/ckeditor.css';
 import {FaFileImage} from "react-icons/fa";
 
 //this defines a singular blog post that will be used on blogpage
-function BlogPost({instanceID, imageUrl, recordHeader, bodyPara, recordDate, recordTags}) {
+function BlogPost({blogId, instanceID, imageUrl, recordHeader, bodyPara, recordDate, recordTags}) {
 
   // state to check if keep reading has been clicked
   const [isKeepReading, setIsKeepReading] = useState(false);
   const [isOverflow, setIsOverflow] = useState(false);
 
   function toggleKeepReading(e){
-    setIsKeepReading(true);
-    e.target.remove();
+    // setIsKeepReading(true);
+    // e.target.remove();
   }
 
   function checkOverflow(){
@@ -70,13 +70,13 @@ function BlogPost({instanceID, imageUrl, recordHeader, bodyPara, recordDate, rec
         {bodyPara}
       </p> */}
 
-      <p className={isKeepReading? 'blogPostParaKeepReading ck-content':'blogPostPara ck-content'} dangerouslySetInnerHTML={{__html: bodyPara}} />
+      <p className='blogPostPara ck-content' dangerouslySetInnerHTML={{__html: bodyPara}} />
 
       <div className='blogPostBtmDiv'>
         <BlogTags recordTags = {recordTags}/>
         {/* {this.checkVisability()} */}
-        {isOverflow?<p className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</p>:''}
-        {/* <div className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</div> */}
+        {/* {isOverflow?<p className='blogPostKeepReading' onClick={toggleKeepReading}>Keep Reading</p>:''} */}
+        <a className='blogPostKeepReading' href={`/blog${blogId}`}>Keep Reading</a>
       </div>
       
     </div>
