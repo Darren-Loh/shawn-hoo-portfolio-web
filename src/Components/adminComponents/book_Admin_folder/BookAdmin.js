@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Component } from 'react';
 import BookCover from '../../../assets/book-cover_of-the-florids.png';
-import './BookAdmin.css';
+// import './BookAdmin.css';
 import BookAdminHeader from './BookAdminHeader';
 import BookAdminInner from './BookAdminInner';
 

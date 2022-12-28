@@ -93,6 +93,11 @@
   margin-bottom: 0;
   font-weight: bold;
 }
+
+.dynamicContainer {
+  margin-top: 64px;
+  padding-top: 40px;
+}
   
 
 

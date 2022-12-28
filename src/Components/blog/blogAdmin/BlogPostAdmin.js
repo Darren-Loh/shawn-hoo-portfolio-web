@@ -10,14 +10,26 @@ import {storage} from "../../../firebase.js";
 import {ref,uploadBytes, listAll, getDownloadURL, deleteObject} from "firebase/storage";
 import {v4} from 'uuid';
 import {FaFileImage} from "react-icons/fa";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
+import {CKEditor} from '@ckeditor/ckeditor5-react'
+import '../../CSS/ckeditor.css';
 
 function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyPara, recordDate, recordTags, blogRecords, setBlogRecords}) {
+
   let [isEdit, setIsEdit] = useState(false);
   let [headerText, setHeaderText] = useState(recordHeader);
   let [paraText, setParaText] = useState(bodyPara);
   let [dateText, setDateText] = useState(recordDate);
   let [tagArr, setTagArr] = useState(recordTags);
   let [addTagText, setAddTagText] = useState("");
+
+
+  let [oriHeaderText, setOriHeaderText] = useState(recordHeader);
+  let [oriParaText, setOriParaText] = useState(bodyPara);
+  let [oriDateText, setOriDateText] = useState(recordDate);
+  let [oriTagArr, setOriTagArr] = useState(recordTags);
+  let [oriAddTagText, setOriAddTagText] = useState("");
 
   //firebase values
   let [imageUpload,setImageUpload] = useState(null);
@@ -139,13 +151,20 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
     setIsEdit(!isEdit);
     setImageChanged(false);
     setOriImageURL(imageURL);
+
+
+    setOriHeaderText(headerText);
+    setOriParaText(paraText);
+    setOriDateText(dateText);
+    setOriTagArr(tagArr);
+
     updatePost(instanceID);
   };
 
   let onDeletePost = (e) => {
     e.preventDefault();
     if (window.confirm("Proceed to delete post?")) {
-      deleteFromFirebase(imageURL);
+      // deleteFromFirebase(imageURL);
       deleteServerPost(instanceID);
     }
   };
@@ -153,20 +172,20 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
   let onCancel = (e) => {
     e.preventDefault();
     setIsEdit(false);
-    if(imageChanged){
-      deleteFromFirebase(imageURL);
-    }
-    setImageChanged(false);
+    // if(imageChanged){
+    //   deleteFromFirebase(imageURL);
+    // }
+    // setImageChanged(false);
     resetAllText();
     
   };
 
   function resetAllText(){
-    setHeaderText(recordHeader);
+    setHeaderText(oriHeaderText);
     setImageURL(oriImageURL);
-    setParaText(bodyPara);
-    setDateText(recordDate);
-    setTagArr(recordTags);
+    setParaText(oriParaText);
+    setDateText(oriDateText);
+    setTagArr(oriTagArr);
     setAddTagText("");
   }
 
@@ -191,17 +210,19 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
             </button>
           </div>
         </div>
-        <div className='editImage'>
+        {/* <div className='editImage'>
             {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img-blog' src={imageURL} />}
-        </div>
+        </div> */}
         <p className='blogPostAdminDate'>{dateText}</p>
         
-        <p className='blogPostAdminPara'>
+        {/* <p className='blogPostAdminPara'>
           {paraText}
-          </p>
-        <div className='blogPostAdminBtmDiv'>
+        </p> */}
+        <p className='blogPostAdminPara ck-content' dangerouslySetInnerHTML={{__html: paraText}} />
+
+        {/* <div className='blogPostAdminBtmDiv'>
           <BlogTags recordTags = {tagArr}/>
-        </div>
+        </div> */}
         
       </div>
     )
@@ -214,14 +235,13 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
             <input className={editStyles.editInputBox} type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange} placeholder="Title"></input>
         </div> 
 
-        <div className='editImage'>
+        {/* <div className='editImage'>
             {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
-            {/* <img className='bookcover-img' src={imageURL} /> */}
             <div className='col-left-btn-collection'>
                 <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
                 <button className='internalButtonLeft' onClick={(e)=>uploadImage(e)}>Upload</button>
             </div>
-        </div>
+        </div> */}
         
         <div className={editStyles.editInputBoxWrapper}>
             <input className={editStyles.editInputBox} type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>
@@ -233,7 +253,16 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
         </div>
 
         <div className={editStyles.editTextAreaBoxWrapper}>
-            <textarea className={editStyles.editTextAreaBox} type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/>
+            {/* <textarea className={editStyles.editTextAreaBox} type="text" id="editInnerPara" name="editInnerPara" rows="10" cols="50" value={paraText} onChange={handleBodyParaChange} placeholder="Write post description here..."/> */}
+
+            <CKEditor
+            editor={ClassicEditor}
+            data={paraText}
+            onChange={(event, editor) => {
+                const data = editor.getData()
+                // setText(data)
+                setParaText(data)
+            }} />
         </div>
 
         <div className={`${editStyles.btnRow} btnRowCollectionSplitCol`}>

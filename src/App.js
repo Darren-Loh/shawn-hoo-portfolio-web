@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import './App.css';
 import About from './Components/About.js';
-import Book from './Components/Book.js';
+import BookPage from './Components/BookPage.js';
 import BlogPage from './Components/blog/BlogPage.js';
 import ContactPage from './Components/contact/ContactPage.js';
 import HomePage from './Components/HomePage.js';
@@ -25,10 +25,14 @@ import MediumNavMenuAdmin from "./Components/adminComponents/navMenu_Admin_folde
 import SmallNavMenuAdmin from "./Components/adminComponents/navMenu_Admin_folder/SmallNavMenuAdmin";
 import LoginPage from "./Components/adminComponents/LoginPage";
 
+
+import CreateDynamicBlog from './Components/blog/CreateDynamicBlog.js';
+
 function App() {
   const { isLoading, isAuthenticated } = useAuth0();
   let [bookAll,setBookAll] = useState("");
   let [bookTitle,setBookTitle] = useState("");
+  let [blogPosts, setblogPosts] = useState("");
 
   const windowSize = useWindowSize();
   const viewWidth = windowSize.width;
@@ -53,23 +57,34 @@ function App() {
     const postsFromServer = await fetchPosts();
     setBookAll(postsFromServer);
     setBookTitle(postsFromServer[0].title.toLowerCase());
+
+    // blog posts
+    const blogPostsFromServer = await fetchBlogPosts();
+    setblogPosts(blogPostsFromServer);
     
     }
     getPosts();
 
   },[])
-      //----------------------database stuff------------------------------------------------
-      const fetchPosts = async() => {
-        const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/books');
-        const data = await res.json();
-        return data;
-    }
+
+  //----------------------database stuff------------------------------------------------
+  const fetchPosts = async() => {
+    const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/books');
+    const data = await res.json();
+    return data;
+  }
+
+  const fetchBlogPosts = async() => {
+    const res = await fetch('https://shawn-hoo-portfolio-server.onrender.com/blogPosts');
+    const data = await res.json();
+    return data;
+  }
 
 
   if (isLoading) {
     return (
-      <div className="main-container">
-          <h1>Loading</h1>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100vh'}}>
+          <span style={{fontFamily: 'Inter', fontWeight: 'bold'}}>loading...</span>
       </div>
     );
   }
@@ -105,8 +120,16 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/about' element={<About />} />
-            <Route path='/books' element={<Book />} />
+            <Route path='/books' element={<BookPage />} />
             <Route path='/blog' element={<BlogPage />} />
+            {
+
+            blogPosts.map((blogpost) => {
+              console.log(`/blog${blogpost.id}`)
+              return (
+                <Route key={blogpost.id} path={`/blog${blogpost.id}`} element={<CreateDynamicBlog content={blogpost}/>} />
+              )
+            })}
             <Route path='/contact' element={<ContactPage />} />
             <Route path='/publications' element={<PublicationsPage />} />
             <Route path='/login' element={<LoginPage />} />
