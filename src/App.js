@@ -124,7 +124,7 @@ function App() {
             <Route path='/blog' element={<BlogPage />} />
             {
 
-            blogPosts.map((blogpost) => {
+            blogPosts && blogPosts.map((blogpost) => {
               console.log(`/blog${blogpost.id}`)
               return (
                 <Route key={blogpost.id} path={`/blog${blogpost.id}`} element={<CreateDynamicBlog content={blogpost}/>} />
