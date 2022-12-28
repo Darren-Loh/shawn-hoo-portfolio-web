@@ -61,9 +61,9 @@ function BlogPost({blogId, instanceID, imageUrl, recordHeader, bodyPara, recordD
   return (
     <div className='blogPostContainer'>
       <h2 className='blogPostHeader'>{recordHeader}</h2>
-      <div className='editImage'>
+      {/* <div className='editImage'>
             {imageUrl==null?<FaFileImage size={300} />:<img className='bookcover-img-blog' src={imageUrl} />}
-        </div>
+        </div> */}
       <p className='blogPostDate'>{recordDate}</p>
       
       {/* <p className={isKeepReading? 'blogPostParaKeepReading':'blogPostPara'}>

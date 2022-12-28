@@ -168,14 +168,13 @@ function AddPostHeader({blogRecords, setBlogRecords}) {
                     <input className={editStyles.editInputBox} type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange} placeholder="Title"></input>
                 </div> 
 
-                <div className='editImage'>
+                {/* <div className='editImage'>
                     {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
-                    {/* <img className='bookcover-img' src={imageURL} /> */}
                     <div className='col-left-btn-collection'>
                         <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
                         <button className='internalButtonLeft' onClick={(e)=>uploadImage(e)}>Upload</button>
                     </div>
-                </div>
+                </div> */}
                 
                 <div className={editStyles.editInputBoxWrapper}>
                     <input className={editStyles.editInputBox} type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>

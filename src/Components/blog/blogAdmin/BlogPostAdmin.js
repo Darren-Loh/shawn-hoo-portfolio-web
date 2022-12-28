@@ -24,6 +24,13 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
   let [tagArr, setTagArr] = useState(recordTags);
   let [addTagText, setAddTagText] = useState("");
 
+
+  let [oriHeaderText, setOriHeaderText] = useState(recordHeader);
+  let [oriParaText, setOriParaText] = useState(bodyPara);
+  let [oriDateText, setOriDateText] = useState(recordDate);
+  let [oriTagArr, setOriTagArr] = useState(recordTags);
+  let [oriAddTagText, setOriAddTagText] = useState("");
+
   //firebase values
   let [imageUpload,setImageUpload] = useState(null);
   let [oriImageURL, setOriImageURL] = useState(recordImageUrl);
@@ -144,13 +151,20 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
     setIsEdit(!isEdit);
     setImageChanged(false);
     setOriImageURL(imageURL);
+
+
+    setOriHeaderText(headerText);
+    setOriParaText(paraText);
+    setOriDateText(dateText);
+    setOriTagArr(tagArr);
+
     updatePost(instanceID);
   };
 
   let onDeletePost = (e) => {
     e.preventDefault();
     if (window.confirm("Proceed to delete post?")) {
-      deleteFromFirebase(imageURL);
+      // deleteFromFirebase(imageURL);
       deleteServerPost(instanceID);
     }
   };
@@ -158,20 +172,20 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
   let onCancel = (e) => {
     e.preventDefault();
     setIsEdit(false);
-    if(imageChanged){
-      deleteFromFirebase(imageURL);
-    }
-    setImageChanged(false);
+    // if(imageChanged){
+    //   deleteFromFirebase(imageURL);
+    // }
+    // setImageChanged(false);
     resetAllText();
     
   };
 
   function resetAllText(){
-    setHeaderText(recordHeader);
+    setHeaderText(oriHeaderText);
     setImageURL(oriImageURL);
-    setParaText(bodyPara);
-    setDateText(recordDate);
-    setTagArr(recordTags);
+    setParaText(oriParaText);
+    setDateText(oriDateText);
+    setTagArr(oriTagArr);
     setAddTagText("");
   }
 
@@ -196,9 +210,9 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
             </button>
           </div>
         </div>
-        <div className='editImage'>
+        {/* <div className='editImage'>
             {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img-blog' src={imageURL} />}
-        </div>
+        </div> */}
         <p className='blogPostAdminDate'>{dateText}</p>
         
         {/* <p className='blogPostAdminPara'>
@@ -221,14 +235,13 @@ function BlogPostAdmin({itemIdx, instanceID, recordImageUrl, recordHeader, bodyP
             <input className={editStyles.editInputBox} type="text" id="editInnerHeader" name="editInnerHeader" value={headerText} onChange={handleHeaderChange} placeholder="Title"></input>
         </div> 
 
-        <div className='editImage'>
+        {/* <div className='editImage'>
             {imageURL==null?<FaFileImage size={300} />:<img className='bookcover-img' src={imageURL} />}
-            {/* <img className='bookcover-img' src={imageURL} /> */}
             <div className='col-left-btn-collection'>
                 <input className='fileInputBook' type="file" onChange={(event) => {setImageUpload(event.target.files[0])}}/>
                 <button className='internalButtonLeft' onClick={(e)=>uploadImage(e)}>Upload</button>
             </div>
-        </div>
+        </div> */}
         
         <div className={editStyles.editInputBoxWrapper}>
             <input className={editStyles.editInputBox} type="text" id="editInnerDate" name="editInnerDate" value={dateText} onChange={handleDateChange} placeholder="Date"/>
